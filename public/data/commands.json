@@ -1,0 +1,4757 @@
+[
+  {
+    "id": "pkg-update",
+    "name": "pkg update",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg update",
+    "description": "Updates Termux package index lists.",
+    "example": "pkg update",
+    "exampleOutput": "Checking repository status...\nReading package lists... Done\nBuilding dependency tree... Done\nAll packages are up to date.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "update",
+      "repository",
+      "apt"
+    ]
+  },
+  {
+    "id": "pkg-upgrade",
+    "name": "pkg upgrade",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg upgrade [-y]",
+    "description": "Upgrades all installed packages to latest release.",
+    "example": "pkg upgrade -y",
+    "exampleOutput": "Reading package lists... Done\n0 upgraded, 0 newly installed, 0 to remove.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "upgrade",
+      "update"
+    ]
+  },
+  {
+    "id": "pkg-install",
+    "name": "pkg install",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg install <pkg>",
+    "description": "Installs specified packages from Termux mirrors.",
+    "example": "pkg install git python curl",
+    "exampleOutput": "Unpacking git...\nSetting up git (2.44.0)...",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "install",
+      "software"
+    ]
+  },
+  {
+    "id": "pkg-uninstall",
+    "name": "pkg uninstall",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg uninstall <pkg>",
+    "description": "Removes an installed package.",
+    "example": "pkg uninstall toilet",
+    "exampleOutput": "Removing toilet (0.3-4)...\nDone.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "uninstall",
+      "remove"
+    ]
+  },
+  {
+    "id": "pkg-search",
+    "name": "pkg search",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg search <query>",
+    "description": "Searches repo for available packages.",
+    "example": "pkg search rust",
+    "exampleOutput": "rust/stable 1.77.2 aarch64\n  Systems programming language",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "search",
+      "lookup"
+    ]
+  },
+  {
+    "id": "pkg-show",
+    "name": "pkg show",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg show <pkg>",
+    "description": "Displays detailed package metadata and dependencies.",
+    "example": "pkg show clang",
+    "exampleOutput": "Package: clang\nVersion: 17.0.6\nDepends: binutils, libc++",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "info",
+      "dependencies"
+    ]
+  },
+  {
+    "id": "pkg-list-installed",
+    "name": "pkg list-installed",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg list-installed",
+    "description": "Lists all packages installed on Termux.",
+    "example": "pkg list-installed",
+    "exampleOutput": "bash/stable,now 5.2.26\ncurl/stable,now 8.7.1",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "list",
+      "installed"
+    ]
+  },
+  {
+    "id": "pkg-list-all",
+    "name": "pkg list-all",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg list-all",
+    "description": "Lists every package in the repositories.",
+    "example": "pkg list-all | head -n 5",
+    "exampleOutput": "2048-c\na2ps\naalib\nabook",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "list",
+      "all"
+    ]
+  },
+  {
+    "id": "pkg-clean",
+    "name": "pkg clean",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg clean",
+    "description": "Clears downloaded .deb package archives.",
+    "example": "pkg clean",
+    "exampleOutput": "Cleaned 124 MB from /var/cache/apt/archives.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "clean",
+      "cache"
+    ]
+  },
+  {
+    "id": "apt-autoremove",
+    "name": "apt autoremove",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "apt autoremove",
+    "description": "Removes unused leftover dependencies.",
+    "example": "apt autoremove -y",
+    "exampleOutput": "0 upgraded, 0 newly installed, 1 to remove.\nFreed 4.2 MB.",
+    "dangerLevel": "safe",
+    "tags": [
+      "apt",
+      "cleanup",
+      "orphans"
+    ]
+  },
+  {
+    "id": "termux-change-repo",
+    "name": "termux-change-repo",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "termux-change-repo",
+    "description": "Interactive dialog to change mirror repositories.",
+    "example": "termux-change-repo",
+    "exampleOutput": "Mirror switched to: https://mirror.termux.dev\nLatency: 38ms",
+    "dangerLevel": "safe",
+    "tags": [
+      "repo",
+      "mirror",
+      "network"
+    ]
+  },
+  {
+    "id": "dpkg-list",
+    "name": "dpkg -l",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -l [pattern]",
+    "description": "Low-level Debian package list query.",
+    "example": "dpkg -l | grep python",
+    "exampleOutput": "ii  python  3.11.8  aarch64  Python 3 interpreter",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "list",
+      "debian"
+    ]
+  },
+  {
+    "id": "dpkg-install",
+    "name": "dpkg -i",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -i <file.deb>",
+    "description": "Manually installs a local .deb binary.",
+    "example": "dpkg -i tool.deb",
+    "exampleOutput": "Unpacking tool...\nSetting up tool...",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "deb",
+      "install"
+    ]
+  },
+  {
+    "id": "dpkg-contents",
+    "name": "dpkg -L",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -L <pkg>",
+    "description": "Lists all files installed by a package.",
+    "example": "dpkg -L git",
+    "exampleOutput": "/data/data/com.termux/files/usr/bin/git\n/usr/share/man",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "files",
+      "paths"
+    ]
+  },
+  {
+    "id": "dpkg-search-file",
+    "name": "dpkg -S",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -S /path",
+    "description": "Finds package owning a given file path.",
+    "example": "dpkg -S $(which curl)",
+    "exampleOutput": "curl: /usr/bin/curl",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "search",
+      "owner"
+    ]
+  },
+  {
+    "id": "apt-mark-hold",
+    "name": "apt-mark hold",
+    "category": "package-management",
+    "tier": "advanced",
+    "syntax": "apt-mark hold <pkg>",
+    "description": "Prevents package from being updated.",
+    "example": "apt-mark hold nodejs",
+    "exampleOutput": "nodejs set on hold.",
+    "dangerLevel": "safe",
+    "tags": [
+      "apt",
+      "hold",
+      "pin"
+    ]
+  },
+  {
+    "id": "apt-mark-unhold",
+    "name": "apt-mark unhold",
+    "category": "package-management",
+    "tier": "advanced",
+    "syntax": "apt-mark unhold <pkg>",
+    "description": "Unpins a held package.",
+    "example": "apt-mark unhold nodejs",
+    "exampleOutput": "Canceled hold on nodejs.",
+    "dangerLevel": "safe",
+    "tags": [
+      "apt",
+      "unhold"
+    ]
+  },
+  {
+    "id": "pip-install",
+    "name": "pip install",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pip install <pkg>",
+    "description": "Installs Python packages from PyPI.",
+    "example": "pip install requests",
+    "exampleOutput": "Successfully installed requests-2.31.0",
+    "dangerLevel": "safe",
+    "tags": [
+      "python",
+      "pip",
+      "pypi"
+    ]
+  },
+  {
+    "id": "npm-install-g",
+    "name": "npm install -g",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "npm install -g <pkg>",
+    "description": "Installs global Node.js CLI packages.",
+    "example": "npm install -g yarn",
+    "exampleOutput": "added 1 package in 2.1s",
+    "dangerLevel": "safe",
+    "tags": [
+      "nodejs",
+      "npm",
+      "global"
+    ]
+  },
+  {
+    "id": "cargo-install",
+    "name": "cargo install",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "cargo install <crate>",
+    "description": "Compiles & installs Rust crates from crates.io.",
+    "example": "cargo install ripgrep",
+    "exampleOutput": "Installing ~/.cargo/bin/rg",
+    "dangerLevel": "safe",
+    "tags": [
+      "rust",
+      "cargo",
+      "crates"
+    ]
+  },
+  {
+    "id": "proot-distro-list",
+    "name": "proot-distro list",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "proot-distro list",
+    "description": "Lists supported guest Linux distributions.",
+    "example": "proot-distro list",
+    "exampleOutput": "Supported distros:\n * alpine\n * archlinux\n * debian\n * fedora\n * ubuntu\n * void",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "linux",
+      "distro",
+      "container"
+    ]
+  },
+  {
+    "id": "proot-distro-install",
+    "name": "proot-distro install",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "proot-distro install <distro>",
+    "description": "Downloads and installs guest Linux rootfs.",
+    "example": "proot-distro install ubuntu",
+    "exampleOutput": "[*] Extracting Ubuntu 24.04 rootfs...\n[+] Installed.",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "ubuntu",
+      "install"
+    ]
+  },
+  {
+    "id": "proot-distro-login",
+    "name": "proot-distro login",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "proot-distro login <distro>",
+    "description": "Opens root shell session inside Linux container.",
+    "example": "proot-distro login ubuntu",
+    "exampleOutput": "root@localhost:~# uname -a\nLinux localhost 6.1.45 aarch64",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "login",
+      "shell"
+    ]
+  },
+  {
+    "id": "proot-distro-login-user",
+    "name": "proot-distro login --user",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro login <distro> --user <user>",
+    "description": "Logs into container as non-root user.",
+    "example": "proot-distro login ubuntu --user dev",
+    "exampleOutput": "dev@localhost:~$ whoami\ndev",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "user",
+      "security"
+    ]
+  },
+  {
+    "id": "proot-distro-login-bind",
+    "name": "proot-distro login --bind",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro login <distro> --bind <host>:<guest>",
+    "description": "Mounts host folder directly into guest container.",
+    "example": "proot-distro login ubuntu --bind /sdcard:/sdcard",
+    "exampleOutput": "root@localhost:~# ls /sdcard\nDownload  DCIM  Documents",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "bind",
+      "mount",
+      "sdcard"
+    ]
+  },
+  {
+    "id": "proot-distro-login-shared-tmp",
+    "name": "proot-distro login --shared-tmp",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro login <distro> --shared-tmp",
+    "description": "Shares host /tmp directory for X11 GUI desktops.",
+    "example": "proot-distro login ubuntu --shared-tmp",
+    "exampleOutput": "root@localhost:~# ls /tmp/.X11-unix\nX0",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "x11",
+      "gui",
+      "vnc"
+    ]
+  },
+  {
+    "id": "proot-distro-backup",
+    "name": "proot-distro backup",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro backup <distro> --output <file.tar.gz>",
+    "description": "Exports compressed container snapshot.",
+    "example": "proot-distro backup ubuntu --output ~/ubuntu-backup.tar.gz",
+    "exampleOutput": "[+] Backup created (680 MB).",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "backup",
+      "snapshot"
+    ]
+  },
+  {
+    "id": "proot-distro-restore",
+    "name": "proot-distro restore",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro restore <file.tar.gz>",
+    "description": "Restores Linux container from tar snapshot.",
+    "example": "proot-distro restore ~/ubuntu-backup.tar.gz",
+    "exampleOutput": "[+] Container ubuntu restored.",
+    "dangerLevel": "warning",
+    "tags": [
+      "proot",
+      "restore",
+      "tar"
+    ]
+  },
+  {
+    "id": "proot-distro-reset",
+    "name": "proot-distro reset",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro reset <distro>",
+    "description": "Resets guest container to pristine clean state.",
+    "example": "proot-distro reset ubuntu",
+    "exampleOutput": "[*] Resetting container...\n[+] Clean state restored.",
+    "dangerLevel": "destructive",
+    "tags": [
+      "proot",
+      "reset",
+      "wipe"
+    ]
+  },
+  {
+    "id": "proot-distro-remove",
+    "name": "proot-distro remove",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro remove <distro>",
+    "description": "Deletes container rootfs permanently.",
+    "example": "proot-distro remove alpine",
+    "exampleOutput": "[+] Container alpine deleted.",
+    "dangerLevel": "destructive",
+    "tags": [
+      "proot",
+      "delete",
+      "remove"
+    ]
+  },
+  {
+    "id": "proot-exec",
+    "name": "proot",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot -0 -r <rootfs> -b /dev -b /sys [cmd]",
+    "description": "Low-level ptrace chroot virtualization engine.",
+    "example": "proot -0 -r ~/rootfs /bin/sh",
+    "exampleOutput": "# whoami\nroot",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "ptrace",
+      "virtualization"
+    ]
+  },
+  {
+    "id": "termux-chroot",
+    "name": "termux-chroot",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "termux-chroot [command]",
+    "description": "Simulates standard FHS (/bin, /lib, /usr) hierarchy.",
+    "example": "termux-chroot ls /bin",
+    "exampleOutput": "bash  cat  cp  grep  ls  sh",
+    "dangerLevel": "safe",
+    "tags": [
+      "chroot",
+      "fhs",
+      "standard-paths"
+    ]
+  },
+  {
+    "id": "termux-setup-storage",
+    "name": "termux-setup-storage",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-setup-storage",
+    "description": "Requests Android storage permission and creates ~/storage symlinks.",
+    "example": "termux-setup-storage",
+    "exampleOutput": "[+] ~/storage/shared -> /sdcard (Granted)",
+    "dangerLevel": "safe",
+    "tags": [
+      "storage",
+      "permission",
+      "sdcard"
+    ]
+  },
+  {
+    "id": "termux-battery-status",
+    "name": "termux-battery-status",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-battery-status",
+    "description": "Returns battery percentage, health, and charging status in JSON.",
+    "example": "termux-battery-status",
+    "exampleOutput": "{\n  \"percentage\": 94,\n  \"status\": \"DISCHARGING\",\n  \"temperature\": 29.8\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "battery",
+      "sensors",
+      "power"
+    ]
+  },
+  {
+    "id": "termux-camera-photo",
+    "name": "termux-camera-photo",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-camera-photo -c <0|1> <file.jpg>",
+    "description": "Takes photo from front (1) or rear (0) camera.",
+    "example": "termux-camera-photo -c 0 ~/photo.jpg",
+    "exampleOutput": "[+] Photo saved to ~/photo.jpg (4032x3024)",
+    "dangerLevel": "safe",
+    "tags": [
+      "camera",
+      "photo",
+      "hardware"
+    ]
+  },
+  {
+    "id": "termux-camera-info",
+    "name": "termux-camera-info",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-camera-info",
+    "description": "Outputs technical JSON info of device cameras.",
+    "example": "termux-camera-info",
+    "exampleOutput": "[{\"id\":\"0\",\"facing\":\"back\",\"picture_sizes\":[\"4000x3000\"]}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "camera",
+      "info",
+      "specs"
+    ]
+  },
+  {
+    "id": "termux-clipboard-get",
+    "name": "termux-clipboard-get",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-clipboard-get",
+    "description": "Retrieves text from Android clipboard.",
+    "example": "termux-clipboard-get",
+    "exampleOutput": "https://termux.dev",
+    "dangerLevel": "safe",
+    "tags": [
+      "clipboard",
+      "paste"
+    ]
+  },
+  {
+    "id": "termux-clipboard-set",
+    "name": "termux-clipboard-set",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-clipboard-set <text>",
+    "description": "Sets Android clipboard text content.",
+    "example": "echo 'test' | termux-clipboard-set",
+    "exampleOutput": "[+] Clipboard updated.",
+    "dangerLevel": "safe",
+    "tags": [
+      "clipboard",
+      "copy"
+    ]
+  },
+  {
+    "id": "termux-dialog",
+    "name": "termux-dialog",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-dialog confirm -t <title>",
+    "description": "Displays native Android GUI popup dialog.",
+    "example": "termux-dialog confirm -t 'Proceed?'",
+    "exampleOutput": "{\"code\": 0, \"text\": \"yes\"}",
+    "dangerLevel": "safe",
+    "tags": [
+      "dialog",
+      "gui",
+      "popup"
+    ]
+  },
+  {
+    "id": "termux-download",
+    "name": "termux-download",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-download -t <title> <url>",
+    "description": "Queues background download in Android Download Manager.",
+    "example": "termux-download -t 'Debian' https://example.com/deb.tar",
+    "exampleOutput": "[+] Download queued (ID: 42)",
+    "dangerLevel": "safe",
+    "tags": [
+      "download",
+      "android"
+    ]
+  },
+  {
+    "id": "termux-fingerprint",
+    "name": "termux-fingerprint",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-fingerprint",
+    "description": "Prompts biometric fingerprint authentication dialog.",
+    "example": "termux-fingerprint",
+    "exampleOutput": "{\"auth_result\": \"AUTH_RESULT_SUCCESS\"}",
+    "dangerLevel": "safe",
+    "tags": [
+      "fingerprint",
+      "biometrics",
+      "auth"
+    ]
+  },
+  {
+    "id": "termux-location",
+    "name": "termux-location",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-location [-p gps|network]",
+    "description": "Queries real-time GPS coordinates and altitude.",
+    "example": "termux-location -p gps",
+    "exampleOutput": "{\"latitude\": 37.7749, \"longitude\": -122.4194, \"accuracy\": 4.2}",
+    "dangerLevel": "safe",
+    "tags": [
+      "gps",
+      "location",
+      "geo"
+    ]
+  },
+  {
+    "id": "termux-notification",
+    "name": "termux-notification",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-notification -t <title> -c <content>",
+    "description": "Creates native Android notification drawer alert.",
+    "example": "termux-notification -t 'Done' -c 'Task completed' --sound",
+    "exampleOutput": "[+] Notification posted (ID: 0)",
+    "dangerLevel": "safe",
+    "tags": [
+      "notification",
+      "push"
+    ]
+  },
+  {
+    "id": "termux-notification-remove",
+    "name": "termux-notification-remove",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-notification-remove <id>",
+    "description": "Clears an active notification by ID.",
+    "example": "termux-notification-remove 0",
+    "exampleOutput": "[+] Notification 0 dismissed.",
+    "dangerLevel": "safe",
+    "tags": [
+      "notification",
+      "dismiss"
+    ]
+  },
+  {
+    "id": "termux-sensor",
+    "name": "termux-sensor",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-sensor -s <name> -n <count>",
+    "description": "Streams live accelerometer, gyro, or light sensor telemetry.",
+    "example": "termux-sensor -s Gravity -n 1",
+    "exampleOutput": "{\"Gravity\": {\"values\": [0.0, 9.8, 0.2]}}",
+    "dangerLevel": "safe",
+    "tags": [
+      "sensors",
+      "hardware"
+    ]
+  },
+  {
+    "id": "termux-share",
+    "name": "termux-share",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-share <file>",
+    "description": "Opens Android Share Sheet dialog.",
+    "example": "termux-share file.pdf",
+    "exampleOutput": "[*] Opening Share sheet...",
+    "dangerLevel": "safe",
+    "tags": [
+      "share",
+      "android"
+    ]
+  },
+  {
+    "id": "termux-sms-list",
+    "name": "termux-sms-list",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-sms-list [-l limit]",
+    "description": "Reads SMS text message inbox in JSON.",
+    "example": "termux-sms-list -l 1",
+    "exampleOutput": "[{\"address\": \"+1555123456\", \"body\": \"Your code is 4920\"}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "sms",
+      "messages"
+    ]
+  },
+  {
+    "id": "termux-sms-send",
+    "name": "termux-sms-send",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-sms-send -n <number> <text>",
+    "description": "Sends SMS text message using SIM card.",
+    "example": "termux-sms-send -n '+15551234' 'Ping'",
+    "exampleOutput": "[+] Message sent.",
+    "dangerLevel": "safe",
+    "tags": [
+      "sms",
+      "send"
+    ]
+  },
+  {
+    "id": "termux-torch",
+    "name": "termux-torch",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-torch [on|off]",
+    "description": "Controls rear camera flashlight LED.",
+    "example": "termux-torch on",
+    "exampleOutput": "[+] Torch ON",
+    "dangerLevel": "safe",
+    "tags": [
+      "torch",
+      "flashlight",
+      "led"
+    ]
+  },
+  {
+    "id": "termux-tts-speak",
+    "name": "termux-tts-speak",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-tts-speak <text>",
+    "description": "Speaks text via Android Text-to-Speech synthesizer.",
+    "example": "termux-tts-speak 'Server online'",
+    "exampleOutput": "[*] Speaking...",
+    "dangerLevel": "safe",
+    "tags": [
+      "tts",
+      "audio",
+      "speech"
+    ]
+  },
+  {
+    "id": "termux-vibrate",
+    "name": "termux-vibrate",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-vibrate [-d ms]",
+    "description": "Triggers device haptic vibration motor.",
+    "example": "termux-vibrate -d 300",
+    "exampleOutput": "[+] Vibrated 300ms",
+    "dangerLevel": "safe",
+    "tags": [
+      "vibrate",
+      "haptics"
+    ]
+  },
+  {
+    "id": "termux-volume",
+    "name": "termux-volume",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-volume [stream] [level]",
+    "description": "Gets or sets volume across audio channels.",
+    "example": "termux-volume music 12",
+    "exampleOutput": "[{\"stream\": \"music\", \"volume\": 12}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "volume",
+      "sound"
+    ]
+  },
+  {
+    "id": "termux-wifi-connectioninfo",
+    "name": "termux-wifi-connectioninfo",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-wifi-connectioninfo",
+    "description": "Queries connected Wi-Fi SSID, RSSI, and IP.",
+    "example": "termux-wifi-connectioninfo",
+    "exampleOutput": "{\"ssid\": \"Home_5G\", \"rssi\": -45, \"ip\": \"192.168.1.50\"}",
+    "dangerLevel": "safe",
+    "tags": [
+      "wifi",
+      "network",
+      "wireless"
+    ]
+  },
+  {
+    "id": "termux-wifi-scaninfo",
+    "name": "termux-wifi-scaninfo",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-wifi-scaninfo",
+    "description": "Scans nearby Wi-Fi networks.",
+    "example": "termux-wifi-scaninfo | head -n 8",
+    "exampleOutput": "[{\"ssid\": \"LabNet\", \"frequency_mhz\": 5180}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "wifi",
+      "scan"
+    ]
+  },
+  {
+    "id": "ls",
+    "name": "ls",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "ls [-l -a -h]",
+    "description": "Lists files and directories in current working path.",
+    "example": "ls -la",
+    "exampleOutput": "drwx------  4 u0_a245 u0_a245 4096 Apr 15 10:00 .\n-rw-------  1 u0_a245 u0_a245  220 Apr 15 10:00 .bashrc",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "list",
+      "directory"
+    ]
+  },
+  {
+    "id": "cd",
+    "name": "cd",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "cd [directory_path]",
+    "description": "Changes the current working directory.",
+    "example": "cd ~/storage/shared",
+    "exampleOutput": "$ pwd\n/data/data/com.termux/files/home/storage/shared",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "navigation",
+      "directory"
+    ]
+  },
+  {
+    "id": "pwd",
+    "name": "pwd",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "pwd",
+    "description": "Prints the absolute path of current working directory.",
+    "example": "pwd",
+    "exampleOutput": "/data/data/com.termux/files/home",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "path",
+      "directory"
+    ]
+  },
+  {
+    "id": "mkdir",
+    "name": "mkdir",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "mkdir [-p] <directory_name>",
+    "description": "Creates a new directory or nested directory structure.",
+    "example": "mkdir -p ~/projects/web",
+    "exampleOutput": "$ ls ~/projects\nweb",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "create",
+      "directory"
+    ]
+  },
+  {
+    "id": "rmdir",
+    "name": "rmdir",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "rmdir <directory_name>",
+    "description": "Removes empty directories.",
+    "example": "rmdir old_empty_dir",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "delete",
+      "directory"
+    ]
+  },
+  {
+    "id": "touch",
+    "name": "touch",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "touch <filename>",
+    "description": "Creates an empty file or updates its timestamp.",
+    "example": "touch app.py",
+    "exampleOutput": "$ ls app.py\napp.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "create",
+      "timestamp"
+    ]
+  },
+  {
+    "id": "cp",
+    "name": "cp",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "cp [-r] <source> <destination>",
+    "description": "Copies files or directories recursively.",
+    "example": "cp -r src/ backup/",
+    "exampleOutput": "[+] Copied 14 files.",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "copy"
+    ]
+  },
+  {
+    "id": "mv",
+    "name": "mv",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "mv <source> <destination>",
+    "description": "Moves or renames files and directories.",
+    "example": "mv script.py run.py",
+    "exampleOutput": "$ ls run.py\nrun.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "rename",
+      "move"
+    ]
+  },
+  {
+    "id": "rm",
+    "name": "rm",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "rm [-r -f] <file>",
+    "description": "Deletes files or directories recursively.",
+    "example": "rm -rf build/",
+    "exampleOutput": "$ echo 'Cleaned build/'",
+    "dangerLevel": "warning",
+    "tags": [
+      "file",
+      "delete",
+      "remove"
+    ]
+  },
+  {
+    "id": "cat",
+    "name": "cat",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "cat <file>",
+    "description": "Concatenates and displays file contents in terminal.",
+    "example": "cat /etc/hosts",
+    "exampleOutput": "127.0.0.1 localhost\n::1 localhost",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "read",
+      "view"
+    ]
+  },
+  {
+    "id": "tac",
+    "name": "tac",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tac <file>",
+    "description": "Displays file contents in reverse order (bottom to top).",
+    "example": "tac log.txt",
+    "exampleOutput": "Line 3 (latest)\nLine 2\nLine 1 (oldest)",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "reverse",
+      "read"
+    ]
+  },
+  {
+    "id": "head",
+    "name": "head",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "head [-n count] <file>",
+    "description": "Outputs the first N lines of a file (default 10).",
+    "example": "head -n 2 /etc/resolv.conf",
+    "exampleOutput": "nameserver 8.8.8.8\nnameserver 1.1.1.1",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "preview",
+      "lines"
+    ]
+  },
+  {
+    "id": "tail",
+    "name": "tail",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "tail [-n count -f] <file>",
+    "description": "Outputs the last N lines or follows live appends in real time.",
+    "example": "tail -f server.log",
+    "exampleOutput": "[2026-08-17 10:12:00] GET /api/v1/health 200 OK",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "log",
+      "stream"
+    ]
+  },
+  {
+    "id": "less",
+    "name": "less",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "less <file>",
+    "description": "Interactive terminal pager for viewing long documents.",
+    "example": "less large_dump.sql",
+    "exampleOutput": ":",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "pager",
+      "view"
+    ]
+  },
+  {
+    "id": "grep",
+    "name": "grep",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "grep [-r -i -n] 'pattern' <file>",
+    "description": "Searches for matching regular expression patterns in text.",
+    "example": "grep -rn 'TODO' src/",
+    "exampleOutput": "src/main.py:42:  # TODO: refactor auth logic",
+    "dangerLevel": "safe",
+    "tags": [
+      "search",
+      "regex",
+      "text"
+    ]
+  },
+  {
+    "id": "ripgrep",
+    "name": "rg (ripgrep)",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "rg [pattern] [directory]",
+    "description": "Ultra-fast recursive regex search engine written in Rust.",
+    "example": "rg 'fn handle_request'",
+    "exampleOutput": "src/server.rs:14:pub fn handle_request() {",
+    "dangerLevel": "safe",
+    "tags": [
+      "search",
+      "fast",
+      "rust",
+      "regex"
+    ]
+  },
+  {
+    "id": "find",
+    "name": "find",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "find <path> -name <pattern>",
+    "description": "Searches filesystem hierarchy for files matching criteria.",
+    "example": "find . -name '*.py'",
+    "exampleOutput": "./app.py\n./tests/test_api.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "find",
+      "search",
+      "files"
+    ]
+  },
+  {
+    "id": "fd",
+    "name": "fd",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "fd <pattern> [path]",
+    "description": "Simple, modern, and fast alternative to 'find' written in Rust.",
+    "example": "fd -e js",
+    "exampleOutput": "server.js\nwebpack.config.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "find",
+      "search",
+      "fast",
+      "rust"
+    ]
+  },
+  {
+    "id": "tree",
+    "name": "tree",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tree [-L level] [dir]",
+    "description": "Displays folder directory trees in visual branch format.",
+    "example": "tree -L 2 src",
+    "exampleOutput": "src\n├── components\n│   └── App.js\n└── index.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "tree",
+      "directory",
+      "visual"
+    ]
+  },
+  {
+    "id": "du",
+    "name": "du",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "du -sh [directory]",
+    "description": "Estimates disk usage of files and folders in human units.",
+    "example": "du -sh ~/.termux",
+    "exampleOutput": "12M /data/data/com.termux/files/home/.termux",
+    "dangerLevel": "safe",
+    "tags": [
+      "disk",
+      "size",
+      "storage"
+    ]
+  },
+  {
+    "id": "df",
+    "name": "df",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "df -h",
+    "description": "Displays free and used space across mounted filesystems.",
+    "example": "df -h /data",
+    "exampleOutput": "Filesystem  Size  Used  Avail  Use%  Mounted on\n/data       256G  182G    74G   72%  /data",
+    "dangerLevel": "safe",
+    "tags": [
+      "disk",
+      "storage",
+      "filesystem"
+    ]
+  },
+  {
+    "id": "stat",
+    "name": "stat",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "stat <file>",
+    "description": "Displays detailed inode, permissions, and timestamps of a file.",
+    "example": "stat app.js",
+    "exampleOutput": "  File: app.js\n  Size: 1420  Blocks: 8  IO Block: 4096\nAccess: (0644/-rw-r--r--)",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "inode",
+      "metadata"
+    ]
+  },
+  {
+    "id": "ln",
+    "name": "ln",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "ln -s <target> <symlink>",
+    "description": "Creates symbolic (soft) or hard links to files and folders.",
+    "example": "ln -s /sdcard/Download ~/downloads",
+    "exampleOutput": "$ ls -l ~/downloads\nlrwxrwxrwx 1 user user -> /sdcard/Download",
+    "dangerLevel": "safe",
+    "tags": [
+      "symlink",
+      "link",
+      "filesystem"
+    ]
+  },
+  {
+    "id": "chmod",
+    "name": "chmod",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "chmod <permissions> <file>",
+    "description": "Modifies read, write, and execute permissions on files.",
+    "example": "chmod +x run.sh",
+    "exampleOutput": "$ ls -l run.sh\n-rwxr-xr-x 1 user user run.sh",
+    "dangerLevel": "safe",
+    "tags": [
+      "permissions",
+      "chmod",
+      "security"
+    ]
+  },
+  {
+    "id": "chown",
+    "name": "chown",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "chown <user>:<group> <file>",
+    "description": "Changes ownership of files or directories.",
+    "example": "chown root:root /root/.bashrc",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "safe",
+    "tags": [
+      "permissions",
+      "owner",
+      "chown"
+    ]
+  },
+  {
+    "id": "file",
+    "name": "file",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "file <filename>",
+    "description": "Determines file type and MIME encoding from magic bytes.",
+    "example": "file /bin/bash",
+    "exampleOutput": "/bin/bash: ELF 64-bit LSB pie executable, ARM aarch64",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "magic",
+      "type"
+    ]
+  },
+  {
+    "id": "diff",
+    "name": "diff",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "diff -u <file1> <file2>",
+    "description": "Compares two text files line by line and shows unified diff.",
+    "example": "diff -u old.txt new.txt",
+    "exampleOutput": "--- old.txt\n+++ new.txt\n@@ -1 +1 @@\n-Hello\n+Hello World",
+    "dangerLevel": "safe",
+    "tags": [
+      "diff",
+      "compare",
+      "patch"
+    ]
+  },
+  {
+    "id": "wc",
+    "name": "wc",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "wc [-l -w -c] <file>",
+    "description": "Counts lines, words, and byte length in text streams.",
+    "example": "wc -l script.py",
+    "exampleOutput": "142 script.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "count",
+      "lines"
+    ]
+  },
+  {
+    "id": "sort",
+    "name": "sort",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "sort [-r -n -u] <file>",
+    "description": "Sorts lines of text files alphanumerically or numerically.",
+    "example": "cat names.txt | sort",
+    "exampleOutput": "Alice\nBob\nCharlie",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "sort",
+      "filter"
+    ]
+  },
+  {
+    "id": "uniq",
+    "name": "uniq",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "uniq [-c -d -u]",
+    "description": "Filters out adjacent duplicate lines from sorted streams.",
+    "example": "sort items.txt | uniq -c",
+    "exampleOutput": "   3 Apple\n   1 Banana\n   2 Orange",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "unique",
+      "duplicates"
+    ]
+  },
+  {
+    "id": "cut",
+    "name": "cut",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "cut -d <delimiter> -f <fields>",
+    "description": "Extracts specific columns or fields from structured text.",
+    "example": "cut -d: -f1 /etc/passwd | head -n 3",
+    "exampleOutput": "root\ndaemon\nbin",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "columns",
+      "cut"
+    ]
+  },
+  {
+    "id": "tr",
+    "name": "tr",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "tr <set1> <set2>",
+    "description": "Translates or deletes characters from standard input.",
+    "example": "echo 'termux' | tr 'a-z' 'A-Z'",
+    "exampleOutput": "TERMUX",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "transform",
+      "case"
+    ]
+  },
+  {
+    "id": "sed",
+    "name": "sed",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "sed 's/search/replace/g' <file>",
+    "description": "Stream editor for filtering and transforming text streams.",
+    "example": "sed 's/foo/bar/g' test.txt",
+    "exampleOutput": "Updated line with bar.",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "regex",
+      "editor",
+      "stream"
+    ]
+  },
+  {
+    "id": "awk",
+    "name": "awk",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "awk '{print $1, $3}' <file>",
+    "description": "Pattern scanning and processing text processing language.",
+    "example": "df -h | awk '{print $1, $5}'",
+    "exampleOutput": "Filesystem Use%\n/data 72%",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "awk",
+      "programming"
+    ]
+  },
+  {
+    "id": "xargs",
+    "name": "xargs",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "xargs [command]",
+    "description": "Builds and executes command lines from standard input lines.",
+    "example": "find . -name '*.tmp' | xargs rm -f",
+    "exampleOutput": "[+] Removed matching temporary files.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pipe",
+      "stream",
+      "batch"
+    ]
+  },
+  {
+    "id": "tee",
+    "name": "tee",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tee [-a] <file>",
+    "description": "Reads standard input and writes simultaneously to terminal & file.",
+    "example": "echo 'API Online' | tee server.log",
+    "exampleOutput": "API Online",
+    "dangerLevel": "safe",
+    "tags": [
+      "pipe",
+      "log",
+      "stream"
+    ]
+  },
+  {
+    "id": "tar",
+    "name": "tar",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tar [-czvf|-xzvf] <file.tar.gz> [files]",
+    "description": "Archives and extracts tape archive files (tarballs).",
+    "example": "tar -czvf project.tar.gz ./src",
+    "exampleOutput": "a ./src\na ./src/main.py\nproject.tar.gz created",
+    "dangerLevel": "safe",
+    "tags": [
+      "archive",
+      "tar",
+      "compress"
+    ]
+  },
+  {
+    "id": "zip",
+    "name": "zip",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "zip -r <archive.zip> <folder>",
+    "description": "Packages and compresses files into ZIP format.",
+    "example": "zip -r code.zip ./src",
+    "exampleOutput": "adding: src/ (stored 0%)\nadding: src/app.js (deflated 65%)",
+    "dangerLevel": "safe",
+    "tags": [
+      "archive",
+      "zip",
+      "compress"
+    ]
+  },
+  {
+    "id": "unzip",
+    "name": "unzip",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "unzip <archive.zip>",
+    "description": "Extracts compressed files from a ZIP archive.",
+    "example": "unzip code.zip",
+    "exampleOutput": "Archive:  code.zip\n  inflating: src/app.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "archive",
+      "unzip",
+      "extract"
+    ]
+  },
+  {
+    "id": "rsync",
+    "name": "rsync",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "rsync -avz <source> <dest>",
+    "description": "Fast incremental delta file copying and syncing utility.",
+    "example": "rsync -avz ./docs/ user@server:/var/www/docs/",
+    "exampleOutput": "sending incremental file list\n./\nindex.html\nsent 4.2K bytes",
+    "dangerLevel": "safe",
+    "tags": [
+      "sync",
+      "network",
+      "backup"
+    ]
+  },
+  {
+    "id": "scp",
+    "name": "scp",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "scp [-P port] <file> user@host:<path>",
+    "description": "Securely copies files across systems using SSH protocol.",
+    "example": "scp ./build.zip user@192.168.1.100:~/backups",
+    "exampleOutput": "build.zip  100%  14MB  18.2MB/s  00:00",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "copy",
+      "network"
+    ]
+  },
+  {
+    "id": "sftp",
+    "name": "sftp",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "sftp [-P port] user@host",
+    "description": "Interactive secure FTP file transfer shell over SSH.",
+    "example": "sftp user@192.168.1.100",
+    "exampleOutput": "Connected to 192.168.1.100.\nsftp> put document.pdf",
+    "dangerLevel": "safe",
+    "tags": [
+      "sftp",
+      "ssh",
+      "transfer"
+    ]
+  },
+  {
+    "id": "curl",
+    "name": "curl",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "curl [-I -s -X POST] <url>",
+    "description": "Transfers data to or from a network server via HTTP/HTTPS/FTP.",
+    "example": "curl -I https://termux.dev",
+    "exampleOutput": "HTTP/2 200\nserver: cloudflare\ncontent-type: text/html",
+    "dangerLevel": "safe",
+    "tags": [
+      "http",
+      "network",
+      "web",
+      "api"
+    ]
+  },
+  {
+    "id": "wget",
+    "name": "wget",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "wget [-c -O file] <url>",
+    "description": "Non-interactive network file downloader supporting resume.",
+    "example": "wget -c https://example.com/file.iso",
+    "exampleOutput": "file.iso  100%[===================>] 450M  24.1MB/s  in 18s",
+    "dangerLevel": "safe",
+    "tags": [
+      "download",
+      "network",
+      "http"
+    ]
+  },
+  {
+    "id": "ping",
+    "name": "ping",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "ping [-c count] <host>",
+    "description": "Sends ICMP ECHO_REQUEST packets to test network connectivity.",
+    "example": "ping -c 3 8.8.8.8",
+    "exampleOutput": "64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=14.2 ms\n--- 8.8.8.8 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ping",
+      "icmp",
+      "latency"
+    ]
+  },
+  {
+    "id": "traceroute",
+    "name": "traceroute",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "traceroute <host>",
+    "description": "Traces packet hops and router latency along the network path.",
+    "example": "traceroute 1.1.1.1",
+    "exampleOutput": "1  192.168.1.1 (192.168.1.1)  2.124 ms\n2  10.0.0.1 (10.0.0.1)  6.432 ms\n3  one.one.one.one (1.1.1.1)  12.112 ms",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "routing",
+      "hops"
+    ]
+  },
+  {
+    "id": "mtr",
+    "name": "mtr",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "mtr <host>",
+    "description": "Combines traceroute and ping into a live continuous TUI monitor.",
+    "example": "mtr 8.8.8.8",
+    "exampleOutput": "HOST: termux-dev   Loss%   Snt   Last   Avg  Best  Wrst\n  1.|-- 192.168.1.1  0.0%    10    1.2   1.4   1.0   2.1",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "mtr",
+      "latency",
+      "diagnostics"
+    ]
+  },
+  {
+    "id": "nmap",
+    "name": "nmap",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "nmap [-sV -sC -p-] <target>",
+    "description": "Network exploration tool and security port scanner.",
+    "example": "nmap -sV -p 22,80,443 192.168.1.1",
+    "exampleOutput": "PORT    STATE SERVICE VERSION\n22/tcp  open  ssh     OpenSSH 9.2\n80/tcp  open  http    nginx 1.24\n443/tcp open  ssl/http nginx 1.24",
+    "dangerLevel": "warning",
+    "tags": [
+      "network",
+      "security",
+      "scan",
+      "ports"
+    ]
+  },
+  {
+    "id": "netstat",
+    "name": "netstat",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "netstat [-tuln]",
+    "description": "Displays active TCP/UDP network connections and listening ports.",
+    "example": "netstat -tuln",
+    "exampleOutput": "Proto Recv-Q Send-Q Local Address   Foreign Address State\ntcp        0      0 0.0.0.0:8080    0.0.0.0:*       LISTEN",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ports",
+      "listening",
+      "sockets"
+    ]
+  },
+  {
+    "id": "ss",
+    "name": "ss",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ss [-tuln]",
+    "description": "Modern and fast socket statistics utility replacing netstat.",
+    "example": "ss -tuln",
+    "exampleOutput": "Netid State  Recv-Q Send-Q Local Address:Port Peer Address:Port\ntcp   LISTEN 0      128          0.0.0.0:8022        0.0.0.0:*",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "sockets",
+      "ss",
+      "ports"
+    ]
+  },
+  {
+    "id": "ip",
+    "name": "ip",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "ip [addr|route|link]",
+    "description": "Show / manipulate routing, devices, policy routing and tunnels.",
+    "example": "ip addr show wlan0",
+    "exampleOutput": "wlan0: <BROADCAST,MULTICAST,UP> mtu 1500\n  inet 192.168.1.145/24 brd 192.168.1.255",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ip",
+      "interface"
+    ]
+  },
+  {
+    "id": "ifconfig",
+    "name": "ifconfig",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ifconfig [interface]",
+    "description": "Configures or displays network interface parameters.",
+    "example": "ifconfig wlan0",
+    "exampleOutput": "wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>\n  inet 192.168.1.145  netmask 255.255.255.0",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ifconfig",
+      "ip"
+    ]
+  },
+  {
+    "id": "dig",
+    "name": "dig",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "dig <domain> [A|AAAA|MX|TXT]",
+    "description": "DNS lookup utility for querying Domain Name System name servers.",
+    "example": "dig google.com +short",
+    "exampleOutput": "142.250.190.46",
+    "dangerLevel": "safe",
+    "tags": [
+      "dns",
+      "lookup",
+      "dig",
+      "network"
+    ]
+  },
+  {
+    "id": "nslookup",
+    "name": "nslookup",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "nslookup <domain>",
+    "description": "Queries internet name servers interactively or non-interactively.",
+    "example": "nslookup cloudflare.com",
+    "exampleOutput": "Server: 8.8.8.8\nAddress: 8.8.8.8#53\nNon-authoritative answer:\nName: cloudflare.com\nAddress: 104.16.132.229",
+    "dangerLevel": "safe",
+    "tags": [
+      "dns",
+      "lookup",
+      "network"
+    ]
+  },
+  {
+    "id": "whois",
+    "name": "whois",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "whois <domain>",
+    "description": "Queries domain registry records for registrar and contact details.",
+    "example": "whois github.com",
+    "exampleOutput": "Domain Name: GITHUB.COM\nRegistry Domain ID: 124619726_DOMAIN_COM-VRSN\nRegistrar: MarkMonitor Inc.",
+    "dangerLevel": "safe",
+    "tags": [
+      "whois",
+      "domain",
+      "lookup"
+    ]
+  },
+  {
+    "id": "tcpdump",
+    "name": "tcpdump",
+    "category": "networking",
+    "tier": "advanced",
+    "syntax": "tcpdump [-i interface] [-n] [filter]",
+    "description": "Command-line packet analyzer that captures network traffic.",
+    "example": "tcpdump -i wlan0 -c 2 port 80",
+    "exampleOutput": "10:14:02.124 IP 192.168.1.145.54321 > 93.184.216.34.80: Flags [S]\n10:14:02.158 IP 93.184.216.34.80 > 192.168.1.145.54321: Flags [S.]",
+    "dangerLevel": "warning",
+    "tags": [
+      "packet",
+      "capture",
+      "sniff",
+      "traffic"
+    ]
+  },
+  {
+    "id": "tshark",
+    "name": "tshark",
+    "category": "networking",
+    "tier": "advanced",
+    "syntax": "tshark [-i interface] [-f filter]",
+    "description": "Terminal-based Wireshark network protocol analyzer.",
+    "example": "tshark -i any -c 3",
+    "exampleOutput": "1 0.000000 192.168.1.50 -> 192.168.1.1 DNS Standard query A example.com",
+    "dangerLevel": "warning",
+    "tags": [
+      "wireshark",
+      "packets",
+      "analyzer"
+    ]
+  },
+  {
+    "id": "iperf3",
+    "name": "iperf3",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "iperf3 [-s | -c server]",
+    "description": "Measures maximum TCP and UDP network bandwidth throughput.",
+    "example": "iperf3 -c 192.168.1.1",
+    "exampleOutput": "[ ID] Interval  Transfer     Bitrate\n[  5] 0.00-10.00 sec  1.08 GBytes  928 Mbits/sec",
+    "dangerLevel": "safe",
+    "tags": [
+      "bandwidth",
+      "speed",
+      "iperf",
+      "performance"
+    ]
+  },
+  {
+    "id": "socat",
+    "name": "socat",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "socat [options] <addr1> <addr2>",
+    "description": "Multipurpose relay tool for bidirectional byte streams.",
+    "example": "socat TCP-LISTEN:8080,fork TCP:127.0.0.1:3000",
+    "exampleOutput": "[*] Forwarding traffic :8080 -> :3000",
+    "dangerLevel": "safe",
+    "tags": [
+      "proxy",
+      "socket",
+      "relay",
+      "stream"
+    ]
+  },
+  {
+    "id": "nc",
+    "name": "nc (netcat)",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "nc [-l -p port] [host] [port]",
+    "description": "Arbitrary TCP and UDP connections and port listeners.",
+    "example": "nc -zv 192.168.1.1 80",
+    "exampleOutput": "Connection to 192.168.1.1 80 port [tcp/http] succeeded!",
+    "dangerLevel": "safe",
+    "tags": [
+      "netcat",
+      "sockets",
+      "ports",
+      "listen"
+    ]
+  },
+  {
+    "id": "ssh",
+    "name": "ssh",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "ssh [-p port] user@hostname",
+    "description": "Connects to remote Linux servers using encrypted SSH protocol.",
+    "example": "ssh root@192.168.1.10",
+    "exampleOutput": "Linux debian-server 6.1.0-18-amd64\nroot@debian-server:~#",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "remote",
+      "shell",
+      "crypto"
+    ]
+  },
+  {
+    "id": "ssh-keygen",
+    "name": "ssh-keygen",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ssh-keygen -t ed25519 -C 'email@example.com'",
+    "description": "Generates Ed25519 or RSA public/private SSH cryptographic keys.",
+    "example": "ssh-keygen -t ed25519",
+    "exampleOutput": "Your identification has been saved in ~/.ssh/id_ed25519\nYour public key has been saved in ~/.ssh/id_ed25519.pub",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "keys",
+      "crypto",
+      "auth"
+    ]
+  },
+  {
+    "id": "ssh-copy-id",
+    "name": "ssh-copy-id",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ssh-copy-id [-p port] user@host",
+    "description": "Installs your public key on a remote server for passwordless login.",
+    "example": "ssh-copy-id dev@192.168.1.200",
+    "exampleOutput": "[+] Number of key(s) added: 1\nNow try logging into the machine.",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "auth",
+      "keys",
+      "remote"
+    ]
+  },
+  {
+    "id": "autossh",
+    "name": "autossh",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "autossh -M 0 -N -R 2222:localhost:8022 user@server",
+    "description": "Automatically restarts SSH sessions and reverse tunnels if connection drops.",
+    "example": "autossh -M 0 -N -R 8022:localhost:8022 vps.example.com",
+    "exampleOutput": "[*] autossh tunnel established and monitored.",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "tunnel",
+      "persistent",
+      "reverse"
+    ]
+  },
+  {
+    "id": "cloudflared",
+    "name": "cloudflared tunnel",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "cloudflared tunnel --url http://localhost:8080",
+    "description": "Exposes local Termux web servers to the public internet securely via Cloudflare.",
+    "example": "cloudflared tunnel --url http://localhost:3000",
+    "exampleOutput": "+---------------------------------------------------+\n|  https://quick-tunnel-subdomain.trycloudflare.com  |\n+---------------------------------------------------+",
+    "dangerLevel": "safe",
+    "tags": [
+      "tunnel",
+      "cloudflare",
+      "public",
+      "proxy"
+    ]
+  },
+  {
+    "id": "aria2c",
+    "name": "aria2c",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "aria2c [-x 16 -s 16] <url_or_torrent>",
+    "description": "High-speed multi-source and multi-protocol download utility.",
+    "example": "aria2c -x 16 https://releases.ubuntu.com/jammy/ubuntu-22.04.iso",
+    "exampleOutput": "[#1234 450MiB/1.4GiB(32%) CN:16 DL:42MiB ETA:24s]",
+    "dangerLevel": "safe",
+    "tags": [
+      "download",
+      "multi-thread",
+      "torrent"
+    ]
+  },
+  {
+    "id": "speedtest-cli",
+    "name": "speedtest-cli",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "speedtest-cli [--simple]",
+    "description": "Tests internet download, upload bandwidth and ping latency via Ookla Speedtest.",
+    "example": "speedtest-cli --simple",
+    "exampleOutput": "Ping: 12.4 ms\nDownload: 342.18 Mbit/s\nUpload: 88.52 Mbit/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "speed",
+      "bandwidth",
+      "internet"
+    ]
+  },
+  {
+    "id": "httpie",
+    "name": "http (httpie)",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "http [GET|POST] <url> [param=value]",
+    "description": "User-friendly, colored command-line HTTP client with JSON formatting.",
+    "example": "http GET https://httpbin.org/get",
+    "exampleOutput": "HTTP/1.1 200 OK\n{\n    \"headers\": {\"User-Agent\": \"HTTPie\"}\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "http",
+      "api",
+      "json",
+      "rest"
+    ]
+  },
+  {
+    "id": "git-clone",
+    "name": "git clone",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git clone <repository_url>",
+    "description": "Clones an external Git repository to local disk.",
+    "example": "git clone https://github.com/termux/termux-app",
+    "exampleOutput": "Cloning into 'termux-app'...\nResolving deltas: 100% (1420/1420), done.",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "clone",
+      "vcs"
+    ]
+  },
+  {
+    "id": "git-status",
+    "name": "git status",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git status",
+    "description": "Shows working tree status, staged and unstaged files.",
+    "example": "git status",
+    "exampleOutput": "On branch main\nChanges not staged for commit:\n  modified: src/index.ts",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "status",
+      "vcs"
+    ]
+  },
+  {
+    "id": "git-add",
+    "name": "git add",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git add <files|--all>",
+    "description": "Adds file contents to the staging area for next commit.",
+    "example": "git add .",
+    "exampleOutput": "$ git status\nChanges to be committed: modified: src/index.ts",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "add",
+      "stage"
+    ]
+  },
+  {
+    "id": "git-commit",
+    "name": "git commit",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git commit -m 'commit message'",
+    "description": "Records changes to the Git repository history.",
+    "example": "git commit -m 'feat: add dark theme'",
+    "exampleOutput": "[main a1b2c3d] feat: add dark theme\n 2 files changed, 48 insertions(+)",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "commit",
+      "vcs"
+    ]
+  },
+  {
+    "id": "git-push",
+    "name": "git push",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git push [origin] [branch]",
+    "description": "Updates remote refs along with associated objects.",
+    "example": "git push origin main",
+    "exampleOutput": "Enumerating objects: 5, done.\nTo github.com:user/repo.git\n   e4f2a1..a1b2c3 main -> main",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "push",
+      "remote"
+    ]
+  },
+  {
+    "id": "git-pull",
+    "name": "git pull",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git pull",
+    "description": "Fetches from and integrates with another repository or local branch.",
+    "example": "git pull origin main",
+    "exampleOutput": "Updating e4f2a1..a1b2c3\nFast-forward\n README.md | 2 +-",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "pull",
+      "sync"
+    ]
+  },
+  {
+    "id": "git-branch",
+    "name": "git branch",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git branch [-a | -d branch_name]",
+    "description": "Lists, creates, or deletes local Git branches.",
+    "example": "git branch -a",
+    "exampleOutput": "* main\n  feature-mobile\n  remotes/origin/main",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "branch"
+    ]
+  },
+  {
+    "id": "git-checkout",
+    "name": "git checkout / switch",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git checkout -b <branch_name>",
+    "description": "Switches branches or restores working tree files.",
+    "example": "git checkout -b fix-nav",
+    "exampleOutput": "Switched to a new branch 'fix-nav'",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "checkout",
+      "branch"
+    ]
+  },
+  {
+    "id": "git-log",
+    "name": "git log",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git log --oneline -n <count>",
+    "description": "Shows commit logs history in concise single-line format.",
+    "example": "git log --oneline -n 3",
+    "exampleOutput": "a1b2c3d feat: add dark theme\n9e8d7c6 fix: mobile viewport issue\n1f2e3d4 Initial commit",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "log",
+      "history"
+    ]
+  },
+  {
+    "id": "git-diff",
+    "name": "git diff",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git diff [commit]",
+    "description": "Shows changes between commits, commit and working tree.",
+    "example": "git diff",
+    "exampleOutput": "diff --git a/app.js b/app.js\n-const PORT = 3000;\n+const PORT = 8080;",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "diff"
+    ]
+  },
+  {
+    "id": "nano",
+    "name": "nano",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "nano <filename>",
+    "description": "Beginner-friendly lightweight CLI text editor with on-screen shortcuts.",
+    "example": "nano server.js",
+    "exampleOutput": "[ File: server.js   Modified   Line 1/24 ]\n^G Get Help  ^O WriteOut  ^W Where Is  ^X Exit",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "nano",
+      "text"
+    ]
+  },
+  {
+    "id": "vim",
+    "name": "vim",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "vim <filename>",
+    "description": "Ubiquitous modal terminal text editor with high efficiency.",
+    "example": "vim main.c",
+    "exampleOutput": "\"main.c\" [New] 0L, 0B\n-- INSERT --",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "vim",
+      "modal"
+    ]
+  },
+  {
+    "id": "nvim",
+    "name": "nvim (neovim)",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "nvim <filename>",
+    "description": "Modern, extensible Vim fork featuring Lua configuration and LSP support.",
+    "example": "nvim src/App.tsx",
+    "exampleOutput": "[NVIM v0.10.0] LSP attached: typescript-language-server",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "neovim",
+      "lsp",
+      "lua"
+    ]
+  },
+  {
+    "id": "micro",
+    "name": "micro",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "micro <filename>",
+    "description": "Modern terminal editor with intuitive Ctrl+C / Ctrl+V keybindings and mouse support.",
+    "example": "micro script.py",
+    "exampleOutput": "micro: script.py (1/12) UTF-8 Python",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "micro",
+      "mouse"
+    ]
+  },
+  {
+    "id": "tmux",
+    "name": "tmux",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "tmux [new -s session_name | attach -t name]",
+    "description": "Terminal multiplexer enabling split panes and detached persistent sessions.",
+    "example": "tmux new -s dev",
+    "exampleOutput": "[0] 0:bash*                                   \"termux\" 10:20 17-Aug",
+    "dangerLevel": "safe",
+    "tags": [
+      "tmux",
+      "multiplexer",
+      "panes",
+      "session"
+    ]
+  },
+  {
+    "id": "python",
+    "name": "python",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "python [script.py]",
+    "description": "Interprets and runs Python 3 programming scripts or opens interactive REPL.",
+    "example": "python -c 'import math; print(math.pi)'",
+    "exampleOutput": "3.141592653589793",
+    "dangerLevel": "safe",
+    "tags": [
+      "python",
+      "interpreter",
+      "repl"
+    ]
+  },
+  {
+    "id": "node",
+    "name": "node",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "node [script.js]",
+    "description": "Executes JavaScript on the V8 engine in the terminal environment.",
+    "example": "node -e 'console.log(process.version)'",
+    "exampleOutput": "v20.12.2",
+    "dangerLevel": "safe",
+    "tags": [
+      "nodejs",
+      "javascript",
+      "runtime"
+    ]
+  },
+  {
+    "id": "bun",
+    "name": "bun",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "bun run <script.ts>",
+    "description": "All-in-one fast JavaScript/TypeScript runtime, bundler, and package manager.",
+    "example": "bun --version",
+    "exampleOutput": "1.1.8",
+    "dangerLevel": "safe",
+    "tags": [
+      "bun",
+      "typescript",
+      "runtime"
+    ]
+  },
+  {
+    "id": "rustc",
+    "name": "rustc",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "rustc <file.rs> -o <output_binary>",
+    "description": "Compiles Rust source files into native machine binaries.",
+    "example": "rustc hello.rs && ./hello",
+    "exampleOutput": "Hello from Rust on ARM64!",
+    "dangerLevel": "safe",
+    "tags": [
+      "rust",
+      "compiler",
+      "systems"
+    ]
+  },
+  {
+    "id": "cargo-run",
+    "name": "cargo run",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "cargo run [--release]",
+    "description": "Builds and immediately executes a Rust cargo project.",
+    "example": "cargo run",
+    "exampleOutput": "   Compiling my_app v0.1.0\n    Finished dev target(s)\n     Running `target/debug/my_app`",
+    "dangerLevel": "safe",
+    "tags": [
+      "rust",
+      "cargo",
+      "build"
+    ]
+  },
+  {
+    "id": "gcc",
+    "name": "gcc / clang",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "clang <file.c> -o <binary>",
+    "description": "Compiles C source code with optimizing LLVM backend.",
+    "example": "clang main.c -O2 -o app && ./app",
+    "exampleOutput": "Success: exit code 0",
+    "dangerLevel": "safe",
+    "tags": [
+      "c",
+      "compiler",
+      "clang",
+      "llvm"
+    ]
+  },
+  {
+    "id": "gplusplus",
+    "name": "g++ / clang++",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "clang++ <file.cpp> -std=c++20 -o <binary>",
+    "description": "Compiles modern C++20/C++23 source files.",
+    "example": "clang++ main.cpp -std=c++20 -o test",
+    "exampleOutput": "Compiled test binary (42 KB).",
+    "dangerLevel": "safe",
+    "tags": [
+      "cpp",
+      "c++",
+      "compiler"
+    ]
+  },
+  {
+    "id": "make",
+    "name": "make",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "make [-j$(nproc)] [target]",
+    "description": "Automates software build targets from a Makefile.",
+    "example": "make -j4",
+    "exampleOutput": "clang -c src/utils.c -o build/utils.o\nclang build/utils.o -o bin/app",
+    "dangerLevel": "safe",
+    "tags": [
+      "make",
+      "build",
+      "automation"
+    ]
+  },
+  {
+    "id": "cmake",
+    "name": "cmake",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "cmake -B build -S . && cmake --build build",
+    "description": "Cross-platform build configuration and Makefile generator.",
+    "example": "cmake -B build",
+    "exampleOutput": "-- Configuring done\n-- Generating done\n-- Build files have been written to: build",
+    "dangerLevel": "safe",
+    "tags": [
+      "cmake",
+      "build",
+      "c++"
+    ]
+  },
+  {
+    "id": "sqlite3",
+    "name": "sqlite3",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "sqlite3 <database.db> [\"SQL_QUERY\"]",
+    "description": "Self-contained serverless SQL database engine shell.",
+    "example": "sqlite3 app.db \"SELECT count(*) FROM users;\"",
+    "exampleOutput": "1240",
+    "dangerLevel": "safe",
+    "tags": [
+      "sqlite",
+      "sql",
+      "database"
+    ]
+  },
+  {
+    "id": "ps",
+    "name": "ps",
+    "category": "process-management",
+    "tier": "newbie",
+    "syntax": "ps [-ef | aux]",
+    "description": "Reports a snapshot of the current active system processes.",
+    "example": "ps",
+    "exampleOutput": "  PID TTY          TIME CMD\n 8420 pts/0    00:00:00 bash\n 8912 pts/0    00:00:00 ps",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "ps",
+      "list"
+    ]
+  },
+  {
+    "id": "top",
+    "name": "top",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "top [-d delay]",
+    "description": "Real-time dynamic display of running process activity and CPU usage.",
+    "example": "top -b -n 1 | head -n 8",
+    "exampleOutput": "Tasks: 12 total, 1 running\n%Cpu(s):  4.2 us,  1.1 sy, 94.7 id\n  PID USER   RES %CPU %MEM COMMAND\n 8420 u0_a24  14M  3.2  0.2 python",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "top",
+      "cpu",
+      "ram"
+    ]
+  },
+  {
+    "id": "htop",
+    "name": "htop",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "htop",
+    "description": "Interactive colored visual process viewer with CPU/RAM bar gauges.",
+    "example": "htop",
+    "exampleOutput": "1 [|||||||||         45.0%]  Tasks: 18, 1 thr\nMem[|||||||| 1.84G/7.42G]   Uptime: 4 days",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "htop",
+      "monitor",
+      "cpu"
+    ]
+  },
+  {
+    "id": "btop",
+    "name": "btop",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "btop",
+    "description": "High-aesthetic modern resource monitor with live graphs and disk I/O.",
+    "example": "btop",
+    "exampleOutput": "╭─ CPU ──────────────────────────────────────╮\n│ 3.2 GHz  [■■■■■■■■■■■□□□□□□□□□] 54%        │",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "btop",
+      "monitor",
+      "dashboard"
+    ]
+  },
+  {
+    "id": "kill",
+    "name": "kill",
+    "category": "process-management",
+    "tier": "newbie",
+    "syntax": "kill [-9] <PID>",
+    "description": "Sends termination signal to a process by numerical PID.",
+    "example": "kill -15 8920",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "warning",
+    "tags": [
+      "process",
+      "kill",
+      "signal"
+    ]
+  },
+  {
+    "id": "killall",
+    "name": "killall",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "killall [-9] <process_name>",
+    "description": "Terminates all processes matching the given binary name.",
+    "example": "killall node",
+    "exampleOutput": "node(8412): Terminated\nnode(8413): Terminated",
+    "dangerLevel": "warning",
+    "tags": [
+      "process",
+      "kill",
+      "batch"
+    ]
+  },
+  {
+    "id": "pkill",
+    "name": "pkill",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "pkill -f <pattern>",
+    "description": "Signals processes based on name or full command line regex.",
+    "example": "pkill -f 'python app.py'",
+    "exampleOutput": "[+] Signaled matching python process.",
+    "dangerLevel": "warning",
+    "tags": [
+      "process",
+      "pkill",
+      "signal"
+    ]
+  },
+  {
+    "id": "pgrep",
+    "name": "pgrep",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "pgrep [-l -f] <pattern>",
+    "description": "Searches for processes by name and returns matching PIDs.",
+    "example": "pgrep -l python",
+    "exampleOutput": "9120 python\n9142 python",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "pgrep",
+      "lookup"
+    ]
+  },
+  {
+    "id": "nohup",
+    "name": "nohup",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "nohup <command> > log.txt 2>&1 &",
+    "description": "Runs a command immune to hangups (survives terminal exit).",
+    "example": "nohup node server.js &",
+    "exampleOutput": "[1] 10420\nnohup: ignoring input and redirecting stderr to stdout",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "background",
+      "daemon"
+    ]
+  },
+  {
+    "id": "jobs",
+    "name": "jobs",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "jobs [-l]",
+    "description": "Lists background jobs running in the current shell session.",
+    "example": "jobs -l",
+    "exampleOutput": "[1]+ 10420 Running                 nohup node server.js &",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "background",
+      "shell"
+    ]
+  },
+  {
+    "id": "fg",
+    "name": "fg",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "fg [%job_id]",
+    "description": "Brings a background or suspended job into the foreground.",
+    "example": "fg %1",
+    "exampleOutput": "node server.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "foreground",
+      "shell"
+    ]
+  },
+  {
+    "id": "bg",
+    "name": "bg",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "bg [%job_id]",
+    "description": "Resumes a suspended job (Ctrl+Z) in the background.",
+    "example": "bg %1",
+    "exampleOutput": "[1]+ node server.js &",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "background",
+      "resume"
+    ]
+  },
+  {
+    "id": "disown",
+    "name": "disown",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "disown [-h] [%job_id]",
+    "description": "Removes a job from the shell's active job table so closing terminal keeps it running.",
+    "example": "disown -a",
+    "exampleOutput": "[+] All jobs disowned.",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "background",
+      "persist"
+    ]
+  },
+  {
+    "id": "watch",
+    "name": "watch",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "watch [-n seconds] <command>",
+    "description": "Runs a command repeatedly and shows full-screen periodic output.",
+    "example": "watch -n 1 'df -h /data'",
+    "exampleOutput": "Every 1.0s: df -h /data\n/data  256G  182G  74G  72% /data",
+    "dangerLevel": "safe",
+    "tags": [
+      "watch",
+      "monitor",
+      "repeat"
+    ]
+  },
+  {
+    "id": "time",
+    "name": "time",
+    "category": "process-management",
+    "tier": "newbie",
+    "syntax": "time <command>",
+    "description": "Measures the precise execution duration (real, user, sys CPU time).",
+    "example": "time sleep 1",
+    "exampleOutput": "real    0m1.004s\nuser    0m0.001s\nsys     0m0.002s",
+    "dangerLevel": "safe",
+    "tags": [
+      "benchmark",
+      "time",
+      "performance"
+    ]
+  },
+  {
+    "id": "timeout",
+    "name": "timeout",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "timeout <duration> <command>",
+    "description": "Runs a command with a strict time limit and kills it if exceeded.",
+    "example": "timeout 5s ping 8.8.8.8",
+    "exampleOutput": "64 bytes from 8.8.8.8...",
+    "dangerLevel": "safe",
+    "tags": [
+      "timeout",
+      "limit",
+      "safety"
+    ]
+  },
+  {
+    "id": "crontab",
+    "name": "crontab",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "crontab [-e | -l | -r]",
+    "description": "Schedules periodic recurring background cron jobs in Termux.",
+    "example": "crontab -l",
+    "exampleOutput": "0 * * * * ~/scripts/sync_backup.sh > ~/cron.log 2>&1",
+    "dangerLevel": "safe",
+    "tags": [
+      "cron",
+      "schedule",
+      "automation"
+    ]
+  },
+  {
+    "id": "lsof",
+    "name": "lsof",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "lsof -i :<port>",
+    "description": "Lists open files and reveals which process is listening on a port.",
+    "example": "lsof -i :8080",
+    "exampleOutput": "COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME\nnode    10420 user   22u  IPv4 129482      0t0  TCP *:8080 (LISTEN)",
+    "dangerLevel": "safe",
+    "tags": [
+      "ports",
+      "process",
+      "lsof",
+      "debug"
+    ]
+  },
+  {
+    "id": "strace",
+    "name": "strace",
+    "category": "process-management",
+    "tier": "advanced",
+    "syntax": "strace [-c | -e trace=file] <command>",
+    "description": "Traces Linux system calls and kernel signals made by a binary.",
+    "example": "strace -c ls",
+    "exampleOutput": "% time     seconds  usecs/call     calls    errors syscall\n------ ----------- ----------- --------- --------- -------\n 42.10    0.000412          24        17           openat",
+    "dangerLevel": "safe",
+    "tags": [
+      "debug",
+      "syscalls",
+      "strace",
+      "kernel"
+    ]
+  },
+  {
+    "id": "sv-up",
+    "name": "sv up",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv up <service_name>",
+    "description": "Starts a registered runit background daemon service.",
+    "example": "sv up sshd",
+    "exampleOutput": "ok: run: sshd: (pid 11200) 1s",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "daemon",
+      "runit"
+    ]
+  },
+  {
+    "id": "sv-down",
+    "name": "sv down",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv down <service_name>",
+    "description": "Stops an active background daemon service.",
+    "example": "sv down sshd",
+    "exampleOutput": "ok: down: sshd: 0s, normally up",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "stop",
+      "daemon"
+    ]
+  },
+  {
+    "id": "sv-status",
+    "name": "sv status",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv status <service_name>",
+    "description": "Checks whether a service is running, pid, and uptime.",
+    "example": "sv status sshd",
+    "exampleOutput": "run: sshd: (pid 11200) 450s; run: log: (pid 11201) 450s",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "status",
+      "daemon"
+    ]
+  },
+  {
+    "id": "sv-enable",
+    "name": "sv-enable",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv-enable <service_name>",
+    "description": "Enables automatic startup of a service when Termux launches.",
+    "example": "sv-enable tor",
+    "exampleOutput": "[+] Service tor enabled for automatic boot start.",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "enable",
+      "autostart"
+    ]
+  },
+  {
+    "id": "sv-disable",
+    "name": "sv-disable",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv-disable <service_name>",
+    "description": "Disables automatic startup of a daemon service.",
+    "example": "sv-disable tor",
+    "exampleOutput": "[+] Service tor disabled from auto-start.",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "disable"
+    ]
+  },
+  {
+    "id": "sshd",
+    "name": "sshd",
+    "category": "services",
+    "tier": "basic",
+    "syntax": "sshd [-p port]",
+    "description": "Launches the OpenSSH Secure Shell server daemon (default port 8022).",
+    "example": "sshd -p 8022",
+    "exampleOutput": "[+] OpenSSH server listening on port 8022",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "daemon",
+      "server",
+      "remote"
+    ]
+  },
+  {
+    "id": "tor",
+    "name": "tor",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "tor",
+    "description": "Launches the Tor anonymizing SOCKS5 proxy daemon on 127.0.0.1:9050.",
+    "example": "tor",
+    "exampleOutput": "Bootstrapped 100% (done): Done. Tor proxy ready at 127.0.0.1:9050",
+    "dangerLevel": "safe",
+    "tags": [
+      "tor",
+      "privacy",
+      "socks5",
+      "proxy"
+    ]
+  },
+  {
+    "id": "nginx",
+    "name": "nginx",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "nginx [-s stop | -s reload]",
+    "description": "Starts high-performance HTTP web server and reverse proxy daemon.",
+    "example": "nginx",
+    "exampleOutput": "[+] nginx server running on http://127.0.0.1:8080",
+    "dangerLevel": "safe",
+    "tags": [
+      "nginx",
+      "web",
+      "server",
+      "http"
+    ]
+  },
+  {
+    "id": "redis-server",
+    "name": "redis-server",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "redis-server [--daemonize yes]",
+    "description": "In-memory key-value data structure store and cache daemon.",
+    "example": "redis-server --daemonize yes",
+    "exampleOutput": "[+] Redis server started on port 6379",
+    "dangerLevel": "safe",
+    "tags": [
+      "redis",
+      "database",
+      "cache",
+      "server"
+    ]
+  },
+  {
+    "id": "mariadbd",
+    "name": "mariadbd-safe",
+    "category": "services",
+    "tier": "advanced",
+    "syntax": "mariadbd-safe &",
+    "description": "Initializes and launches MariaDB / MySQL relational database engine.",
+    "example": "mariadbd-safe &",
+    "exampleOutput": "[+] MariaDB server ready for connections on port 3306",
+    "dangerLevel": "safe",
+    "tags": [
+      "mysql",
+      "mariadb",
+      "sql",
+      "database"
+    ]
+  },
+  {
+    "id": "uname",
+    "name": "uname",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "uname [-a -m -r]",
+    "description": "Prints kernel name, architecture, and system release information.",
+    "example": "uname -a",
+    "exampleOutput": "Linux localhost 6.1.45-android14-9 #1 SMP PREEMPT aarch64 Android",
+    "dangerLevel": "safe",
+    "tags": [
+      "system",
+      "kernel",
+      "arch"
+    ]
+  },
+  {
+    "id": "whoami",
+    "name": "whoami",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "whoami",
+    "description": "Displays the effective username of the current user session.",
+    "example": "whoami",
+    "exampleOutput": "u0_a245",
+    "dangerLevel": "safe",
+    "tags": [
+      "system",
+      "user",
+      "identity"
+    ]
+  },
+  {
+    "id": "id",
+    "name": "id",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "id [-u -g -G]",
+    "description": "Prints real and effective user ID (UID) and group IDs (GID).",
+    "example": "id",
+    "exampleOutput": "uid=10245(u0_a245) gid=10245(u0_a245) groups=10245,3003(inet),9997",
+    "dangerLevel": "safe",
+    "tags": [
+      "user",
+      "uid",
+      "gid",
+      "permissions"
+    ]
+  },
+  {
+    "id": "hostname",
+    "name": "hostname",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "hostname",
+    "description": "Shows or sets the system's network hostname.",
+    "example": "hostname",
+    "exampleOutput": "localhost",
+    "dangerLevel": "safe",
+    "tags": [
+      "system",
+      "host",
+      "network"
+    ]
+  },
+  {
+    "id": "uptime",
+    "name": "uptime",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "uptime",
+    "description": "Tells how long the system has been running, user count, and load averages.",
+    "example": "uptime",
+    "exampleOutput": " 10:30:15 up 4 days, 12:10,  1 user,  load average: 1.42, 0.98, 0.85",
+    "dangerLevel": "safe",
+    "tags": [
+      "uptime",
+      "system",
+      "load"
+    ]
+  },
+  {
+    "id": "date",
+    "name": "date",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "date [+\"%Y-%m-%d %H:%M:%S\"]",
+    "description": "Displays or formats the current system date and time.",
+    "example": "date",
+    "exampleOutput": "Mon Aug 17 10:30:00 UTC 2026",
+    "dangerLevel": "safe",
+    "tags": [
+      "date",
+      "time",
+      "clock"
+    ]
+  },
+  {
+    "id": "cal",
+    "name": "cal",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "cal [-3 | -y]",
+    "description": "Displays a formatted monthly or yearly calendar grid in the terminal.",
+    "example": "cal",
+    "exampleOutput": "    August 2026\nSu Mo Tu We Th Fr Sa\n                   1\n 2  3  4  5  6  7  8\n 9 10 11 12 13 14 15\n16 17 18 19 20 21 22",
+    "dangerLevel": "safe",
+    "tags": [
+      "calendar",
+      "date"
+    ]
+  },
+  {
+    "id": "lscpu",
+    "name": "lscpu",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "lscpu",
+    "description": "Displays detailed CPU architecture, core counts, clocks, and cache topology.",
+    "example": "lscpu | head -n 8",
+    "exampleOutput": "Architecture:          aarch64\nCPU op-mode(s):        32-bit, 64-bit\nByte Order:            Little Endian\nCPU(s):                8\nModel name:            Cortex-X4 + Cortex-A720",
+    "dangerLevel": "safe",
+    "tags": [
+      "cpu",
+      "hardware",
+      "architecture"
+    ]
+  },
+  {
+    "id": "free",
+    "name": "free",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "free [-h -m]",
+    "description": "Displays total, used, and available physical RAM and swap space in human units.",
+    "example": "free -h",
+    "exampleOutput": "               total        used        free      shared  buff/cache   available\nMem:           7.4Gi       2.8Gi       3.1Gi        42Mi       1.5Gi       4.3Gi\nSwap:          4.0Gi       120Mi       3.8Gi",
+    "dangerLevel": "safe",
+    "tags": [
+      "ram",
+      "memory",
+      "free",
+      "swap"
+    ]
+  },
+  {
+    "id": "vmstat",
+    "name": "vmstat",
+    "category": "system",
+    "tier": "normal",
+    "syntax": "vmstat [delay [count]]",
+    "description": "Reports information about processes, memory, paging, block IO, and CPU activity.",
+    "example": "vmstat 1 2",
+    "exampleOutput": "procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----\n r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st\n 1  0 122880 3241000  42100 1542000    0    0    12    45  420  980  4  1 95  0  0",
+    "dangerLevel": "safe",
+    "tags": [
+      "memory",
+      "vmstat",
+      "performance"
+    ]
+  },
+  {
+    "id": "dmesg",
+    "name": "dmesg",
+    "category": "system",
+    "tier": "advanced",
+    "syntax": "dmesg [-T | --level=err]",
+    "description": "Reads and prints the kernel ring buffer messages and boot logs.",
+    "example": "dmesg | tail -n 4",
+    "exampleOutput": "[12345.678] type=1400 audit(1723880000.124:99): avc: granted { read }",
+    "dangerLevel": "warning",
+    "tags": [
+      "kernel",
+      "dmesg",
+      "logs",
+      "hardware"
+    ]
+  },
+  {
+    "id": "env",
+    "name": "env",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "env",
+    "description": "Prints all exported environment variables in the current shell session.",
+    "example": "env | head -n 6",
+    "exampleOutput": "PREFIX=/data/data/com.termux/files/usr\nHOME=/data/data/com.termux/files/home\nSHELL=/data/data/com.termux/files/usr/bin/bash\nPATH=/data/data/com.termux/files/usr/bin",
+    "dangerLevel": "safe",
+    "tags": [
+      "environment",
+      "variables",
+      "env"
+    ]
+  },
+  {
+    "id": "export",
+    "name": "export",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "export <VAR_NAME>=<value>",
+    "description": "Sets and exports shell environment variables to child processes.",
+    "example": "export EDITOR=nano",
+    "exampleOutput": "$ echo $EDITOR\nnano",
+    "dangerLevel": "safe",
+    "tags": [
+      "environment",
+      "export",
+      "shell"
+    ]
+  },
+  {
+    "id": "printenv",
+    "name": "printenv",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "printenv [VARIABLE]",
+    "description": "Prints specific or all environment variable values.",
+    "example": "printenv PREFIX",
+    "exampleOutput": "/data/data/com.termux/files/usr",
+    "dangerLevel": "safe",
+    "tags": [
+      "environment",
+      "printenv"
+    ]
+  },
+  {
+    "id": "alias",
+    "name": "alias",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "alias <name>='<command>'",
+    "description": "Creates shorthand aliases for complex or long command strings.",
+    "example": "alias ll='ls -la --color=auto'",
+    "exampleOutput": "$ ll\ntotal 24",
+    "dangerLevel": "safe",
+    "tags": [
+      "alias",
+      "shortcuts",
+      "shell"
+    ]
+  },
+  {
+    "id": "unalias",
+    "name": "unalias",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "unalias <alias_name>",
+    "description": "Removes an active shell shortcut alias definition.",
+    "example": "unalias ll",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "safe",
+    "tags": [
+      "alias",
+      "unalias",
+      "shell"
+    ]
+  },
+  {
+    "id": "which",
+    "name": "which",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "which <command>",
+    "description": "Locates the executable binary file associated with a command in $PATH.",
+    "example": "which python",
+    "exampleOutput": "/data/data/com.termux/files/usr/bin/python",
+    "dangerLevel": "safe",
+    "tags": [
+      "which",
+      "path",
+      "binary"
+    ]
+  },
+  {
+    "id": "whereis",
+    "name": "whereis",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "whereis <command>",
+    "description": "Locates the binary, source, and manual page files for a command.",
+    "example": "whereis bash",
+    "exampleOutput": "bash: /data/data/com.termux/files/usr/bin/bash /usr/share/man/man1/bash.1.gz",
+    "dangerLevel": "safe",
+    "tags": [
+      "whereis",
+      "lookup",
+      "binary"
+    ]
+  },
+  {
+    "id": "whatis",
+    "name": "whatis",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "whatis <command>",
+    "description": "Displays one-line manual page descriptions.",
+    "example": "whatis curl",
+    "exampleOutput": "curl (1) - transfer a URL",
+    "dangerLevel": "safe",
+    "tags": [
+      "whatis",
+      "man",
+      "description"
+    ]
+  },
+  {
+    "id": "man",
+    "name": "man",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "man <command>",
+    "description": "Formats and displays the on-line manual documentation pages.",
+    "example": "man ls",
+    "exampleOutput": "LS(1) User Commands LS(1)\nNAME\n       ls - list directory contents",
+    "dangerLevel": "safe",
+    "tags": [
+      "man",
+      "manual",
+      "docs"
+    ]
+  },
+  {
+    "id": "history",
+    "name": "history",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "history [-c | -w]",
+    "description": "Displays the session history list of executed commands with line numbers.",
+    "example": "history | tail -n 4",
+    "exampleOutput": " 101  pkg update\n 102  pkg install git\n 103  git clone repo\n 104  history",
+    "dangerLevel": "safe",
+    "tags": [
+      "history",
+      "bash",
+      "commands"
+    ]
+  },
+  {
+    "id": "clear",
+    "name": "clear",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "clear",
+    "description": "Clears the terminal screen viewport buffer.",
+    "example": "clear",
+    "exampleOutput": "\u001b[H\u001b[2J\u001b[3J",
+    "dangerLevel": "safe",
+    "tags": [
+      "clear",
+      "terminal",
+      "screen"
+    ]
+  },
+  {
+    "id": "reset",
+    "name": "reset",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "reset",
+    "description": "Reinitializes the terminal state and cures broken character rendering.",
+    "example": "reset",
+    "exampleOutput": "[*] Terminal reinitialized.",
+    "dangerLevel": "safe",
+    "tags": [
+      "reset",
+      "terminal"
+    ]
+  },
+  {
+    "id": "sleep",
+    "name": "sleep",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "sleep <duration[s|m|h]>",
+    "description": "Delays execution for a specified amount of time.",
+    "example": "sleep 2 && echo 'Awake'",
+    "exampleOutput": "Awake",
+    "dangerLevel": "safe",
+    "tags": [
+      "sleep",
+      "delay",
+      "timer"
+    ]
+  },
+  {
+    "id": "echo",
+    "name": "echo",
+    "category": "system",
+    "tier": "newbie",
+    "syntax": "echo [-e -n] <text>",
+    "description": "Outputs strings or variable expansions to standard output.",
+    "example": "echo \"User: $USER on $(date +%A)\"",
+    "exampleOutput": "User: u0_a245 on Monday",
+    "dangerLevel": "safe",
+    "tags": [
+      "echo",
+      "output",
+      "print"
+    ]
+  },
+  {
+    "id": "printf",
+    "name": "printf",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "printf '<format>' [arguments]",
+    "description": "Formats and prints data using C-style format strings.",
+    "example": "printf \"%-10s: %04d\\n\" \"Index\" 42",
+    "exampleOutput": "Index     : 0042",
+    "dangerLevel": "safe",
+    "tags": [
+      "printf",
+      "format",
+      "string"
+    ]
+  },
+  {
+    "id": "basename",
+    "name": "basename",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "basename <path> [suffix]",
+    "description": "Strips directory prefixes and suffixes from filenames.",
+    "example": "basename /home/user/script.py .py",
+    "exampleOutput": "script",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "path",
+      "basename"
+    ]
+  },
+  {
+    "id": "dirname",
+    "name": "dirname",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "dirname <path>",
+    "description": "Strips non-directory suffix from file path, returning parent folder.",
+    "example": "dirname /home/user/script.py",
+    "exampleOutput": "/home/user",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "path",
+      "dirname"
+    ]
+  },
+  {
+    "id": "realpath",
+    "name": "realpath",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "realpath <path>",
+    "description": "Resolves symlinks and prints the canonical absolute path.",
+    "example": "realpath ~/storage/shared",
+    "exampleOutput": "/sdcard",
+    "dangerLevel": "safe",
+    "tags": [
+      "path",
+      "realpath",
+      "symlink"
+    ]
+  },
+  {
+    "id": "bc",
+    "name": "bc",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "bc -l",
+    "description": "Arbitrary precision calculator language in the terminal.",
+    "example": "echo \"scale=4; 355/113\" | bc -l",
+    "exampleOutput": "3.1415",
+    "dangerLevel": "safe",
+    "tags": [
+      "math",
+      "calculator",
+      "bc"
+    ]
+  },
+  {
+    "id": "tsu",
+    "name": "tsu",
+    "category": "system",
+    "tier": "advanced",
+    "syntax": "tsu [command]",
+    "description": "Root wrapper for Termux on rooted Android devices (replaces standard su).",
+    "example": "tsu -c id",
+    "exampleOutput": "uid=0(root) gid=0(root) groups=0(root)",
+    "dangerLevel": "warning",
+    "tags": [
+      "root",
+      "superuser",
+      "tsu"
+    ]
+  },
+  {
+    "id": "openssl",
+    "name": "openssl",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "openssl [req|x509|enc|genpkey] ...",
+    "description": "Cryptography toolkit implementing SSL/TLS and key generation.",
+    "example": "openssl rand -hex 16",
+    "exampleOutput": "a9f4c3d821e7b0a51c4e8f9d023b6a1e",
+    "dangerLevel": "safe",
+    "tags": [
+      "crypto",
+      "ssl",
+      "tls",
+      "security"
+    ]
+  },
+  {
+    "id": "gpg",
+    "name": "gpg",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "gpg [--gen-key | --encrypt | --decrypt]",
+    "description": "GNU Privacy Guard OpenPGP encryption and signing tool.",
+    "example": "gpg --version | head -n 1",
+    "exampleOutput": "gpg (GnuPG) 2.4.5",
+    "dangerLevel": "safe",
+    "tags": [
+      "gpg",
+      "pgp",
+      "encryption",
+      "keys"
+    ]
+  },
+  {
+    "id": "age",
+    "name": "age",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "age [-e -r recipient | -d] <file>",
+    "description": "Simple, modern and secure file encryption tool with small keys.",
+    "example": "age -p secret.txt > secret.txt.age",
+    "exampleOutput": "[*] Enter passphrase: [hidden]\n[+] File encrypted.",
+    "dangerLevel": "safe",
+    "tags": [
+      "encryption",
+      "age",
+      "security"
+    ]
+  },
+  {
+    "id": "sqlmap",
+    "name": "sqlmap",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "sqlmap -u <url> --batch --banner",
+    "description": "Automatic SQL injection and database vulnerability testing tool.",
+    "example": "sqlmap -u 'http://testphp.vulnweb.com/listproducts.php?cat=1' --batch",
+    "exampleOutput": "[*] testing connection to the target URL\n[+] GET parameter 'cat' is vulnerable to SQL injection.",
+    "dangerLevel": "warning",
+    "tags": [
+      "sql",
+      "security",
+      "audit",
+      "pentest"
+    ]
+  },
+  {
+    "id": "hydra",
+    "name": "hydra",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "hydra -l user -P passwords.txt <target> <service>",
+    "description": "Very fast network logon security audit cracker.",
+    "example": "hydra -l admin -P pass.txt 192.168.1.1 http-get /admin",
+    "exampleOutput": "[DATA] attacking http-get://192.168.1.1:80/admin\n[80][http-get] host: 192.168.1.1   login: admin   password: password123",
+    "dangerLevel": "warning",
+    "tags": [
+      "security",
+      "audit",
+      "hydra",
+      "passwords"
+    ]
+  },
+  {
+    "id": "john",
+    "name": "john (the ripper)",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "john [--wordlist=dict.txt] <hashfile>",
+    "description": "Fast password hash cracker and security auditing tool.",
+    "example": "john hashes.txt",
+    "exampleOutput": "Loaded 1 password hash (bcrypt)\npassword123      (admin)\n1g 0:00:00:02 0.49g/s",
+    "dangerLevel": "warning",
+    "tags": [
+      "crypto",
+      "hashes",
+      "security"
+    ]
+  },
+  {
+    "id": "exiftool",
+    "name": "exiftool",
+    "category": "security",
+    "tier": "basic",
+    "syntax": "exiftool [-all=] <image.jpg>",
+    "description": "Reads, writes, and sanitizes EXIF privacy metadata from photos and media.",
+    "example": "exiftool -GPSPosition photo.jpg",
+    "exampleOutput": "GPS Position : 37 deg 46' 29.64\" N, 122 deg 25' 9.84\" W",
+    "dangerLevel": "safe",
+    "tags": [
+      "exif",
+      "privacy",
+      "metadata",
+      "image"
+    ]
+  },
+  {
+    "id": "steghide",
+    "name": "steghide",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "steghide embed -cf cover.jpg -ef secret.txt",
+    "description": "Steganography program that hides secret data inside image and audio files.",
+    "example": "steghide embed -cf photo.jpg -ef notes.txt",
+    "exampleOutput": "Enter passphrase: \nembedding \"notes.txt\" in \"photo.jpg\"... done",
+    "dangerLevel": "safe",
+    "tags": [
+      "steganography",
+      "security",
+      "privacy"
+    ]
+  },
+  {
+    "id": "nikto",
+    "name": "nikto",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "nikto -h <host>",
+    "description": "Web server vulnerability scanner checking for dangerous files and outdated software.",
+    "example": "nikto -h http://127.0.0.1:8080",
+    "exampleOutput": "+ Target IP: 127.0.0.1\n+ Server: nginx/1.24.0\n+ No CGI Directories found",
+    "dangerLevel": "warning",
+    "tags": [
+      "security",
+      "web",
+      "scanner",
+      "vulnerability"
+    ]
+  },
+  {
+    "id": "neofetch",
+    "name": "neofetch",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "neofetch",
+    "description": "CLI system information tool displaying ASCII art logo and hardware specs.",
+    "example": "neofetch",
+    "exampleOutput": "       _--_         u0_a245@localhost\n     /      \\       -----------------\n    |        |      OS: Termux (Android 14)\n     \\      /       Host: Galaxy S24 Ultra\n       `--'         Kernel: 6.1.45-android\n                    Uptime: 4 days\n                    Packages: 142 (dpkg)\n                    Shell: bash 5.2.26\n                    Memory: 2840MiB / 7600MiB",
+    "dangerLevel": "safe",
+    "tags": [
+      "aesthetic",
+      "specs",
+      "neofetch",
+      "ascii"
+    ]
+  },
+  {
+    "id": "fastfetch",
+    "name": "fastfetch",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "fastfetch",
+    "description": "Ultra-fast C-written modern neofetch alternative with GPU and Vulkan telemetry.",
+    "example": "fastfetch",
+    "exampleOutput": "termux@android\n--------------\nOS: Android 14 (Termux aarch64)\nDevice: Samsung Galaxy\nCPU: ARMv9 8 Cores @ 3.39GHz\nMemory: 2.78 GiB / 7.42 GiB (37%)",
+    "dangerLevel": "safe",
+    "tags": [
+      "fastfetch",
+      "specs",
+      "aesthetic",
+      "c"
+    ]
+  },
+  {
+    "id": "cmatrix",
+    "name": "cmatrix",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "cmatrix [-b -C green|red|cyan]",
+    "description": "Generates falling Matrix digital rain code in your terminal.",
+    "example": "cmatrix -b",
+    "exampleOutput": "ﾊ ﾐ ﾋ ｰ ｳ ｼ ﾅ ﾓ ﾆ ｻ ﾜ ﾂ ｵ ﾘ ｱ ﾎ ﾃ ﾏ ｹ ﾒ ｴ ｶ ｷ ﾑ ﾕ ﾗ ｾ ﾈ ｽ ﾀ ﾇ ﾍ\n: ・ . \" = * + - < >",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "matrix",
+      "animation",
+      "retro"
+    ]
+  },
+  {
+    "id": "sl",
+    "name": "sl (steam locomotive)",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "sl [-a -F -e]",
+    "description": "Drives an animated steam train across your terminal screen when you mistype 'ls'.",
+    "example": "sl",
+    "exampleOutput": "      ====        ________                ___________ \n  _D _|  |_______/        \\__I_I_____===__|_________| \n   |(_)---  |   H\\________/ _____ |   |===|   |   |   \n   /     |===========|   |_____| |===|   |   |   |",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "train",
+      "animation"
+    ]
+  },
+  {
+    "id": "cowsay",
+    "name": "cowsay",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "cowsay [-f cowfile] <message>",
+    "description": "Generates an ASCII talking cow containing customizable quote bubbles.",
+    "example": "cowsay 'Termux rules!'",
+    "exampleOutput": " ______________\n< Termux rules! >\n --------------\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "cowsay",
+      "ascii"
+    ]
+  },
+  {
+    "id": "fortune",
+    "name": "fortune",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "fortune",
+    "description": "Prints random humorous quotes, proverbs, and fortune cookie pearls.",
+    "example": "fortune",
+    "exampleOutput": "A clean desk is a sign of a cluttered desk drawer.",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "quotes",
+      "fortune"
+    ]
+  },
+  {
+    "id": "lolcat",
+    "name": "lolcat",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "echo <text> | lolcat",
+    "description": "Rainbow gradient colorizer filter for terminal text output.",
+    "example": "fortune | cowsay | lolcat",
+    "exampleOutput": "🌈 [Vibrant colored rainbow cow quote] 🌈",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "rainbow",
+      "colors",
+      "aesthetic"
+    ]
+  },
+  {
+    "id": "figlet",
+    "name": "figlet",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "figlet [-f font] <text>",
+    "description": "Generates large stylized ASCII banner headers from standard text.",
+    "example": "figlet 'TERMUX'",
+    "exampleOutput": " _____ _____ ____  __  __ _   ___  __\n|_   _| ____|  _ \\|  \\/  | | | \\ \\/ /\n  | | |  _| | |_) | |\\/| | | | |\\  / \n  | | | |___|  _ <| |  | | |_| |/  \\ \n  |_| |_____|_| \\_\\_|  |_|\\___//_/\\_\\",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "ascii",
+      "figlet",
+      "banner"
+    ]
+  },
+  {
+    "id": "toilet",
+    "name": "toilet",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "toilet -f mono12 -F border <text>",
+    "description": "Enhanced banner text generator with colored Unicode fonts and borders.",
+    "example": "toilet -f standard 'HACK'",
+    "exampleOutput": "┌────────────────────────┐\n│  _   _    _    ____ _  │\n│ | | | |  / \\  / ___| | │\n│ | |_| | / _ \\| |   | | │\n│ |  _  |/ ___ \\ |___|_| │\n│ |_| |_/_/   \\_\\____(_) │\n└────────────────────────┘",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "toilet",
+      "banner",
+      "ascii"
+    ]
+  },
+  {
+    "id": "pipes.sh",
+    "name": "pipes.sh",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "pipes.sh",
+    "description": "Animated screen-saver of colorful 3D pipes navigating the terminal.",
+    "example": "pipes.sh",
+    "exampleOutput": "╔══╗  ╔════╗\n║  ╚══╝    ║\n╚══════════╝",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "pipes",
+      "screensaver"
+    ]
+  },
+  {
+    "id": "cbonsai",
+    "name": "cbonsai",
+    "category": "cli-fun",
+    "tier": "newbie",
+    "syntax": "cbonsai [-l -m 'message']",
+    "description": "Grows an animated procedural ASCII Bonsai tree directly in your terminal.",
+    "example": "cbonsai -l",
+    "exampleOutput": "       &&& &&  & &&\n    && &\\/&\\|() ()/ @\n     &\\/(/&/&||/& /_/)_&\n  @()&/&&& & ()|/& /_%\n      &_\\_&&_\\ |& |&&/&\n        &&   \\|||\n              |||\n              |||\n        ______|||______\n       |_______________|",
+    "dangerLevel": "safe",
+    "tags": [
+      "fun",
+      "bonsai",
+      "art",
+      "aesthetic"
+    ]
+  },
+  {
+    "id": "bat",
+    "name": "bat (modern cat)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "bat [-n -l python] <file>",
+    "description": "Cat clone with syntax highlighting, Git modifications indicator, and line numbers.",
+    "example": "bat app.py",
+    "exampleOutput": "───────┬────────────────────────\n       │ File: app.py\n───────┼────────────────────────\n   1   │ import sys\n   2 + │ print('Hello World')\n───────┴────────────────────────",
+    "dangerLevel": "safe",
+    "tags": [
+      "cat",
+      "bat",
+      "syntax",
+      "modern",
+      "rust"
+    ]
+  },
+  {
+    "id": "eza",
+    "name": "eza / exa (modern ls)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "eza [--tree --icons -l]",
+    "description": "Modern, colorful replacement for ls with file icons, Git status, and metadata.",
+    "example": "eza -la --icons",
+    "exampleOutput": ".rw-r--r-- 1.2k user 17 Aug 10:00 📄 README.md\ndrwxr-xr-x    - user 17 Aug 10:00 📁 src",
+    "dangerLevel": "safe",
+    "tags": [
+      "ls",
+      "eza",
+      "icons",
+      "modern"
+    ]
+  },
+  {
+    "id": "dust",
+    "name": "dust (modern du)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "dust [directory]",
+    "description": "Instant graphical tree visualization of disk space usage by folder size.",
+    "example": "dust -d 1",
+    "exampleOutput": " 420M  ┌─ node_modules\n  48M  ├─ dist\n  12M  ├─ src\n 480M ─┴─ . (Total)",
+    "dangerLevel": "safe",
+    "tags": [
+      "disk",
+      "dust",
+      "du",
+      "storage"
+    ]
+  },
+  {
+    "id": "duf",
+    "name": "duf (modern df)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "duf",
+    "description": "Disk Usage/Free utility with clean tables, color coding, and mount points.",
+    "example": "duf",
+    "exampleOutput": "╭─────────────────────────────────────────────────────────────────╮\n│ DEVICE  MOUNTED ON  SIZE   USED  AVAIL  USE%  TYPE  FILESYSTEM  │\n│ /data   /data       256GB  182GB  74GB   71%  ext4  /dev/block  │\n╰─────────────────────────────────────────────────────────────────╯",
+    "dangerLevel": "safe",
+    "tags": [
+      "df",
+      "disk",
+      "duf",
+      "modern"
+    ]
+  },
+  {
+    "id": "procs",
+    "name": "procs (modern ps)",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "procs [query]",
+    "description": "Modern replacement for ps with colored process trees, ports, and Docker container IDs.",
+    "example": "procs python",
+    "exampleOutput": " PID:| User:| TTY:| CPU%:| MEM%:| Command:\n 9120| user |  -  |  2.4 |  1.2 | python server.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "procs",
+      "ps",
+      "modern"
+    ]
+  },
+  {
+    "id": "bottom",
+    "name": "btm (bottom)",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "btm",
+    "description": "Customizable graphical process/system monitor written in Rust.",
+    "example": "btm",
+    "exampleOutput": "┌CPU ──────┐ ┌Memory ───┐ ┌Processes ────────────────┐\n│ 45.2%    │ │ 3.4/7.4G │ │ PID  USER  CPU% MEM% TIME│\n└──────────┘ └──────────┘ └──────────────────────────┘",
+    "dangerLevel": "safe",
+    "tags": [
+      "btm",
+      "monitor",
+      "dashboard",
+      "rust"
+    ]
+  },
+  {
+    "id": "fzf",
+    "name": "fzf (fuzzy finder)",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "fzf",
+    "description": "General-purpose command-line fuzzy finder for files, history, and processes.",
+    "example": "fzf",
+    "exampleOutput": "> src/index.ts\n  src/components/App.tsx\n  package.json\n  28/142",
+    "dangerLevel": "safe",
+    "tags": [
+      "fzf",
+      "fuzzy",
+      "search",
+      "navigation"
+    ]
+  },
+  {
+    "id": "zoxide",
+    "name": "zoxide (z)",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "z <query>",
+    "description": "Smarter cd command that learns your most visited directories for 1-letter jumps.",
+    "example": "z pro",
+    "exampleOutput": "$ pwd\n/data/data/com.termux/files/home/projects/termux-academy",
+    "dangerLevel": "safe",
+    "tags": [
+      "navigation",
+      "cd",
+      "zoxide",
+      "jump"
+    ]
+  },
+  {
+    "id": "jq",
+    "name": "jq",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "jq '<filter>' <file.json>",
+    "description": "Lightweight and flexible command-line JSON processor.",
+    "example": "curl -s https://api.github.com/repos/termux/termux-app | jq '.stargazers_count'",
+    "exampleOutput": "32400",
+    "dangerLevel": "safe",
+    "tags": [
+      "json",
+      "parser",
+      "jq",
+      "filter"
+    ]
+  },
+  {
+    "id": "yq",
+    "name": "yq",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "yq '<filter>' <file.yaml>",
+    "description": "Portable command-line YAML, JSON, XML, and CSV processor.",
+    "example": "yq '.version' docker-compose.yml",
+    "exampleOutput": "3.8",
+    "dangerLevel": "safe",
+    "tags": [
+      "yaml",
+      "parser",
+      "yq"
+    ]
+  },
+  {
+    "id": "pv",
+    "name": "pv (pipe viewer)",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "pv <source_file> | <command>",
+    "description": "Monitors the progress of data through a pipeline with ETA, speed, and percentage.",
+    "example": "pv large.iso > /dev/null",
+    "exampleOutput": " 180MB 0:00:04 [45.2MB/s] [=======>                 ] 40% ETA 0:00:06",
+    "dangerLevel": "safe",
+    "tags": [
+      "pipe",
+      "progress",
+      "speed",
+      "pv"
+    ]
+  },
+  {
+    "id": "parallel",
+    "name": "parallel (GNU)",
+    "category": "system",
+    "tier": "normal",
+    "syntax": "parallel <command> ::: <inputs>",
+    "description": "Executes jobs concurrently across available multi-core CPU threads.",
+    "example": "parallel gzip ::: file1.txt file2.txt file3.txt",
+    "exampleOutput": "[+] 3 files compressed in parallel.",
+    "dangerLevel": "safe",
+    "tags": [
+      "parallel",
+      "multicore",
+      "batch"
+    ]
+  },
+  {
+    "id": "hexdump",
+    "name": "hexdump",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "hexdump -C <binary_file>",
+    "description": "Displays file contents in ASCII, decimal, hexadecimal, or octal.",
+    "example": "hexdump -C /bin/sh | head -n 2",
+    "exampleOutput": "00000000  7f 45 4c 46 02 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|\n00000010  03 00 b7 00 01 00 00 00  10 1b 00 00 00 00 00 00  |................|",
+    "dangerLevel": "safe",
+    "tags": [
+      "hex",
+      "binary",
+      "reverse-engineering"
+    ]
+  },
+  {
+    "id": "xxd",
+    "name": "xxd",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "xxd [-r] <file>",
+    "description": "Creates a hex dump of a given file or reverses a hex dump back to binary.",
+    "example": "echo 'Hello' | xxd",
+    "exampleOutput": "00000000: 4865 6c6c 6f0a                             Hello.",
+    "dangerLevel": "safe",
+    "tags": [
+      "hex",
+      "dump",
+      "binary"
+    ]
+  },
+  {
+    "id": "ffmpeg",
+    "name": "ffmpeg",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "ffmpeg -i <input.mp4> -vn <output.mp3>",
+    "description": "Universal audio/video transcoder, converter, and streaming engine.",
+    "example": "ffmpeg -i video.mp4 -vn -c:a libmp3lame audio.mp3",
+    "exampleOutput": "frame=  420 fps= 60 q=-1.0 size=    4210kB time=00:01:14.20 bitrate= 465.1kbits/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "media",
+      "audio",
+      "video",
+      "ffmpeg"
+    ]
+  },
+  {
+    "id": "yt-dlp",
+    "name": "yt-dlp",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "yt-dlp [-f best] <video_url>",
+    "description": "Advanced modular command-line media downloader for YouTube and video platforms.",
+    "example": "yt-dlp 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'",
+    "exampleOutput": "[youtube] Extracting URL...\n[download] 100% of 32.40MiB in 00:02 at 14.20MiB/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "video",
+      "download",
+      "media"
+    ]
+  },
+  {
+    "id": "sox",
+    "name": "sox",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "sox <input.wav> <output.mp3> [effects]",
+    "description": "Swiss Army knife of sound processing with audio effects and synthesis.",
+    "example": "sox input.wav output.wav pitch 200",
+    "exampleOutput": "[+] Processed audio with pitch shift.",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "sound",
+      "sox"
+    ]
+  },
+  {
+    "id": "mpv",
+    "name": "mpv",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "mpv [--no-video] <audio_or_video_file>",
+    "description": "Fast, clean, high-performance media playback engine.",
+    "example": "mpv song.mp3",
+    "exampleOutput": " (+) Audio --aid=1 (mp3 2ch 44100Hz 320kbps)\nAO: [opensles] 44100Hz stereo 2ch s16\nAV: 00:01:24 / 00:03:45 (37%)",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "player",
+      "media"
+    ]
+  },
+  {
+    "id": "rclone",
+    "name": "rclone",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "rclone [sync|copy|mount] <remote:path> <local:path>",
+    "description": "Syncs files and directories to Google Drive, Dropbox, S3, Nextcloud, and SFTP.",
+    "example": "rclone copy ~/docs gdrive:Documents",
+    "exampleOutput": "[*] Transferring: report.pdf 100% 2.4MB/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "cloud",
+      "storage",
+      "sync",
+      "backup"
+    ]
+  },
+  {
+    "id": "croc",
+    "name": "croc",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "croc send <file> / croc <code-phrase>",
+    "description": "Easily and securely sends files between any two computers using relay tunnels.",
+    "example": "croc send backup.tar.gz",
+    "exampleOutput": "Sending 'backup.tar.gz' (42 MB)\nCode phrase: 4892-orange-galaxy\nOn the other computer run:\n  croc 4892-orange-galaxy",
+    "dangerLevel": "safe",
+    "tags": [
+      "transfer",
+      "file",
+      "p2p",
+      "secure"
+    ]
+  },
+  {
+    "id": "wormhole",
+    "name": "wormhole (magic-wormhole)",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "wormhole send <file>",
+    "description": "Securely transfers files and cryptographic tokens between CLI terminals.",
+    "example": "wormhole send file.txt",
+    "exampleOutput": "Sending 120 B file\nWormhole code: 7-guitarist-revenge",
+    "dangerLevel": "safe",
+    "tags": [
+      "transfer",
+      "security",
+      "wormhole"
+    ]
+  },
+  {
+    "id": "adb",
+    "name": "adb (android debug bridge)",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "adb devices / adb shell [cmd]",
+    "description": "Communicates with connected Android devices over USB or Wireless Debugging (pair/connect).",
+    "example": "adb devices",
+    "exampleOutput": "List of devices attached\n127.0.0.1:5555    device",
+    "dangerLevel": "safe",
+    "tags": [
+      "adb",
+      "android",
+      "debug",
+      "wireless"
+    ]
+  },
+  {
+    "id": "fastboot",
+    "name": "fastboot",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "fastboot devices / fastboot flash <partition> <img_file>",
+    "description": "Low-level Android bootloader interface for device flashing.",
+    "example": "fastboot devices",
+    "exampleOutput": "9A241F    fastboot",
+    "dangerLevel": "warning",
+    "tags": [
+      "fastboot",
+      "android",
+      "flash",
+      "bootloader"
+    ]
+  },
+  {
+    "id": "vncserver",
+    "name": "vncserver",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "vncserver [:display] [-geometry 1920x1080]",
+    "description": "Starts a TigerVNC X11 graphical desktop server session for GUI access in Termux.",
+    "example": "vncserver :1 -geometry 1280x720",
+    "exampleOutput": "New 'X' desktop is localhost:1\nStarting applications specified in ~/.vnc/xstartup\nLog file is ~/.vnc/localhost:1.log",
+    "dangerLevel": "safe",
+    "tags": [
+      "vnc",
+      "gui",
+      "x11",
+      "desktop"
+    ]
+  },
+  {
+    "id": "aircrack-ng",
+    "name": "aircrack-ng",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "aircrack-ng [-w wordlist] <capture.cap>",
+    "description": "802.11 WEP and WPA/WPA2-PSK key cracking program.",
+    "example": "aircrack-ng capture.cap",
+    "exampleOutput": "KEY FOUND! [ secretpass123 ]\nMaster Key: A1 B2 C3 D4...",
+    "dangerLevel": "warning",
+    "tags": [
+      "wifi",
+      "security",
+      "aircrack",
+      "audit"
+    ]
+  },
+  {
+    "id": "masscan",
+    "name": "masscan",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "masscan -p80,443 <subnet> --rate=1000",
+    "description": "Fastest Internet port scanner capable of scanning entire ranges in seconds.",
+    "example": "masscan -p80 192.168.1.0/24 --rate=100",
+    "exampleOutput": "Discovered open port 80/tcp on 192.168.1.1\nDiscovered open port 80/tcp on 192.168.1.50",
+    "dangerLevel": "warning",
+    "tags": [
+      "network",
+      "scan",
+      "masscan",
+      "ports"
+    ]
+  },
+  {
+    "id": "sublist3r",
+    "name": "sublist3r",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "sublist3r -d <domain>",
+    "description": "Subdomains enumeration tool for penetration testers using OSINT engines.",
+    "example": "sublist3r -d example.com",
+    "exampleOutput": "[-] Searching Google...\n[-] Searching VirusTotal...\n[+] Total Unique Subdomains Found: 4\napi.example.com\nmail.example.com",
+    "dangerLevel": "safe",
+    "tags": [
+      "osint",
+      "subdomains",
+      "recon",
+      "security"
+    ]
+  },
+  {
+    "id": "theHarvester",
+    "name": "theHarvester",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "theHarvester -d <domain> -b google,duckduckgo",
+    "description": "Gathers emails, subdomains, hosts, and employee names from open source search engines.",
+    "example": "theHarvester -d company.com -b google",
+    "exampleOutput": "[*] Harvesting emails from google...\nadmin@company.com\nhr@company.com",
+    "dangerLevel": "safe",
+    "tags": [
+      "osint",
+      "recon",
+      "security",
+      "emails"
+    ]
+  },
+  {
+    "id": "wpscan",
+    "name": "wpscan",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "wpscan --url <website_url> --enumerate vp,vt",
+    "description": "Black box WordPress vulnerability scanner for vulnerable plugins and themes.",
+    "example": "wpscan --url https://blog.example.com",
+    "exampleOutput": "[+] WordPress version 6.4.3 identified\n[!] 2 vulnerabilities found in contact-form plugin",
+    "dangerLevel": "warning",
+    "tags": [
+      "wordpress",
+      "security",
+      "vulnerability",
+      "scanner"
+    ]
+  },
+  {
+    "id": "dnsrecon",
+    "name": "dnsrecon",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "dnsrecon -d <domain>",
+    "description": "Comprehensive DNS enumeration tool checking zone transfers, SPF, and SRV records.",
+    "example": "dnsrecon -d example.com",
+    "exampleOutput": "[*] Performing General Enumeration against: example.com\n[+] A example.com 93.184.216.34\n[+] NS a.iana-servers.net",
+    "dangerLevel": "safe",
+    "tags": [
+      "dns",
+      "recon",
+      "security"
+    ]
+  },
+  {
+    "id": "lynis",
+    "name": "lynis",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "lynis audit system",
+    "description": "Battle-tested security auditing and system hardening tool for UNIX systems.",
+    "example": "lynis audit system",
+    "exampleOutput": "[+] Hardening index : 78 [##############      ]\n[+] Tests performed : 240\n[+] Plugins enabled : 0",
+    "dangerLevel": "safe",
+    "tags": [
+      "audit",
+      "hardening",
+      "security",
+      "lynis"
+    ]
+  },
+  {
+    "id": "gdb",
+    "name": "gdb (debugger)",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "gdb <binary_file>",
+    "description": "GNU Project Debugger for inspecting memory, registers, and backtraces.",
+    "example": "gdb ./app -ex run",
+    "exampleOutput": "Program received signal SIGSEGV, Segmentation fault.\n0x0000005555550780 in main ()",
+    "dangerLevel": "safe",
+    "tags": [
+      "gdb",
+      "debugger",
+      "c",
+      "assembly"
+    ]
+  },
+  {
+    "id": "valgrind",
+    "name": "valgrind",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "valgrind --leak-check=full ./<binary>",
+    "description": "Instrumentation framework for dynamic analysis of memory leaks and memory bugs.",
+    "example": "valgrind ./app",
+    "exampleOutput": "==12340== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n==12340== All heap blocks were freed -- no leaks are possible",
+    "dangerLevel": "safe",
+    "tags": [
+      "memory",
+      "valgrind",
+      "c",
+      "debug"
+    ]
+  },
+  {
+    "id": "objdump",
+    "name": "objdump",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "objdump -d <binary_file>",
+    "description": "Displays disassembly and assembly instructions of executable binaries.",
+    "example": "objdump -d app | head -n 8",
+    "exampleOutput": "0000000000000720 <main>:\n 720:  d10043ff        sub     sp, sp, #0x10\n 724:  52800000        mov     w0, #0x0\n 728:  910043ff        add     sp, sp, #0x10\n 72c:  d65f03c0        ret",
+    "dangerLevel": "safe",
+    "tags": [
+      "assembly",
+      "disassembly",
+      "arm64",
+      "reverse"
+    ]
+  },
+  {
+    "id": "ldd",
+    "name": "ldd",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "ldd <binary_path>",
+    "description": "Prints the shared libraries and dependencies required by an ELF executable.",
+    "example": "ldd /bin/bash",
+    "exampleOutput": "libc.so => /system/lib64/libc.so (0x0000007b8a)\nlibdl.so => /system/lib64/libdl.so (0x0000007b8b)",
+    "dangerLevel": "safe",
+    "tags": [
+      "shared-library",
+      "elf",
+      "dependencies"
+    ]
+  },
+  {
+    "id": "termux-audio-info",
+    "name": "termux-audio-info",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-audio-info",
+    "description": "Returns audio devices, sample rates, and active output routing in JSON.",
+    "example": "termux-audio-info",
+    "exampleOutput": "{\n  \"bluetooth_a2dp_on\": true,\n  \"music_active\": true,\n  \"speakerphone_on\": false\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "bluetooth",
+      "api",
+      "termux"
+    ]
+  },
+  {
+    "id": "termux-contact-list",
+    "name": "termux-contact-list",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-contact-list",
+    "description": "Reads the Android contacts list database and formats records in JSON.",
+    "example": "termux-contact-list | head -n 8",
+    "exampleOutput": "[\n  {\n    \"name\": \"Alice Dev\",\n    \"number\": \"+15554321098\"\n  }\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "contacts",
+      "addressbook",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-call-log",
+    "name": "termux-call-log",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-call-log [-l limit]",
+    "description": "Queries recent telephone incoming and outgoing call log records.",
+    "example": "termux-call-log -l 1",
+    "exampleOutput": "[{\"name\":\"Bob\",\"number\":\"+1555888999\",\"type\":\"INCOMING\",\"duration\":\"42s\"}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "telephony",
+      "calls",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-keystore",
+    "name": "termux-keystore",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-keystore list / termux-keystore get <alias>",
+    "description": "Integrates with Android Hardware Keystore (TEE) to store and sign keys.",
+    "example": "termux-keystore list",
+    "exampleOutput": "[\n  \"my-signing-key\"\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "keystore",
+      "tee",
+      "crypto",
+      "hardware",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-infrared-frequencies",
+    "name": "termux-infrared-frequencies",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-infrared-frequencies",
+    "description": "Returns supported carrier frequencies of the IR blaster hardware.",
+    "example": "termux-infrared-frequencies",
+    "exampleOutput": "[\n  {\"min\": 30000, \"max\": 60000}\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "ir",
+      "infrared",
+      "hardware",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-media-scan",
+    "name": "termux-media-scan",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-media-scan <file_path>",
+    "description": "Forces the Android MediaScanner service to index newly downloaded media.",
+    "example": "termux-media-scan ~/storage/shared/DCIM/pic.jpg",
+    "exampleOutput": "[+] File indexed in Android Gallery.",
+    "dangerLevel": "safe",
+    "tags": [
+      "media",
+      "android",
+      "gallery",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-microphone-record",
+    "name": "termux-microphone-record",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-microphone-record [-d duration_sec] [-f output.m4a]",
+    "description": "Records high-fidelity audio from device microphone to file.",
+    "example": "termux-microphone-record -d 5 -f voice.m4a",
+    "exampleOutput": "[+] Recorded 5 seconds to voice.m4a",
+    "dangerLevel": "safe",
+    "tags": [
+      "microphone",
+      "audio",
+      "record",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-storage-get",
+    "name": "termux-storage-get",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-storage-get <output_file>",
+    "description": "Prompts native Android Storage Access Framework file picker UI.",
+    "example": "termux-storage-get ~/imported_keys.pem",
+    "exampleOutput": "[+] Selected file saved to ~/imported_keys.pem",
+    "dangerLevel": "safe",
+    "tags": [
+      "storage",
+      "saf",
+      "filepicker",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-telephony-cellinfo",
+    "name": "termux-telephony-cellinfo",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-telephony-cellinfo",
+    "description": "Retrieves observed cell tower IDs, MNC/MCC, and dBm signal strength.",
+    "example": "termux-telephony-cellinfo",
+    "exampleOutput": "[\n  {\n    \"type\": \"NR_SA\",\n    \"registered\": true,\n    \"mcc\": 310,\n    \"mnc\": 260,\n    \"dbm\": -84\n  }\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "cellular",
+      "5g",
+      "tower",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-job-scheduler",
+    "name": "termux-job-scheduler",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-job-scheduler -s <script_path> [--period-ms ms]",
+    "description": "Schedules persistent recurring Android WorkManager background tasks even across device restarts.",
+    "example": "termux-job-scheduler -s ~/backup.sh --period-ms 3600000 --charging true",
+    "exampleOutput": "[+] Job 1 scheduled with Android JobScheduler.",
+    "dangerLevel": "safe",
+    "tags": [
+      "scheduler",
+      "workmanager",
+      "background",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-job-scheduler-cancel",
+    "name": "termux-job-scheduler --cancel",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-job-scheduler --cancel <job_id>",
+    "description": "Cancels a scheduled background WorkManager job by numerical job ID.",
+    "example": "termux-job-scheduler --cancel 1",
+    "exampleOutput": "[+] Job 1 canceled.",
+    "dangerLevel": "safe",
+    "tags": [
+      "scheduler",
+      "cancel",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-media-player-play",
+    "name": "termux-media-player play",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-media-player play <file_path>",
+    "description": "Plays audio media files in the background through the Android system media player.",
+    "example": "termux-media-player play ~/music/alert.mp3",
+    "exampleOutput": "[+] Playing alert.mp3 via MediaPlayer service.",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "player",
+      "music",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-media-player-pause",
+    "name": "termux-media-player pause",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-media-player pause",
+    "description": "Pauses active background audio playback in the Termux media player service.",
+    "example": "termux-media-player pause",
+    "exampleOutput": "[+] MediaPlayer paused.",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "player",
+      "pause",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-media-player-stop",
+    "name": "termux-media-player stop",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-media-player stop",
+    "description": "Stops audio playback and releases the hardware media audio session.",
+    "example": "termux-media-player stop",
+    "exampleOutput": "[+] MediaPlayer stopped.",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "player",
+      "stop",
+      "api"
+    ]
+  },
+  {
+    "id": "gzip",
+    "name": "gzip",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "gzip [-d -k -9] <file>",
+    "description": "Compresses or decompresses files using the Lempel-Ziv coding (LZ77).",
+    "example": "gzip -k data.sql",
+    "exampleOutput": "$ ls data.sql.gz\ndata.sql.gz (compressed by 78%)",
+    "dangerLevel": "safe",
+    "tags": [
+      "compression",
+      "gzip",
+      "archive"
+    ]
+  },
+  {
+    "id": "gunzip",
+    "name": "gunzip",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "gunzip <file.gz>",
+    "description": "Decompresses gzip archive files back to their uncompressed format.",
+    "example": "gunzip data.sql.gz",
+    "exampleOutput": "$ ls data.sql\ndata.sql",
+    "dangerLevel": "safe",
+    "tags": [
+      "compression",
+      "gunzip",
+      "extract"
+    ]
+  },
+  {
+    "id": "zstd",
+    "name": "zstd",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "zstd [-d -T0 -19] <file>",
+    "description": "Ultra-fast lossless compression algorithm developed by Meta with high compression ratios.",
+    "example": "zstd -T0 large_dump.db",
+    "exampleOutput": "large_dump.db : 31.4%   (1.24 GiB => 390 MiB, large_dump.db.zst)",
+    "dangerLevel": "safe",
+    "tags": [
+      "zstd",
+      "compression",
+      "fast",
+      "modern"
+    ]
+  },
+  {
+    "id": "7z",
+    "name": "7z",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "7z a <archive.7z> <files> / 7z x <archive.7z>",
+    "description": "High-compression file archiver supporting 7z, ZIP, GZIP, BZIP2 and TAR.",
+    "example": "7z a -t7z -mx=9 archive.7z ./src",
+    "exampleOutput": "Everything is Ok\nCompressed: 42 files, 12.4 MB -> 2.1 MB",
+    "dangerLevel": "safe",
+    "tags": [
+      "7z",
+      "archive",
+      "compression"
+    ]
+  },
+  {
+    "id": "curlie",
+    "name": "curlie",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "curlie [GET|POST] <url>",
+    "description": "The power of curl combined with the ease of HTTPie's human-friendly syntax and colored output.",
+    "example": "curlie https://httpbin.org/json",
+    "exampleOutput": "HTTP/2 200 OK\n{\n  \"slideshow\": {\n    \"author\": \"Yours Truly\",\n    \"title\": \"Sample Slide Show\"\n  }\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "curl",
+      "httpie",
+      "curlie",
+      "api",
+      "rest"
+    ]
+  },
+  {
+    "id": "wrk",
+    "name": "wrk",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "wrk -t4 -c100 -d10s <url>",
+    "description": "Modern HTTP benchmarking and load testing tool capable of generating massive concurrent load.",
+    "example": "wrk -t2 -c50 -d5s http://localhost:8080/",
+    "exampleOutput": "Running 5s test @ http://localhost:8080/\n  2 threads and 50 connections\n  Requests/sec:  14280.12\n  Transfer/sec:      2.14MB",
+    "dangerLevel": "safe",
+    "tags": [
+      "benchmark",
+      "http",
+      "loadtest",
+      "performance"
+    ]
+  },
+  {
+    "id": "redis-cli",
+    "name": "redis-cli",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "redis-cli [-h host -p port] [cmd]",
+    "description": "Command-line interface to execute commands and interact with Redis server instances.",
+    "example": "redis-cli ping",
+    "exampleOutput": "PONG",
+    "dangerLevel": "safe",
+    "tags": [
+      "redis",
+      "database",
+      "cache",
+      "cli"
+    ]
+  },
+  {
+    "id": "lua",
+    "name": "lua",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "lua [script.lua]",
+    "description": "Powerful, efficient, lightweight, embeddable scripting language interpreter.",
+    "example": "lua -e 'print(\"Lua \" .. _VERSION)'",
+    "exampleOutput": "Lua Lua 5.4",
+    "dangerLevel": "safe",
+    "tags": [
+      "lua",
+      "scripting",
+      "development"
+    ]
+  },
+  {
+    "id": "php",
+    "name": "php",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "php [-S localhost:8000] [script.php]",
+    "description": "PHP CLI interpreter and built-in local development web server engine.",
+    "example": "php -v",
+    "exampleOutput": "PHP 8.3.6 (cli) (built: Apr 14 2024 18:20:00) (NTS)\nZend Engine v4.3.6",
+    "dangerLevel": "safe",
+    "tags": [
+      "php",
+      "server",
+      "web",
+      "development"
+    ]
+  },
+  {
+    "id": "ruby",
+    "name": "ruby",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "ruby [script.rb]",
+    "description": "Dynamic, open source programming language with a focus on simplicity and productivity.",
+    "example": "ruby -e 'puts \"Ruby on Termux: #{RUBY_VERSION}\"'",
+    "exampleOutput": "Ruby on Termux: 3.3.0",
+    "dangerLevel": "safe",
+    "tags": [
+      "ruby",
+      "scripting",
+      "development"
+    ]
+  },
+  {
+    "id": "perl",
+    "name": "perl",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "perl [-e 'code'] [script.pl]",
+    "description": "Highly capable, feature-rich programming language especially powerful for text munging and regex.",
+    "example": "perl -v | head -n 2",
+    "exampleOutput": "This is perl 5, version 38, subversion 2 (v5.38.2) built for aarch64-linux",
+    "dangerLevel": "safe",
+    "tags": [
+      "perl",
+      "scripting",
+      "regex"
+    ]
+  },
+  {
+    "id": "helix",
+    "name": "hx (helix editor)",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "hx <filename>",
+    "description": "Post-modern modal text editor written in Rust with built-in Language Server Protocol (LSP) and Tree-sitter.",
+    "example": "hx src/main.rs",
+    "exampleOutput": "Helix 24.03 [Rust LSP: ready]",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "helix",
+      "modal",
+      "rust",
+      "lsp"
+    ]
+  },
+  {
+    "id": "zellij",
+    "name": "zellij",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "zellij [options]",
+    "description": "Modern terminal workspace and multiplexer with built-in layouts, tabs, plugins, and status bar.",
+    "example": "zellij",
+    "exampleOutput": "[ Zellij: Session default | 3 Panes Active ]",
+    "dangerLevel": "safe",
+    "tags": [
+      "multiplexer",
+      "zellij",
+      "panes",
+      "rust"
+    ]
+  },
+  {
+    "id": "termux-clipboard-watch",
+    "name": "termux-clipboard-set (pipe)",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "cat <file> | termux-clipboard-set",
+    "description": "Pipes arbitrary terminal command output or text directly into the Android system clipboard.",
+    "example": "cat ~/.ssh/id_ed25519.pub | termux-clipboard-set",
+    "exampleOutput": "[+] SSH Public Key copied to Android clipboard.",
+    "dangerLevel": "safe",
+    "tags": [
+      "clipboard",
+      "pipe",
+      "ssh",
+      "api"
+    ]
+  },
+  {
+    "id": "chkrootkit",
+    "name": "chkrootkit",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "chkrootkit",
+    "description": "Locally checks for signs of rootkits, trojans, and suspicious hidden processes.",
+    "example": "chkrootkit",
+    "exampleOutput": "ROOTDIR is `/'\nChecking `aliens'... not found\nChecking `bindshell'... not found\nChecking `sniffer'... not found",
+    "dangerLevel": "safe",
+    "tags": [
+      "security",
+      "rootkit",
+      "scanner",
+      "audit"
+    ]
+  },
+  {
+    "id": "medusa",
+    "name": "medusa",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "medusa -h <host> -u <user> -P <passwords.txt> -M <module>",
+    "description": "Speedy, parallel, modular login brute-forcer supporting SSH, FTP, HTTP, and Telnet.",
+    "example": "medusa -h 192.168.1.100 -u root -P wordlist.txt -M ssh",
+    "exampleOutput": "[*] Medusa v2.2 [http://www.foofus.net]\n[+] ACCOUNT FOUND: [ssh] Host: 192.168.1.100 User: root Password: toor",
+    "dangerLevel": "warning",
+    "tags": [
+      "security",
+      "bruteforce",
+      "medusa",
+      "audit"
+    ]
+  }
+]

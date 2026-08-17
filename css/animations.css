@@ -1,0 +1,214 @@
+/* ==========================================================================
+   ANIMATIONS.CSS
+   Responsibilities: GPU-accelerated keyframes, cursor blinking,
+   fade/slide reveals, typing transitions, accent trace lines,
+   mobile touch feedback, and reduced motion safety.
+   ========================================================================== */
+
+/* Hardware accelerated transform hints */
+.gpu-accel {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Terminal & Boot Blinking Block Cursor */
+.terminal-cursor,
+.boot-cursor,
+.live-stream-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  background-color: var(--accent);
+  vertical-align: -0.15em;
+  margin-left: 2px;
+  animation: cursor-block-blink 0.9s steps(1, start) infinite;
+}
+
+.boot-cursor {
+  background-color: var(--danger-safe);
+}
+
+@keyframes cursor-block-blink {
+  0%, 49.9% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Pulse animation for active node */
+@keyframes accent-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 107, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+  }
+}
+
+/* Section Top Accent Trace Line */
+.accent-trace-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #333333;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.accent-trace-line.is-drawn {
+  transform: scaleX(1);
+}
+
+/* Touch Feedback (Scale-down ~0.98 on active touch) */
+.touch-interactive {
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.4, 1), background-color 0.15s ease, border-color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-interactive.is-touched,
+.touch-interactive:active {
+  transform: scale(0.98) translateZ(0);
+}
+
+/* Copy Button Icon Morph Transition */
+.cmd-act-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.cmd-act-btn .btn-icon-swap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cmd-act-btn.is-success {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.cmd-act-btn.is-success .btn-icon-swap {
+  transform: scale(1.02);
+}
+
+/* Setup Step Card Completion Line Animation */
+.step-completion-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0%;
+  background: #ffffff;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.setup-step-card.is-completed .step-completion-line {
+  width: 100%;
+}
+
+/* Command Card Accordion Drawer Transition */
+.cmd-preview-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  border-top: 1px dashed transparent;
+}
+
+.cmd-preview-accordion.is-open {
+  grid-template-rows: 1fr;
+  border-top-color: var(--border);
+}
+
+.cmd-preview-accordion-inner {
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease 0.05s, transform 0.25s ease 0.05s;
+}
+
+.cmd-preview-accordion.is-open .cmd-preview-accordion-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GitHub Telemetry Strip */
+.github-telemetry-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 10px 12px 14px 12px;
+  padding: 10px 8px;
+  background: #080808;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* Smooth Progress Bar Width */
+.setup-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--danger-safe) 100%);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scramble Heading Placeholder Style */
+.scramble-target {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .terminal-cursor,
+  .boot-cursor,
+  .live-stream-cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+

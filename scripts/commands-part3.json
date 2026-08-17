@@ -1,0 +1,876 @@
+[
+  {
+    "id": "git-clone",
+    "name": "git clone",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git clone <repository_url>",
+    "description": "Clones an external Git repository to local disk.",
+    "example": "git clone https://github.com/termux/termux-app",
+    "exampleOutput": "Cloning into 'termux-app'...\nResolving deltas: 100% (1420/1420), done.",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "clone",
+      "vcs"
+    ]
+  },
+  {
+    "id": "git-status",
+    "name": "git status",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git status",
+    "description": "Shows working tree status, staged and unstaged files.",
+    "example": "git status",
+    "exampleOutput": "On branch main\nChanges not staged for commit:\n  modified: src/index.ts",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "status",
+      "vcs"
+    ]
+  },
+  {
+    "id": "git-add",
+    "name": "git add",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git add <files|--all>",
+    "description": "Adds file contents to the staging area for next commit.",
+    "example": "git add .",
+    "exampleOutput": "$ git status\nChanges to be committed: modified: src/index.ts",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "add",
+      "stage"
+    ]
+  },
+  {
+    "id": "git-commit",
+    "name": "git commit",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "git commit -m 'commit message'",
+    "description": "Records changes to the Git repository history.",
+    "example": "git commit -m 'feat: add dark theme'",
+    "exampleOutput": "[main a1b2c3d] feat: add dark theme\n 2 files changed, 48 insertions(+)",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "commit",
+      "vcs"
+    ]
+  },
+  {
+    "id": "git-push",
+    "name": "git push",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git push [origin] [branch]",
+    "description": "Updates remote refs along with associated objects.",
+    "example": "git push origin main",
+    "exampleOutput": "Enumerating objects: 5, done.\nTo github.com:user/repo.git\n   e4f2a1..a1b2c3 main -> main",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "push",
+      "remote"
+    ]
+  },
+  {
+    "id": "git-pull",
+    "name": "git pull",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git pull",
+    "description": "Fetches from and integrates with another repository or local branch.",
+    "example": "git pull origin main",
+    "exampleOutput": "Updating e4f2a1..a1b2c3\nFast-forward\n README.md | 2 +-",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "pull",
+      "sync"
+    ]
+  },
+  {
+    "id": "git-branch",
+    "name": "git branch",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git branch [-a | -d branch_name]",
+    "description": "Lists, creates, or deletes local Git branches.",
+    "example": "git branch -a",
+    "exampleOutput": "* main\n  feature-mobile\n  remotes/origin/main",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "branch"
+    ]
+  },
+  {
+    "id": "git-checkout",
+    "name": "git checkout / switch",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git checkout -b <branch_name>",
+    "description": "Switches branches or restores working tree files.",
+    "example": "git checkout -b fix-nav",
+    "exampleOutput": "Switched to a new branch 'fix-nav'",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "checkout",
+      "branch"
+    ]
+  },
+  {
+    "id": "git-log",
+    "name": "git log",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git log --oneline -n <count>",
+    "description": "Shows commit logs history in concise single-line format.",
+    "example": "git log --oneline -n 3",
+    "exampleOutput": "a1b2c3d feat: add dark theme\n9e8d7c6 fix: mobile viewport issue\n1f2e3d4 Initial commit",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "log",
+      "history"
+    ]
+  },
+  {
+    "id": "git-diff",
+    "name": "git diff",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "git diff [commit]",
+    "description": "Shows changes between commits, commit and working tree.",
+    "example": "git diff",
+    "exampleOutput": "diff --git a/app.js b/app.js\n-const PORT = 3000;\n+const PORT = 8080;",
+    "dangerLevel": "safe",
+    "tags": [
+      "git",
+      "diff"
+    ]
+  },
+  {
+    "id": "nano",
+    "name": "nano",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "nano <filename>",
+    "description": "Beginner-friendly lightweight CLI text editor with on-screen shortcuts.",
+    "example": "nano server.js",
+    "exampleOutput": "[ File: server.js   Modified   Line 1/24 ]\n^G Get Help  ^O WriteOut  ^W Where Is  ^X Exit",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "nano",
+      "text"
+    ]
+  },
+  {
+    "id": "vim",
+    "name": "vim",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "vim <filename>",
+    "description": "Ubiquitous modal terminal text editor with high efficiency.",
+    "example": "vim main.c",
+    "exampleOutput": "\"main.c\" [New] 0L, 0B\n-- INSERT --",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "vim",
+      "modal"
+    ]
+  },
+  {
+    "id": "nvim",
+    "name": "nvim (neovim)",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "nvim <filename>",
+    "description": "Modern, extensible Vim fork featuring Lua configuration and LSP support.",
+    "example": "nvim src/App.tsx",
+    "exampleOutput": "[NVIM v0.10.0] LSP attached: typescript-language-server",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "neovim",
+      "lsp",
+      "lua"
+    ]
+  },
+  {
+    "id": "micro",
+    "name": "micro",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "micro <filename>",
+    "description": "Modern terminal editor with intuitive Ctrl+C / Ctrl+V keybindings and mouse support.",
+    "example": "micro script.py",
+    "exampleOutput": "micro: script.py (1/12) UTF-8 Python",
+    "dangerLevel": "safe",
+    "tags": [
+      "editor",
+      "micro",
+      "mouse"
+    ]
+  },
+  {
+    "id": "tmux",
+    "name": "tmux",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "tmux [new -s session_name | attach -t name]",
+    "description": "Terminal multiplexer enabling split panes and detached persistent sessions.",
+    "example": "tmux new -s dev",
+    "exampleOutput": "[0] 0:bash*                                   \"termux\" 10:20 17-Aug",
+    "dangerLevel": "safe",
+    "tags": [
+      "tmux",
+      "multiplexer",
+      "panes",
+      "session"
+    ]
+  },
+  {
+    "id": "python",
+    "name": "python",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "python [script.py]",
+    "description": "Interprets and runs Python 3 programming scripts or opens interactive REPL.",
+    "example": "python -c 'import math; print(math.pi)'",
+    "exampleOutput": "3.141592653589793",
+    "dangerLevel": "safe",
+    "tags": [
+      "python",
+      "interpreter",
+      "repl"
+    ]
+  },
+  {
+    "id": "node",
+    "name": "node",
+    "category": "development",
+    "tier": "newbie",
+    "syntax": "node [script.js]",
+    "description": "Executes JavaScript on the V8 engine in the terminal environment.",
+    "example": "node -e 'console.log(process.version)'",
+    "exampleOutput": "v20.12.2",
+    "dangerLevel": "safe",
+    "tags": [
+      "nodejs",
+      "javascript",
+      "runtime"
+    ]
+  },
+  {
+    "id": "bun",
+    "name": "bun",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "bun run <script.ts>",
+    "description": "All-in-one fast JavaScript/TypeScript runtime, bundler, and package manager.",
+    "example": "bun --version",
+    "exampleOutput": "1.1.8",
+    "dangerLevel": "safe",
+    "tags": [
+      "bun",
+      "typescript",
+      "runtime"
+    ]
+  },
+  {
+    "id": "rustc",
+    "name": "rustc",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "rustc <file.rs> -o <output_binary>",
+    "description": "Compiles Rust source files into native machine binaries.",
+    "example": "rustc hello.rs && ./hello",
+    "exampleOutput": "Hello from Rust on ARM64!",
+    "dangerLevel": "safe",
+    "tags": [
+      "rust",
+      "compiler",
+      "systems"
+    ]
+  },
+  {
+    "id": "cargo-run",
+    "name": "cargo run",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "cargo run [--release]",
+    "description": "Builds and immediately executes a Rust cargo project.",
+    "example": "cargo run",
+    "exampleOutput": "   Compiling my_app v0.1.0\n    Finished dev target(s)\n     Running `target/debug/my_app`",
+    "dangerLevel": "safe",
+    "tags": [
+      "rust",
+      "cargo",
+      "build"
+    ]
+  },
+  {
+    "id": "gcc",
+    "name": "gcc / clang",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "clang <file.c> -o <binary>",
+    "description": "Compiles C source code with optimizing LLVM backend.",
+    "example": "clang main.c -O2 -o app && ./app",
+    "exampleOutput": "Success: exit code 0",
+    "dangerLevel": "safe",
+    "tags": [
+      "c",
+      "compiler",
+      "clang",
+      "llvm"
+    ]
+  },
+  {
+    "id": "gplusplus",
+    "name": "g++ / clang++",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "clang++ <file.cpp> -std=c++20 -o <binary>",
+    "description": "Compiles modern C++20/C++23 source files.",
+    "example": "clang++ main.cpp -std=c++20 -o test",
+    "exampleOutput": "Compiled test binary (42 KB).",
+    "dangerLevel": "safe",
+    "tags": [
+      "cpp",
+      "c++",
+      "compiler"
+    ]
+  },
+  {
+    "id": "make",
+    "name": "make",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "make [-j$(nproc)] [target]",
+    "description": "Automates software build targets from a Makefile.",
+    "example": "make -j4",
+    "exampleOutput": "clang -c src/utils.c -o build/utils.o\nclang build/utils.o -o bin/app",
+    "dangerLevel": "safe",
+    "tags": [
+      "make",
+      "build",
+      "automation"
+    ]
+  },
+  {
+    "id": "cmake",
+    "name": "cmake",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "cmake -B build -S . && cmake --build build",
+    "description": "Cross-platform build configuration and Makefile generator.",
+    "example": "cmake -B build",
+    "exampleOutput": "-- Configuring done\n-- Generating done\n-- Build files have been written to: build",
+    "dangerLevel": "safe",
+    "tags": [
+      "cmake",
+      "build",
+      "c++"
+    ]
+  },
+  {
+    "id": "sqlite3",
+    "name": "sqlite3",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "sqlite3 <database.db> [\"SQL_QUERY\"]",
+    "description": "Self-contained serverless SQL database engine shell.",
+    "example": "sqlite3 app.db \"SELECT count(*) FROM users;\"",
+    "exampleOutput": "1240",
+    "dangerLevel": "safe",
+    "tags": [
+      "sqlite",
+      "sql",
+      "database"
+    ]
+  },
+  {
+    "id": "ps",
+    "name": "ps",
+    "category": "process-management",
+    "tier": "newbie",
+    "syntax": "ps [-ef | aux]",
+    "description": "Reports a snapshot of the current active system processes.",
+    "example": "ps",
+    "exampleOutput": "  PID TTY          TIME CMD\n 8420 pts/0    00:00:00 bash\n 8912 pts/0    00:00:00 ps",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "ps",
+      "list"
+    ]
+  },
+  {
+    "id": "top",
+    "name": "top",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "top [-d delay]",
+    "description": "Real-time dynamic display of running process activity and CPU usage.",
+    "example": "top -b -n 1 | head -n 8",
+    "exampleOutput": "Tasks: 12 total, 1 running\n%Cpu(s):  4.2 us,  1.1 sy, 94.7 id\n  PID USER   RES %CPU %MEM COMMAND\n 8420 u0_a24  14M  3.2  0.2 python",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "top",
+      "cpu",
+      "ram"
+    ]
+  },
+  {
+    "id": "htop",
+    "name": "htop",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "htop",
+    "description": "Interactive colored visual process viewer with CPU/RAM bar gauges.",
+    "example": "htop",
+    "exampleOutput": "1 [|||||||||         45.0%]  Tasks: 18, 1 thr\nMem[|||||||| 1.84G/7.42G]   Uptime: 4 days",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "htop",
+      "monitor",
+      "cpu"
+    ]
+  },
+  {
+    "id": "btop",
+    "name": "btop",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "btop",
+    "description": "High-aesthetic modern resource monitor with live graphs and disk I/O.",
+    "example": "btop",
+    "exampleOutput": "╭─ CPU ──────────────────────────────────────╮\n│ 3.2 GHz  [■■■■■■■■■■■□□□□□□□□□] 54%        │",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "btop",
+      "monitor",
+      "dashboard"
+    ]
+  },
+  {
+    "id": "kill",
+    "name": "kill",
+    "category": "process-management",
+    "tier": "newbie",
+    "syntax": "kill [-9] <PID>",
+    "description": "Sends termination signal to a process by numerical PID.",
+    "example": "kill -15 8920",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "warning",
+    "tags": [
+      "process",
+      "kill",
+      "signal"
+    ]
+  },
+  {
+    "id": "killall",
+    "name": "killall",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "killall [-9] <process_name>",
+    "description": "Terminates all processes matching the given binary name.",
+    "example": "killall node",
+    "exampleOutput": "node(8412): Terminated\nnode(8413): Terminated",
+    "dangerLevel": "warning",
+    "tags": [
+      "process",
+      "kill",
+      "batch"
+    ]
+  },
+  {
+    "id": "pkill",
+    "name": "pkill",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "pkill -f <pattern>",
+    "description": "Signals processes based on name or full command line regex.",
+    "example": "pkill -f 'python app.py'",
+    "exampleOutput": "[+] Signaled matching python process.",
+    "dangerLevel": "warning",
+    "tags": [
+      "process",
+      "pkill",
+      "signal"
+    ]
+  },
+  {
+    "id": "pgrep",
+    "name": "pgrep",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "pgrep [-l -f] <pattern>",
+    "description": "Searches for processes by name and returns matching PIDs.",
+    "example": "pgrep -l python",
+    "exampleOutput": "9120 python\n9142 python",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "pgrep",
+      "lookup"
+    ]
+  },
+  {
+    "id": "nohup",
+    "name": "nohup",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "nohup <command> > log.txt 2>&1 &",
+    "description": "Runs a command immune to hangups (survives terminal exit).",
+    "example": "nohup node server.js &",
+    "exampleOutput": "[1] 10420\nnohup: ignoring input and redirecting stderr to stdout",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "background",
+      "daemon"
+    ]
+  },
+  {
+    "id": "jobs",
+    "name": "jobs",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "jobs [-l]",
+    "description": "Lists background jobs running in the current shell session.",
+    "example": "jobs -l",
+    "exampleOutput": "[1]+ 10420 Running                 nohup node server.js &",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "background",
+      "shell"
+    ]
+  },
+  {
+    "id": "fg",
+    "name": "fg",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "fg [%job_id]",
+    "description": "Brings a background or suspended job into the foreground.",
+    "example": "fg %1",
+    "exampleOutput": "node server.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "foreground",
+      "shell"
+    ]
+  },
+  {
+    "id": "bg",
+    "name": "bg",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "bg [%job_id]",
+    "description": "Resumes a suspended job (Ctrl+Z) in the background.",
+    "example": "bg %1",
+    "exampleOutput": "[1]+ node server.js &",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "background",
+      "resume"
+    ]
+  },
+  {
+    "id": "disown",
+    "name": "disown",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "disown [-h] [%job_id]",
+    "description": "Removes a job from the shell's active job table so closing terminal keeps it running.",
+    "example": "disown -a",
+    "exampleOutput": "[+] All jobs disowned.",
+    "dangerLevel": "safe",
+    "tags": [
+      "jobs",
+      "background",
+      "persist"
+    ]
+  },
+  {
+    "id": "watch",
+    "name": "watch",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "watch [-n seconds] <command>",
+    "description": "Runs a command repeatedly and shows full-screen periodic output.",
+    "example": "watch -n 1 'df -h /data'",
+    "exampleOutput": "Every 1.0s: df -h /data\n/data  256G  182G  74G  72% /data",
+    "dangerLevel": "safe",
+    "tags": [
+      "watch",
+      "monitor",
+      "repeat"
+    ]
+  },
+  {
+    "id": "time",
+    "name": "time",
+    "category": "process-management",
+    "tier": "newbie",
+    "syntax": "time <command>",
+    "description": "Measures the precise execution duration (real, user, sys CPU time).",
+    "example": "time sleep 1",
+    "exampleOutput": "real    0m1.004s\nuser    0m0.001s\nsys     0m0.002s",
+    "dangerLevel": "safe",
+    "tags": [
+      "benchmark",
+      "time",
+      "performance"
+    ]
+  },
+  {
+    "id": "timeout",
+    "name": "timeout",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "timeout <duration> <command>",
+    "description": "Runs a command with a strict time limit and kills it if exceeded.",
+    "example": "timeout 5s ping 8.8.8.8",
+    "exampleOutput": "64 bytes from 8.8.8.8...",
+    "dangerLevel": "safe",
+    "tags": [
+      "timeout",
+      "limit",
+      "safety"
+    ]
+  },
+  {
+    "id": "crontab",
+    "name": "crontab",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "crontab [-e | -l | -r]",
+    "description": "Schedules periodic recurring background cron jobs in Termux.",
+    "example": "crontab -l",
+    "exampleOutput": "0 * * * * ~/scripts/sync_backup.sh > ~/cron.log 2>&1",
+    "dangerLevel": "safe",
+    "tags": [
+      "cron",
+      "schedule",
+      "automation"
+    ]
+  },
+  {
+    "id": "lsof",
+    "name": "lsof",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "lsof -i :<port>",
+    "description": "Lists open files and reveals which process is listening on a port.",
+    "example": "lsof -i :8080",
+    "exampleOutput": "COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME\nnode    10420 user   22u  IPv4 129482      0t0  TCP *:8080 (LISTEN)",
+    "dangerLevel": "safe",
+    "tags": [
+      "ports",
+      "process",
+      "lsof",
+      "debug"
+    ]
+  },
+  {
+    "id": "strace",
+    "name": "strace",
+    "category": "process-management",
+    "tier": "advanced",
+    "syntax": "strace [-c | -e trace=file] <command>",
+    "description": "Traces Linux system calls and kernel signals made by a binary.",
+    "example": "strace -c ls",
+    "exampleOutput": "% time     seconds  usecs/call     calls    errors syscall\n------ ----------- ----------- --------- --------- -------\n 42.10    0.000412          24        17           openat",
+    "dangerLevel": "safe",
+    "tags": [
+      "debug",
+      "syscalls",
+      "strace",
+      "kernel"
+    ]
+  },
+  {
+    "id": "sv-up",
+    "name": "sv up",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv up <service_name>",
+    "description": "Starts a registered runit background daemon service.",
+    "example": "sv up sshd",
+    "exampleOutput": "ok: run: sshd: (pid 11200) 1s",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "daemon",
+      "runit"
+    ]
+  },
+  {
+    "id": "sv-down",
+    "name": "sv down",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv down <service_name>",
+    "description": "Stops an active background daemon service.",
+    "example": "sv down sshd",
+    "exampleOutput": "ok: down: sshd: 0s, normally up",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "stop",
+      "daemon"
+    ]
+  },
+  {
+    "id": "sv-status",
+    "name": "sv status",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv status <service_name>",
+    "description": "Checks whether a service is running, pid, and uptime.",
+    "example": "sv status sshd",
+    "exampleOutput": "run: sshd: (pid 11200) 450s; run: log: (pid 11201) 450s",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "status",
+      "daemon"
+    ]
+  },
+  {
+    "id": "sv-enable",
+    "name": "sv-enable",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv-enable <service_name>",
+    "description": "Enables automatic startup of a service when Termux launches.",
+    "example": "sv-enable tor",
+    "exampleOutput": "[+] Service tor enabled for automatic boot start.",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "enable",
+      "autostart"
+    ]
+  },
+  {
+    "id": "sv-disable",
+    "name": "sv-disable",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "sv-disable <service_name>",
+    "description": "Disables automatic startup of a daemon service.",
+    "example": "sv-disable tor",
+    "exampleOutput": "[+] Service tor disabled from auto-start.",
+    "dangerLevel": "safe",
+    "tags": [
+      "services",
+      "disable"
+    ]
+  },
+  {
+    "id": "sshd",
+    "name": "sshd",
+    "category": "services",
+    "tier": "basic",
+    "syntax": "sshd [-p port]",
+    "description": "Launches the OpenSSH Secure Shell server daemon (default port 8022).",
+    "example": "sshd -p 8022",
+    "exampleOutput": "[+] OpenSSH server listening on port 8022",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "daemon",
+      "server",
+      "remote"
+    ]
+  },
+  {
+    "id": "tor",
+    "name": "tor",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "tor",
+    "description": "Launches the Tor anonymizing SOCKS5 proxy daemon on 127.0.0.1:9050.",
+    "example": "tor",
+    "exampleOutput": "Bootstrapped 100% (done): Done. Tor proxy ready at 127.0.0.1:9050",
+    "dangerLevel": "safe",
+    "tags": [
+      "tor",
+      "privacy",
+      "socks5",
+      "proxy"
+    ]
+  },
+  {
+    "id": "nginx",
+    "name": "nginx",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "nginx [-s stop | -s reload]",
+    "description": "Starts high-performance HTTP web server and reverse proxy daemon.",
+    "example": "nginx",
+    "exampleOutput": "[+] nginx server running on http://127.0.0.1:8080",
+    "dangerLevel": "safe",
+    "tags": [
+      "nginx",
+      "web",
+      "server",
+      "http"
+    ]
+  },
+  {
+    "id": "redis-server",
+    "name": "redis-server",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "redis-server [--daemonize yes]",
+    "description": "In-memory key-value data structure store and cache daemon.",
+    "example": "redis-server --daemonize yes",
+    "exampleOutput": "[+] Redis server started on port 6379",
+    "dangerLevel": "safe",
+    "tags": [
+      "redis",
+      "database",
+      "cache",
+      "server"
+    ]
+  },
+  {
+    "id": "mariadbd",
+    "name": "mariadbd-safe",
+    "category": "services",
+    "tier": "advanced",
+    "syntax": "mariadbd-safe &",
+    "description": "Initializes and launches MariaDB / MySQL relational database engine.",
+    "example": "mariadbd-safe &",
+    "exampleOutput": "[+] MariaDB server ready for connections on port 3306",
+    "dangerLevel": "safe",
+    "tags": [
+      "mysql",
+      "mariadb",
+      "sql",
+      "database"
+    ]
+  }
+]

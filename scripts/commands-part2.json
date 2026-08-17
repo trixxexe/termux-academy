@@ -1,0 +1,1109 @@
+[
+  {
+    "id": "ls",
+    "name": "ls",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "ls [-l -a -h]",
+    "description": "Lists files and directories in current working path.",
+    "example": "ls -la",
+    "exampleOutput": "drwx------  4 u0_a245 u0_a245 4096 Apr 15 10:00 .\n-rw-------  1 u0_a245 u0_a245  220 Apr 15 10:00 .bashrc",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "list",
+      "directory"
+    ]
+  },
+  {
+    "id": "cd",
+    "name": "cd",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "cd [directory_path]",
+    "description": "Changes the current working directory.",
+    "example": "cd ~/storage/shared",
+    "exampleOutput": "$ pwd\n/data/data/com.termux/files/home/storage/shared",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "navigation",
+      "directory"
+    ]
+  },
+  {
+    "id": "pwd",
+    "name": "pwd",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "pwd",
+    "description": "Prints the absolute path of current working directory.",
+    "example": "pwd",
+    "exampleOutput": "/data/data/com.termux/files/home",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "path",
+      "directory"
+    ]
+  },
+  {
+    "id": "mkdir",
+    "name": "mkdir",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "mkdir [-p] <directory_name>",
+    "description": "Creates a new directory or nested directory structure.",
+    "example": "mkdir -p ~/projects/web",
+    "exampleOutput": "$ ls ~/projects\nweb",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "create",
+      "directory"
+    ]
+  },
+  {
+    "id": "rmdir",
+    "name": "rmdir",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "rmdir <directory_name>",
+    "description": "Removes empty directories.",
+    "example": "rmdir old_empty_dir",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "delete",
+      "directory"
+    ]
+  },
+  {
+    "id": "touch",
+    "name": "touch",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "touch <filename>",
+    "description": "Creates an empty file or updates its timestamp.",
+    "example": "touch app.py",
+    "exampleOutput": "$ ls app.py\napp.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "create",
+      "timestamp"
+    ]
+  },
+  {
+    "id": "cp",
+    "name": "cp",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "cp [-r] <source> <destination>",
+    "description": "Copies files or directories recursively.",
+    "example": "cp -r src/ backup/",
+    "exampleOutput": "[+] Copied 14 files.",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "copy"
+    ]
+  },
+  {
+    "id": "mv",
+    "name": "mv",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "mv <source> <destination>",
+    "description": "Moves or renames files and directories.",
+    "example": "mv script.py run.py",
+    "exampleOutput": "$ ls run.py\nrun.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "rename",
+      "move"
+    ]
+  },
+  {
+    "id": "rm",
+    "name": "rm",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "rm [-r -f] <file>",
+    "description": "Deletes files or directories recursively.",
+    "example": "rm -rf build/",
+    "exampleOutput": "$ echo 'Cleaned build/'",
+    "dangerLevel": "warning",
+    "tags": [
+      "file",
+      "delete",
+      "remove"
+    ]
+  },
+  {
+    "id": "cat",
+    "name": "cat",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "cat <file>",
+    "description": "Concatenates and displays file contents in terminal.",
+    "example": "cat /etc/hosts",
+    "exampleOutput": "127.0.0.1 localhost\n::1 localhost",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "read",
+      "view"
+    ]
+  },
+  {
+    "id": "tac",
+    "name": "tac",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tac <file>",
+    "description": "Displays file contents in reverse order (bottom to top).",
+    "example": "tac log.txt",
+    "exampleOutput": "Line 3 (latest)\nLine 2\nLine 1 (oldest)",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "reverse",
+      "read"
+    ]
+  },
+  {
+    "id": "head",
+    "name": "head",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "head [-n count] <file>",
+    "description": "Outputs the first N lines of a file (default 10).",
+    "example": "head -n 2 /etc/resolv.conf",
+    "exampleOutput": "nameserver 8.8.8.8\nnameserver 1.1.1.1",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "preview",
+      "lines"
+    ]
+  },
+  {
+    "id": "tail",
+    "name": "tail",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "tail [-n count -f] <file>",
+    "description": "Outputs the last N lines or follows live appends in real time.",
+    "example": "tail -f server.log",
+    "exampleOutput": "[2026-08-17 10:12:00] GET /api/v1/health 200 OK",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "log",
+      "stream"
+    ]
+  },
+  {
+    "id": "less",
+    "name": "less",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "less <file>",
+    "description": "Interactive terminal pager for viewing long documents.",
+    "example": "less large_dump.sql",
+    "exampleOutput": ":",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "pager",
+      "view"
+    ]
+  },
+  {
+    "id": "grep",
+    "name": "grep",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "grep [-r -i -n] 'pattern' <file>",
+    "description": "Searches for matching regular expression patterns in text.",
+    "example": "grep -rn 'TODO' src/",
+    "exampleOutput": "src/main.py:42:  # TODO: refactor auth logic",
+    "dangerLevel": "safe",
+    "tags": [
+      "search",
+      "regex",
+      "text"
+    ]
+  },
+  {
+    "id": "ripgrep",
+    "name": "rg (ripgrep)",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "rg [pattern] [directory]",
+    "description": "Ultra-fast recursive regex search engine written in Rust.",
+    "example": "rg 'fn handle_request'",
+    "exampleOutput": "src/server.rs:14:pub fn handle_request() {",
+    "dangerLevel": "safe",
+    "tags": [
+      "search",
+      "fast",
+      "rust",
+      "regex"
+    ]
+  },
+  {
+    "id": "find",
+    "name": "find",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "find <path> -name <pattern>",
+    "description": "Searches filesystem hierarchy for files matching criteria.",
+    "example": "find . -name '*.py'",
+    "exampleOutput": "./app.py\n./tests/test_api.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "find",
+      "search",
+      "files"
+    ]
+  },
+  {
+    "id": "fd",
+    "name": "fd",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "fd <pattern> [path]",
+    "description": "Simple, modern, and fast alternative to 'find' written in Rust.",
+    "example": "fd -e js",
+    "exampleOutput": "server.js\nwebpack.config.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "find",
+      "search",
+      "fast",
+      "rust"
+    ]
+  },
+  {
+    "id": "tree",
+    "name": "tree",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tree [-L level] [dir]",
+    "description": "Displays folder directory trees in visual branch format.",
+    "example": "tree -L 2 src",
+    "exampleOutput": "src\n├── components\n│   └── App.js\n└── index.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "tree",
+      "directory",
+      "visual"
+    ]
+  },
+  {
+    "id": "du",
+    "name": "du",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "du -sh [directory]",
+    "description": "Estimates disk usage of files and folders in human units.",
+    "example": "du -sh ~/.termux",
+    "exampleOutput": "12M /data/data/com.termux/files/home/.termux",
+    "dangerLevel": "safe",
+    "tags": [
+      "disk",
+      "size",
+      "storage"
+    ]
+  },
+  {
+    "id": "df",
+    "name": "df",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "df -h",
+    "description": "Displays free and used space across mounted filesystems.",
+    "example": "df -h /data",
+    "exampleOutput": "Filesystem  Size  Used  Avail  Use%  Mounted on\n/data       256G  182G    74G   72%  /data",
+    "dangerLevel": "safe",
+    "tags": [
+      "disk",
+      "storage",
+      "filesystem"
+    ]
+  },
+  {
+    "id": "stat",
+    "name": "stat",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "stat <file>",
+    "description": "Displays detailed inode, permissions, and timestamps of a file.",
+    "example": "stat app.js",
+    "exampleOutput": "  File: app.js\n  Size: 1420  Blocks: 8  IO Block: 4096\nAccess: (0644/-rw-r--r--)",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "inode",
+      "metadata"
+    ]
+  },
+  {
+    "id": "ln",
+    "name": "ln",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "ln -s <target> <symlink>",
+    "description": "Creates symbolic (soft) or hard links to files and folders.",
+    "example": "ln -s /sdcard/Download ~/downloads",
+    "exampleOutput": "$ ls -l ~/downloads\nlrwxrwxrwx 1 user user -> /sdcard/Download",
+    "dangerLevel": "safe",
+    "tags": [
+      "symlink",
+      "link",
+      "filesystem"
+    ]
+  },
+  {
+    "id": "chmod",
+    "name": "chmod",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "chmod <permissions> <file>",
+    "description": "Modifies read, write, and execute permissions on files.",
+    "example": "chmod +x run.sh",
+    "exampleOutput": "$ ls -l run.sh\n-rwxr-xr-x 1 user user run.sh",
+    "dangerLevel": "safe",
+    "tags": [
+      "permissions",
+      "chmod",
+      "security"
+    ]
+  },
+  {
+    "id": "chown",
+    "name": "chown",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "chown <user>:<group> <file>",
+    "description": "Changes ownership of files or directories.",
+    "example": "chown root:root /root/.bashrc",
+    "exampleOutput": "$ echo $?\n0",
+    "dangerLevel": "safe",
+    "tags": [
+      "permissions",
+      "owner",
+      "chown"
+    ]
+  },
+  {
+    "id": "file",
+    "name": "file",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "file <filename>",
+    "description": "Determines file type and MIME encoding from magic bytes.",
+    "example": "file /bin/bash",
+    "exampleOutput": "/bin/bash: ELF 64-bit LSB pie executable, ARM aarch64",
+    "dangerLevel": "safe",
+    "tags": [
+      "file",
+      "magic",
+      "type"
+    ]
+  },
+  {
+    "id": "diff",
+    "name": "diff",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "diff -u <file1> <file2>",
+    "description": "Compares two text files line by line and shows unified diff.",
+    "example": "diff -u old.txt new.txt",
+    "exampleOutput": "--- old.txt\n+++ new.txt\n@@ -1 +1 @@\n-Hello\n+Hello World",
+    "dangerLevel": "safe",
+    "tags": [
+      "diff",
+      "compare",
+      "patch"
+    ]
+  },
+  {
+    "id": "wc",
+    "name": "wc",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "wc [-l -w -c] <file>",
+    "description": "Counts lines, words, and byte length in text streams.",
+    "example": "wc -l script.py",
+    "exampleOutput": "142 script.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "count",
+      "lines"
+    ]
+  },
+  {
+    "id": "sort",
+    "name": "sort",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "sort [-r -n -u] <file>",
+    "description": "Sorts lines of text files alphanumerically or numerically.",
+    "example": "cat names.txt | sort",
+    "exampleOutput": "Alice\nBob\nCharlie",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "sort",
+      "filter"
+    ]
+  },
+  {
+    "id": "uniq",
+    "name": "uniq",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "uniq [-c -d -u]",
+    "description": "Filters out adjacent duplicate lines from sorted streams.",
+    "example": "sort items.txt | uniq -c",
+    "exampleOutput": "   3 Apple\n   1 Banana\n   2 Orange",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "unique",
+      "duplicates"
+    ]
+  },
+  {
+    "id": "cut",
+    "name": "cut",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "cut -d <delimiter> -f <fields>",
+    "description": "Extracts specific columns or fields from structured text.",
+    "example": "cut -d: -f1 /etc/passwd | head -n 3",
+    "exampleOutput": "root\ndaemon\nbin",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "columns",
+      "cut"
+    ]
+  },
+  {
+    "id": "tr",
+    "name": "tr",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "tr <set1> <set2>",
+    "description": "Translates or deletes characters from standard input.",
+    "example": "echo 'termux' | tr 'a-z' 'A-Z'",
+    "exampleOutput": "TERMUX",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "transform",
+      "case"
+    ]
+  },
+  {
+    "id": "sed",
+    "name": "sed",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "sed 's/search/replace/g' <file>",
+    "description": "Stream editor for filtering and transforming text streams.",
+    "example": "sed 's/foo/bar/g' test.txt",
+    "exampleOutput": "Updated line with bar.",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "regex",
+      "editor",
+      "stream"
+    ]
+  },
+  {
+    "id": "awk",
+    "name": "awk",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "awk '{print $1, $3}' <file>",
+    "description": "Pattern scanning and processing text processing language.",
+    "example": "df -h | awk '{print $1, $5}'",
+    "exampleOutput": "Filesystem Use%\n/data 72%",
+    "dangerLevel": "safe",
+    "tags": [
+      "text",
+      "awk",
+      "programming"
+    ]
+  },
+  {
+    "id": "xargs",
+    "name": "xargs",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "xargs [command]",
+    "description": "Builds and executes command lines from standard input lines.",
+    "example": "find . -name '*.tmp' | xargs rm -f",
+    "exampleOutput": "[+] Removed matching temporary files.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pipe",
+      "stream",
+      "batch"
+    ]
+  },
+  {
+    "id": "tee",
+    "name": "tee",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tee [-a] <file>",
+    "description": "Reads standard input and writes simultaneously to terminal & file.",
+    "example": "echo 'API Online' | tee server.log",
+    "exampleOutput": "API Online",
+    "dangerLevel": "safe",
+    "tags": [
+      "pipe",
+      "log",
+      "stream"
+    ]
+  },
+  {
+    "id": "tar",
+    "name": "tar",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "tar [-czvf|-xzvf] <file.tar.gz> [files]",
+    "description": "Archives and extracts tape archive files (tarballs).",
+    "example": "tar -czvf project.tar.gz ./src",
+    "exampleOutput": "a ./src\na ./src/main.py\nproject.tar.gz created",
+    "dangerLevel": "safe",
+    "tags": [
+      "archive",
+      "tar",
+      "compress"
+    ]
+  },
+  {
+    "id": "zip",
+    "name": "zip",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "zip -r <archive.zip> <folder>",
+    "description": "Packages and compresses files into ZIP format.",
+    "example": "zip -r code.zip ./src",
+    "exampleOutput": "adding: src/ (stored 0%)\nadding: src/app.js (deflated 65%)",
+    "dangerLevel": "safe",
+    "tags": [
+      "archive",
+      "zip",
+      "compress"
+    ]
+  },
+  {
+    "id": "unzip",
+    "name": "unzip",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "unzip <archive.zip>",
+    "description": "Extracts compressed files from a ZIP archive.",
+    "example": "unzip code.zip",
+    "exampleOutput": "Archive:  code.zip\n  inflating: src/app.js",
+    "dangerLevel": "safe",
+    "tags": [
+      "archive",
+      "unzip",
+      "extract"
+    ]
+  },
+  {
+    "id": "rsync",
+    "name": "rsync",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "rsync -avz <source> <dest>",
+    "description": "Fast incremental delta file copying and syncing utility.",
+    "example": "rsync -avz ./docs/ user@server:/var/www/docs/",
+    "exampleOutput": "sending incremental file list\n./\nindex.html\nsent 4.2K bytes",
+    "dangerLevel": "safe",
+    "tags": [
+      "sync",
+      "network",
+      "backup"
+    ]
+  },
+  {
+    "id": "scp",
+    "name": "scp",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "scp [-P port] <file> user@host:<path>",
+    "description": "Securely copies files across systems using SSH protocol.",
+    "example": "scp ./build.zip user@192.168.1.100:~/backups",
+    "exampleOutput": "build.zip  100%  14MB  18.2MB/s  00:00",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "copy",
+      "network"
+    ]
+  },
+  {
+    "id": "sftp",
+    "name": "sftp",
+    "category": "file-operations",
+    "tier": "normal",
+    "syntax": "sftp [-P port] user@host",
+    "description": "Interactive secure FTP file transfer shell over SSH.",
+    "example": "sftp user@192.168.1.100",
+    "exampleOutput": "Connected to 192.168.1.100.\nsftp> put document.pdf",
+    "dangerLevel": "safe",
+    "tags": [
+      "sftp",
+      "ssh",
+      "transfer"
+    ]
+  },
+  {
+    "id": "curl",
+    "name": "curl",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "curl [-I -s -X POST] <url>",
+    "description": "Transfers data to or from a network server via HTTP/HTTPS/FTP.",
+    "example": "curl -I https://termux.dev",
+    "exampleOutput": "HTTP/2 200\nserver: cloudflare\ncontent-type: text/html",
+    "dangerLevel": "safe",
+    "tags": [
+      "http",
+      "network",
+      "web",
+      "api"
+    ]
+  },
+  {
+    "id": "wget",
+    "name": "wget",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "wget [-c -O file] <url>",
+    "description": "Non-interactive network file downloader supporting resume.",
+    "example": "wget -c https://example.com/file.iso",
+    "exampleOutput": "file.iso  100%[===================>] 450M  24.1MB/s  in 18s",
+    "dangerLevel": "safe",
+    "tags": [
+      "download",
+      "network",
+      "http"
+    ]
+  },
+  {
+    "id": "ping",
+    "name": "ping",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "ping [-c count] <host>",
+    "description": "Sends ICMP ECHO_REQUEST packets to test network connectivity.",
+    "example": "ping -c 3 8.8.8.8",
+    "exampleOutput": "64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=14.2 ms\n--- 8.8.8.8 ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ping",
+      "icmp",
+      "latency"
+    ]
+  },
+  {
+    "id": "traceroute",
+    "name": "traceroute",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "traceroute <host>",
+    "description": "Traces packet hops and router latency along the network path.",
+    "example": "traceroute 1.1.1.1",
+    "exampleOutput": "1  192.168.1.1 (192.168.1.1)  2.124 ms\n2  10.0.0.1 (10.0.0.1)  6.432 ms\n3  one.one.one.one (1.1.1.1)  12.112 ms",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "routing",
+      "hops"
+    ]
+  },
+  {
+    "id": "mtr",
+    "name": "mtr",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "mtr <host>",
+    "description": "Combines traceroute and ping into a live continuous TUI monitor.",
+    "example": "mtr 8.8.8.8",
+    "exampleOutput": "HOST: termux-dev   Loss%   Snt   Last   Avg  Best  Wrst\n  1.|-- 192.168.1.1  0.0%    10    1.2   1.4   1.0   2.1",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "mtr",
+      "latency",
+      "diagnostics"
+    ]
+  },
+  {
+    "id": "nmap",
+    "name": "nmap",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "nmap [-sV -sC -p-] <target>",
+    "description": "Network exploration tool and security port scanner.",
+    "example": "nmap -sV -p 22,80,443 192.168.1.1",
+    "exampleOutput": "PORT    STATE SERVICE VERSION\n22/tcp  open  ssh     OpenSSH 9.2\n80/tcp  open  http    nginx 1.24\n443/tcp open  ssl/http nginx 1.24",
+    "dangerLevel": "warning",
+    "tags": [
+      "network",
+      "security",
+      "scan",
+      "ports"
+    ]
+  },
+  {
+    "id": "netstat",
+    "name": "netstat",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "netstat [-tuln]",
+    "description": "Displays active TCP/UDP network connections and listening ports.",
+    "example": "netstat -tuln",
+    "exampleOutput": "Proto Recv-Q Send-Q Local Address   Foreign Address State\ntcp        0      0 0.0.0.0:8080    0.0.0.0:*       LISTEN",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ports",
+      "listening",
+      "sockets"
+    ]
+  },
+  {
+    "id": "ss",
+    "name": "ss",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ss [-tuln]",
+    "description": "Modern and fast socket statistics utility replacing netstat.",
+    "example": "ss -tuln",
+    "exampleOutput": "Netid State  Recv-Q Send-Q Local Address:Port Peer Address:Port\ntcp   LISTEN 0      128          0.0.0.0:8022        0.0.0.0:*",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "sockets",
+      "ss",
+      "ports"
+    ]
+  },
+  {
+    "id": "ip",
+    "name": "ip",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "ip [addr|route|link]",
+    "description": "Show / manipulate routing, devices, policy routing and tunnels.",
+    "example": "ip addr show wlan0",
+    "exampleOutput": "wlan0: <BROADCAST,MULTICAST,UP> mtu 1500\n  inet 192.168.1.145/24 brd 192.168.1.255",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ip",
+      "interface"
+    ]
+  },
+  {
+    "id": "ifconfig",
+    "name": "ifconfig",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ifconfig [interface]",
+    "description": "Configures or displays network interface parameters.",
+    "example": "ifconfig wlan0",
+    "exampleOutput": "wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>\n  inet 192.168.1.145  netmask 255.255.255.0",
+    "dangerLevel": "safe",
+    "tags": [
+      "network",
+      "ifconfig",
+      "ip"
+    ]
+  },
+  {
+    "id": "dig",
+    "name": "dig",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "dig <domain> [A|AAAA|MX|TXT]",
+    "description": "DNS lookup utility for querying Domain Name System name servers.",
+    "example": "dig google.com +short",
+    "exampleOutput": "142.250.190.46",
+    "dangerLevel": "safe",
+    "tags": [
+      "dns",
+      "lookup",
+      "dig",
+      "network"
+    ]
+  },
+  {
+    "id": "nslookup",
+    "name": "nslookup",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "nslookup <domain>",
+    "description": "Queries internet name servers interactively or non-interactively.",
+    "example": "nslookup cloudflare.com",
+    "exampleOutput": "Server: 8.8.8.8\nAddress: 8.8.8.8#53\nNon-authoritative answer:\nName: cloudflare.com\nAddress: 104.16.132.229",
+    "dangerLevel": "safe",
+    "tags": [
+      "dns",
+      "lookup",
+      "network"
+    ]
+  },
+  {
+    "id": "whois",
+    "name": "whois",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "whois <domain>",
+    "description": "Queries domain registry records for registrar and contact details.",
+    "example": "whois github.com",
+    "exampleOutput": "Domain Name: GITHUB.COM\nRegistry Domain ID: 124619726_DOMAIN_COM-VRSN\nRegistrar: MarkMonitor Inc.",
+    "dangerLevel": "safe",
+    "tags": [
+      "whois",
+      "domain",
+      "lookup"
+    ]
+  },
+  {
+    "id": "tcpdump",
+    "name": "tcpdump",
+    "category": "networking",
+    "tier": "advanced",
+    "syntax": "tcpdump [-i interface] [-n] [filter]",
+    "description": "Command-line packet analyzer that captures network traffic.",
+    "example": "tcpdump -i wlan0 -c 2 port 80",
+    "exampleOutput": "10:14:02.124 IP 192.168.1.145.54321 > 93.184.216.34.80: Flags [S]\n10:14:02.158 IP 93.184.216.34.80 > 192.168.1.145.54321: Flags [S.]",
+    "dangerLevel": "warning",
+    "tags": [
+      "packet",
+      "capture",
+      "sniff",
+      "traffic"
+    ]
+  },
+  {
+    "id": "tshark",
+    "name": "tshark",
+    "category": "networking",
+    "tier": "advanced",
+    "syntax": "tshark [-i interface] [-f filter]",
+    "description": "Terminal-based Wireshark network protocol analyzer.",
+    "example": "tshark -i any -c 3",
+    "exampleOutput": "1 0.000000 192.168.1.50 -> 192.168.1.1 DNS Standard query A example.com",
+    "dangerLevel": "warning",
+    "tags": [
+      "wireshark",
+      "packets",
+      "analyzer"
+    ]
+  },
+  {
+    "id": "iperf3",
+    "name": "iperf3",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "iperf3 [-s | -c server]",
+    "description": "Measures maximum TCP and UDP network bandwidth throughput.",
+    "example": "iperf3 -c 192.168.1.1",
+    "exampleOutput": "[ ID] Interval  Transfer     Bitrate\n[  5] 0.00-10.00 sec  1.08 GBytes  928 Mbits/sec",
+    "dangerLevel": "safe",
+    "tags": [
+      "bandwidth",
+      "speed",
+      "iperf",
+      "performance"
+    ]
+  },
+  {
+    "id": "socat",
+    "name": "socat",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "socat [options] <addr1> <addr2>",
+    "description": "Multipurpose relay tool for bidirectional byte streams.",
+    "example": "socat TCP-LISTEN:8080,fork TCP:127.0.0.1:3000",
+    "exampleOutput": "[*] Forwarding traffic :8080 -> :3000",
+    "dangerLevel": "safe",
+    "tags": [
+      "proxy",
+      "socket",
+      "relay",
+      "stream"
+    ]
+  },
+  {
+    "id": "nc",
+    "name": "nc (netcat)",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "nc [-l -p port] [host] [port]",
+    "description": "Arbitrary TCP and UDP connections and port listeners.",
+    "example": "nc -zv 192.168.1.1 80",
+    "exampleOutput": "Connection to 192.168.1.1 80 port [tcp/http] succeeded!",
+    "dangerLevel": "safe",
+    "tags": [
+      "netcat",
+      "sockets",
+      "ports",
+      "listen"
+    ]
+  },
+  {
+    "id": "ssh",
+    "name": "ssh",
+    "category": "networking",
+    "tier": "newbie",
+    "syntax": "ssh [-p port] user@hostname",
+    "description": "Connects to remote Linux servers using encrypted SSH protocol.",
+    "example": "ssh root@192.168.1.10",
+    "exampleOutput": "Linux debian-server 6.1.0-18-amd64\nroot@debian-server:~#",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "remote",
+      "shell",
+      "crypto"
+    ]
+  },
+  {
+    "id": "ssh-keygen",
+    "name": "ssh-keygen",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ssh-keygen -t ed25519 -C 'email@example.com'",
+    "description": "Generates Ed25519 or RSA public/private SSH cryptographic keys.",
+    "example": "ssh-keygen -t ed25519",
+    "exampleOutput": "Your identification has been saved in ~/.ssh/id_ed25519\nYour public key has been saved in ~/.ssh/id_ed25519.pub",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "keys",
+      "crypto",
+      "auth"
+    ]
+  },
+  {
+    "id": "ssh-copy-id",
+    "name": "ssh-copy-id",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "ssh-copy-id [-p port] user@host",
+    "description": "Installs your public key on a remote server for passwordless login.",
+    "example": "ssh-copy-id dev@192.168.1.200",
+    "exampleOutput": "[+] Number of key(s) added: 1\nNow try logging into the machine.",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "auth",
+      "keys",
+      "remote"
+    ]
+  },
+  {
+    "id": "autossh",
+    "name": "autossh",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "autossh -M 0 -N -R 2222:localhost:8022 user@server",
+    "description": "Automatically restarts SSH sessions and reverse tunnels if connection drops.",
+    "example": "autossh -M 0 -N -R 8022:localhost:8022 vps.example.com",
+    "exampleOutput": "[*] autossh tunnel established and monitored.",
+    "dangerLevel": "safe",
+    "tags": [
+      "ssh",
+      "tunnel",
+      "persistent",
+      "reverse"
+    ]
+  },
+  {
+    "id": "cloudflared",
+    "name": "cloudflared tunnel",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "cloudflared tunnel --url http://localhost:8080",
+    "description": "Exposes local Termux web servers to the public internet securely via Cloudflare.",
+    "example": "cloudflared tunnel --url http://localhost:3000",
+    "exampleOutput": "+---------------------------------------------------+\n|  https://quick-tunnel-subdomain.trycloudflare.com  |\n+---------------------------------------------------+",
+    "dangerLevel": "safe",
+    "tags": [
+      "tunnel",
+      "cloudflare",
+      "public",
+      "proxy"
+    ]
+  },
+  {
+    "id": "aria2c",
+    "name": "aria2c",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "aria2c [-x 16 -s 16] <url_or_torrent>",
+    "description": "High-speed multi-source and multi-protocol download utility.",
+    "example": "aria2c -x 16 https://releases.ubuntu.com/jammy/ubuntu-22.04.iso",
+    "exampleOutput": "[#1234 450MiB/1.4GiB(32%) CN:16 DL:42MiB ETA:24s]",
+    "dangerLevel": "safe",
+    "tags": [
+      "download",
+      "multi-thread",
+      "torrent"
+    ]
+  },
+  {
+    "id": "speedtest-cli",
+    "name": "speedtest-cli",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "speedtest-cli [--simple]",
+    "description": "Tests internet download, upload bandwidth and ping latency via Ookla Speedtest.",
+    "example": "speedtest-cli --simple",
+    "exampleOutput": "Ping: 12.4 ms\nDownload: 342.18 Mbit/s\nUpload: 88.52 Mbit/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "speed",
+      "bandwidth",
+      "internet"
+    ]
+  },
+  {
+    "id": "httpie",
+    "name": "http (httpie)",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "http [GET|POST] <url> [param=value]",
+    "description": "User-friendly, colored command-line HTTP client with JSON formatting.",
+    "example": "http GET https://httpbin.org/get",
+    "exampleOutput": "HTTP/1.1 200 OK\n{\n    \"headers\": {\"User-Agent\": \"HTTPie\"}\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "http",
+      "api",
+      "json",
+      "rest"
+    ]
+  }
+]

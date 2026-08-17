@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Termux Academy — Mobile Linux &amp; Termux Guide</title>
+    <meta
+      name="description"
+      content="The definitive mobile guide, reference, and interactive terminal simulator for Termux, Android Linux, and proot-distro containers."
+    />
+    <meta property="og:title" content="Termux Academy" />
+    <meta
+      property="og:description"
+      content="Mobile reference and interactive terminal for Termux and proot-distro Linux container commands."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Google Fonts Preconnect & Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Multi-File Stylesheets -->
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+
+    <!-- CDN Libraries (Fuse.js for ultra-fast fuzzy search) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js" defer></script>
+  </head>
+  <body>
+    <!-- Mobile App Root Container -->
+    <div class="mobile-app-root" id="app-root">
+      
+      <!-- Top Android & Termux Status Bar -->
+      <header class="mobile-app-header">
+        <div class="mobile-sys-status-bar">
+          <div class="sys-time" id="sys-clock">10:42</div>
+          <div class="sys-telemetry">
+            <span class="sys-chip">aarch64</span>
+            <span class="sys-signal">5G</span>
+            <span class="sys-battery" id="sys-battery-indicator">100% ⚡</span>
+          </div>
+        </div>
+
+        <div class="mobile-brand-bar">
+          <div class="brand-left">
+            <div class="brand-cli-icon" aria-hidden="true">&gt;_</div>
+            <div class="brand-title-wrap">
+              <h1 class="brand-name">TERMUX ACADEMY</h1>
+              <div class="brand-sub">
+                <span class="brand-session-dot"></span>
+                <span>Session: 1 (bash) &bull; <strong id="header-cmd-count">292</strong> cmds &bull; Made with love By Ritam</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="brand-actions">
+            <button type="button" class="hdr-action-btn" id="hdr-search-trigger" title="Search Vault" aria-label="Search">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <button type="button" class="hdr-action-btn" id="hdr-help-trigger" title="Termux Tips &amp; Info" aria-label="Help">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Tab Content Area -->
+      <main class="mobile-main-content">
+             <!-- ==============================================================
+             TAB 1: COMMANDS VAULT (292 Interactive Commands) - DEFAULT HOME
+             ============================================================== -->
+        <section class="tab-panel is-active" id="panel-commands" data-tab-panel="commands">
+          <div class="vault-panel-inner">
+            
+            <!-- Sticky Search & Filter Header -->
+            <div class="vault-search-sticky">
+              <div class="vault-search-box">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  id="vault-search-input"
+                  class="vault-search-field touch-interactive"
+                  placeholder="Search 292 commands, syntax, tags, tools..."
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                />
+                <button type="button" class="search-clear-btn touch-interactive" id="vault-search-clear" aria-label="Clear Search" style="display: none;">
+                  &times;
+                </button>
+              </div>
+
+              <!-- Knowledge Tier Filter Pills -->
+              <div class="vault-tier-chips" role="radiogroup" aria-label="Filter by Tier">
+                <button type="button" class="tier-pill touch-interactive is-active" data-tier="all">All Tiers</button>
+                <button type="button" class="tier-pill touch-interactive" data-tier="newbie">01 Newbie</button>
+                <button type="button" class="tier-pill touch-interactive" data-tier="basic">02 Basic</button>
+                <button type="button" class="tier-pill touch-interactive" data-tier="normal">03 Normal</button>
+                <button type="button" class="tier-pill touch-interactive" data-tier="advanced">04 Advanced</button>
+              </div>
+
+              <!-- Category Filter Carousel -->
+              <div class="vault-category-chips" role="tablist">
+                <button type="button" class="cat-chip touch-interactive is-active" data-cat="all">All (<span id="cat-count-all">292</span>)</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="package-management">Package Mgmt</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="proot-distro">PRoot Distro</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="termux-api">Termux API</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="file-operations">File Ops</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="networking">Networking</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="development">Dev &amp; Runtimes</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="process-management">Processes</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="services">Daemons</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="system">System Info</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="security">Security</button>
+                <button type="button" class="cat-chip touch-interactive" data-cat="cli-fun">CLI Fun</button>
+              </div>
+
+              <div class="vault-results-meta">
+                <span id="vault-results-count">Showing 292 commands</span>
+                <span class="vault-tap-hint">Tap card for live simulated output</span>
+              </div>
+            </div>
+
+            <!-- Virtualized Dynamic Cards List -->
+            <div class="vault-cards-list" id="vault-cards-list">
+              <!-- Populated via commands.js -->
+            </div>
+
+            <div class="vault-load-more-wrap" id="vault-load-more-wrap" style="display: none;">
+              <button type="button" class="vault-load-more-btn touch-interactive" id="vault-load-more-btn">
+                Load More Commands
+              </button>
+            </div>
+
+            <footer class="tab-panel-footer">
+              <p class="trademark-line">Termux Academy &bull; Made with love By Ritam</p>
+            </footer>
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             TAB 2: KNOWLEDGE TIERS & LEARNING ROADMAP
+             ============================================================== -->
+        <section class="tab-panel" id="panel-tiers" data-tab-panel="tiers" style="display: none;">
+          <div class="tiers-panel-inner">
+            <div class="panel-hero-card">
+              <div class="accent-trace-line"></div>
+              <h2 class="panel-hero-title scramble-target">Learning Progression Roadmap</h2>
+              <p class="panel-hero-desc">
+                A structured mastery curriculum taking you from standard Android CLI fundamentals to full guest Linux distributions and system diagnostics.
+              </p>
+            </div>
+
+            <!-- Community & Ecosystem Telemetry -->
+            <div class="github-stats-bar" id="github-stats-bar">
+              <div class="accent-trace-line"></div>
+              <div class="stats-header">
+                <span class="stats-label">TERMUX SYSTEM &amp; ECOSYSTEM TELEMETRY</span>
+                <span class="stats-badge">LIVE METRICS</span>
+              </div>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-value" data-stat-target="292" data-stat-suffix="">0</span>
+                  <span class="stat-name">CLI Commands</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" data-stat-target="42500" data-stat-suffix="+" data-stat-format="compact">0</span>
+                  <span class="stat-name">GitHub Stars</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" data-stat-target="120" data-stat-suffix="+" data-stat-prefix="">0</span>
+                  <span class="stat-name">Packaged Tools</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value" data-stat-target="100" data-stat-suffix="%" data-stat-prefix="">0</span>
+                  <span class="stat-name">Mobile Native</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tiers-cards-grid">
+              
+              <!-- Tier 1: Newbie -->
+              <div class="tier-card touch-interactive" data-tier-target="newbie">
+                <div class="accent-trace-line"></div>
+                <div class="tier-card-hdr">
+                  <div class="tier-badge-num">01</div>
+                  <div class="tier-meta">
+                    <h3 class="tier-name scramble-target">Newbie</h3>
+                    <span class="tier-tagline">Foundations, Package Management &amp; Essential Files</span>
+                  </div>
+                  <span class="tier-count-pill" id="tier-pill-newbie">65 cmds</span>
+                </div>
+                <p class="tier-details">
+                  Master the Termux shell environment, essential package updates (<code>pkg update</code>, <code>pkg install</code>), basic file navigation (<code>ls</code>, <code>cd</code>, <code>pwd</code>, <code>cat</code>), and terminal text editors (<code>nano</code>).
+                </p>
+                <div class="tier-starter-chips">
+                  <span class="starter-tag">pkg update</span>
+                  <span class="starter-tag">ls -la</span>
+                  <span class="starter-tag">nano</span>
+                  <span class="starter-tag">whoami</span>
+                  <span class="starter-tag">clear</span>
+                </div>
+                <button type="button" class="tier-explore-btn touch-interactive" data-explore-tier="newbie">
+                  <span>Explore 65 Newbie Commands</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Tier 2: Basic -->
+              <div class="tier-card touch-interactive" data-tier-target="basic">
+                <div class="accent-trace-line"></div>
+                <div class="tier-card-hdr">
+                  <div class="tier-badge-num">02</div>
+                  <div class="tier-meta">
+                    <h3 class="tier-name scramble-target">Basic</h3>
+                    <span class="tier-tagline">Storage Permissions, Network Tools &amp; Runtimes</span>
+                  </div>
+                  <span class="tier-count-pill" id="tier-pill-basic">105 cmds</span>
+                </div>
+                <p class="tier-details">
+                  Bridge Termux with Android shared internal storage (<code>termux-setup-storage</code>), network diagnostics (<code>curl</code>, <code>wget</code>, <code>nmap</code>, <code>ssh</code>), programming runtimes (<code>python</code>, <code>node</code>, <code>git</code>), and archives (<code>tar</code>, <code>gzip</code>).
+                </p>
+                <div class="tier-starter-chips">
+                  <span class="starter-tag">termux-setup-storage</span>
+                  <span class="starter-tag">curl</span>
+                  <span class="starter-tag">git</span>
+                  <span class="starter-tag">ssh</span>
+                  <span class="starter-tag">python</span>
+                </div>
+                <button type="button" class="tier-explore-btn touch-interactive" data-explore-tier="basic">
+                  <span>Explore 105 Basic Commands</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Tier 3: Normal -->
+              <div class="tier-card touch-interactive" data-tier-target="normal">
+                <div class="accent-trace-line"></div>
+                <div class="tier-card-hdr">
+                  <div class="tier-badge-num">03</div>
+                  <div class="tier-meta">
+                    <h3 class="tier-name scramble-target">Normal</h3>
+                    <span class="tier-tagline">Termux API Sensors, Services &amp; Build Chains</span>
+                  </div>
+                  <span class="tier-count-pill" id="tier-pill-normal">94 cmds</span>
+                </div>
+                <p class="tier-details">
+                  Interface with Android camera, battery telemetry, clipboard, and notifications via <code>termux-api</code>, manage background daemons (<code>sshd</code>, <code>tor</code>, <code>nginx</code>), and compile native systems code (<code>clang</code>, <code>rustc</code>, <code>cmake</code>).
+                </p>
+                <div class="tier-starter-chips">
+                  <span class="starter-tag">termux-battery-status</span>
+                  <span class="starter-tag">sshd</span>
+                  <span class="starter-tag">clang</span>
+                  <span class="starter-tag">termux-torch</span>
+                  <span class="starter-tag">tmux</span>
+                </div>
+                <button type="button" class="tier-explore-btn touch-interactive" data-explore-tier="normal">
+                  <span>Explore 94 Normal Commands</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Tier 4: Advanced -->
+              <div class="tier-card touch-interactive" data-tier-target="advanced">
+                <div class="accent-trace-line"></div>
+                <div class="tier-card-hdr">
+                  <div class="tier-badge-num">04</div>
+                  <div class="tier-meta">
+                    <h3 class="tier-name scramble-target">Advanced</h3>
+                    <span class="tier-tagline">PRoot Linux Containers, Kernel Syscalls &amp; Auditing</span>
+                  </div>
+                  <span class="tier-count-pill" id="tier-pill-advanced">28 cmds</span>
+                </div>
+                <p class="tier-details">
+                  Deploy complete guest Linux distributions (Ubuntu, Debian, Alpine, Arch, Kali) via <code>proot-distro</code>, inspect kernel system calls (<code>strace</code>), debug native binaries (<code>gdb</code>), and conduct network security audits.
+                </p>
+                <div class="tier-starter-chips">
+                  <span class="starter-tag">proot-distro login ubuntu</span>
+                  <span class="starter-tag">strace</span>
+                  <span class="starter-tag">gdb</span>
+                  <span class="starter-tag">aircrack-ng</span>
+                  <span class="starter-tag">dmesg</span>
+                </div>
+                <button type="button" class="tier-explore-btn touch-interactive" data-explore-tier="advanced">
+                  <span>Explore 28 Advanced Commands</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+
+            <footer class="tab-panel-footer">
+              <p class="trademark-line">Mastery Curriculum &bull; Made with love By Ritam</p>
+            </footer>
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             TAB 3: ANDROID SETUP PROTOCOL & INFORMATIVE GUIDES
+             ============================================================== -->
+        <section class="tab-panel" id="panel-setup" data-tab-panel="setup" style="display: none;">
+          <div class="setup-panel-inner">
+            
+            <!-- Setup Header Card -->
+            <div class="panel-hero-card">
+              <div class="accent-trace-line"></div>
+              <h2 class="panel-hero-title scramble-target">Android Setup Protocol</h2>
+              <p class="panel-hero-desc">
+                Follow this essential onboarding sequence to establish a pristine, unthrottled Termux environment on modern Android (10 through 15+).
+              </p>
+              
+              <!-- Setup Progress Bar -->
+              <div class="setup-progress-wrapper">
+                <div class="setup-progress-meta">
+                  <span>Protocol Progress</span>
+                  <span id="setup-progress-pct">0% (0/7 completed)</span>
+                </div>
+                <div class="setup-progress-track">
+                  <div class="setup-progress-fill" id="setup-progress-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Setup Steps Accordion / Checklist -->
+            <div class="setup-steps-list" id="setup-steps-container">
+              <!-- Populated via setup-wizard.js -->
+            </div>
+
+            <!-- Informative Architecture & Hardware Reference Guides -->
+            <div class="guide-info-container">
+              
+              <!-- Guide 1: Android 12-15 Phantom Process Killer Fix -->
+              <div class="guide-card">
+                <div class="accent-trace-line"></div>
+                <div class="guide-card-hdr">
+                  <span class="guide-badge red">CRITICAL FIX</span>
+                  <h3 class="guide-title">Disable Phantom Process Killer (Android 12+)</h3>
+                </div>
+                <p class="guide-text">
+                  Android 12 introduced a daemon that aggressively kills child processes when forks exceed 32. This causes Termux to crash during heavy builds, PRoot sessions, or node servers. Run this ADB command from a PC or via Shizuku/LADB:
+                </p>
+                <div class="guide-code-box">
+                  <code>adb shell device_config set_sync_disabled_for_tests persistent &amp;&amp; adb shell device_config put activity_manager max_phantom_processes 2147483647</code>
+                </div>
+              </div>
+
+              <!-- Guide 2: Storage Architecture Map -->
+              <div class="guide-card">
+                <div class="accent-trace-line"></div>
+                <div class="guide-card-hdr">
+                  <span class="guide-badge green">STORAGE ARCHITECTURE</span>
+                  <h3 class="guide-title">Android File Hierarchy &amp; Symlink Mapping</h3>
+                </div>
+                <p class="guide-text">
+                  Running <code>termux-setup-storage</code> establishes standard symlinks in <code>~/storage</code> pointing directly to Android internal storage:
+                </p>
+                <div class="guide-table-wrap">
+                  <table class="guide-table">
+                    <thead>
+                      <tr>
+                        <th>Termux Symlink</th>
+                        <th>Android Absolute Path</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>~/storage/shared</code></td>
+                        <td><code>/sdcard/</code></td>
+                        <td>Root of internal storage</td>
+                      </tr>
+                      <tr>
+                        <td><code>~/storage/downloads</code></td>
+                        <td><code>/sdcard/Download/</code></td>
+                        <td>Downloaded APKs, zip files, media</td>
+                      </tr>
+                      <tr>
+                        <td><code>~/storage/dcim</code></td>
+                        <td><code>/sdcard/DCIM/</code></td>
+                        <td>Camera photos and screenshots</td>
+                      </tr>
+                      <tr>
+                        <td><code>~/storage/music</code></td>
+                        <td><code>/sdcard/Music/</code></td>
+                        <td>Audio tracks &amp; podcasts</td>
+                      </tr>
+                      <tr>
+                        <td><code>~/storage/external-1</code></td>
+                        <td><code>/storage/XXXX-XXXX/</code></td>
+                        <td>Removable MicroSD card storage</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Guide 3: Hardware Key Combinations & Touch Gestures -->
+              <div class="guide-card">
+                <div class="accent-trace-line"></div>
+                <div class="guide-card-hdr">
+                  <span class="guide-badge blue">HARDWARE SHORTCUTS</span>
+                  <h3 class="guide-title">Android Button Chords &amp; Touch Gestures</h3>
+                </div>
+                <div class="guide-table-wrap">
+                  <table class="guide-table">
+                    <thead>
+                      <tr>
+                        <th>Input Shortcut</th>
+                        <th>Terminal Signal</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>Vol Down + C</code></td>
+                        <td><code>SIGINT</code></td>
+                        <td>Terminate active running command</td>
+                      </tr>
+                      <tr>
+                        <td><code>Vol Down + D</code></td>
+                        <td><code>EOF</code></td>
+                        <td>Exit current subshell or session</td>
+                      </tr>
+                      <tr>
+                        <td><code>Vol Down + Z</code></td>
+                        <td><code>SIGTSTP</code></td>
+                        <td>Suspend process to background</td>
+                      </tr>
+                      <tr>
+                        <td><code>Vol Up + Q</code></td>
+                        <td>Softkeys Toggle</td>
+                        <td>Show / hide extra accessory toolbar</td>
+                      </tr>
+                      <tr>
+                        <td><code>Vol Up + K</code></td>
+                        <td>Keyboard Toggle</td>
+                        <td>Force show on-screen software keyboard</td>
+                      </tr>
+                      <tr>
+                        <td><code>Pinch in / out</code></td>
+                        <td>Font Scaling</td>
+                        <td>Dynamically adjust terminal font size</td>
+                      </tr>
+                      <tr>
+                        <td><code>Long Press</code></td>
+                        <td>Context Menu</td>
+                        <td>Open Copy, Paste, Share, and URL menu</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Guide 4: PRoot vs Native Architecture -->
+              <div class="guide-card">
+                <div class="accent-trace-line"></div>
+                <div class="guide-card-hdr">
+                  <span class="guide-badge yellow">CONTAINER ENGINE</span>
+                  <h3 class="guide-title">How PRoot Distro Operates Without Root</h3>
+                </div>
+                <p class="guide-text">
+                  <code>proot-distro</code> intercepts Android kernel system calls (such as <code>chroot</code>, <code>mount</code>, and <code>ptrace</code>) in user space using <code>ptrace</code> emulation. This allows full Linux distributions (Ubuntu 24.04, Debian 12, Kali Linux) to run seamlessly with standard package managers (<code>apt</code>, <code>pacman</code>) without modifying Android system partitions or tripping SafetyNet.
+                </p>
+              </div>
+
+            </div>
+
+            <footer class="tab-panel-footer">
+              <p class="trademark-line">Android Systems Reference &bull; Made with love By Ritam</p>
+            </footer>
+
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ==============================================================
+           FIXED BOTTOM NAVIGATION BAR (3-Tab Minimalist Layout)
+           ============================================================== -->
+      <nav class="mobile-nav-bar" aria-label="Bottom Navigation">
+        
+        <button type="button" class="nav-tab-btn is-active" data-nav-tab="commands" id="nav-btn-commands">
+          <div class="nav-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+              <line x1="7" y1="8" x2="17" y2="8"></line>
+              <line x1="7" y1="12" x2="17" y2="12"></line>
+              <line x1="7" y1="16" x2="13" y2="16"></line>
+            </svg>
+          </div>
+          <span class="nav-label">Vault</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-nav-tab="tiers" id="nav-btn-tiers">
+          <div class="nav-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 3v18"></path>
+              <circle cx="6" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M18 9a9 9 0 0 1-9 9"></path>
+            </svg>
+          </div>
+          <span class="nav-label">Roadmap</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-nav-tab="setup" id="nav-btn-setup">
+          <div class="nav-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <span class="nav-label">Guides &amp; Setup</span>
+        </button>
+
+      </nav>
+
+      <!-- Floating HUD Toast Notification -->
+      <div class="mobile-toast" id="app-toast" role="status" aria-live="polite">
+        <span class="toast-icon">✓</span>
+        <span class="toast-msg" id="toast-text">Command copied to clipboard</span>
+      </div>
+
+      <!-- Quick Info / Help Modal Sheet -->
+      <div class="modal-backdrop" id="help-modal" style="display: none;" aria-hidden="true">
+        <div class="modal-sheet">
+          <div class="modal-hdr">
+            <div class="modal-title-group">
+              <div class="brand-cli-icon" style="width: 22px; height: 22px; font-size: 11px;">&gt;_</div>
+              <h3 class="modal-title">Termux Mobile Essentials</h3>
+            </div>
+            <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="tip-section">
+              <h4 class="tip-heading">Android Hardware Key Shortcuts</h4>
+              <ul class="tip-list">
+                <li><code>Volume Down + C</code> &rarr; Send SIGINT (Ctrl+C cancel process)</li>
+                <li><code>Volume Down + D</code> &rarr; Send EOF (Ctrl+D exit session)</li>
+                <li><code>Volume Down + Z</code> &rarr; Suspend process (Ctrl+Z)</li>
+                <li><code>Volume Up + Q</code> &rarr; Toggle extra softkeys bar on/off</li>
+                <li><code>Volume Up + K</code> &rarr; Toggle on-screen keyboard</li>
+                <li><code>Volume Up + W</code> &rarr; Move cursor UP</li>
+              </ul>
+            </div>
+
+            <div class="tip-section">
+              <h4 class="tip-heading">Android 12+ Phantom Process Killer</h4>
+              <p class="tip-text">
+                On Android 12 through 15, Android OS kills background subprocesses if they exceed 32 forks. To disable this via ADB:
+              </p>
+              <code class="tip-code">adb shell device_config set_sync_disabled_for_tests persistent &amp;&amp; adb shell device_config put activity_manager max_phantom_processes 2147483647</code>
+            </div>
+
+            <div class="tip-section">
+              <h4 class="tip-heading">About Termux Academy</h4>
+              <p class="tip-text">
+                Pure client-side AMOLED reference guide built specifically for mobile users. 292 curated commands across 11 subsystems with instant 1-tap copy and interactive execution simulation.
+              </p>
+              <div class="modal-trademark-badge">
+                <span class="trademark-heart">&#9829;</span> Made with love By Ritam
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Application Orchestrator -->
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,740 @@
+[
+  {
+    "id": "bat",
+    "name": "bat (modern cat)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "bat [-n -l python] <file>",
+    "description": "Cat clone with syntax highlighting, Git modifications indicator, and line numbers.",
+    "example": "bat app.py",
+    "exampleOutput": "───────┬────────────────────────\n       │ File: app.py\n───────┼────────────────────────\n   1   │ import sys\n   2 + │ print('Hello World')\n───────┴────────────────────────",
+    "dangerLevel": "safe",
+    "tags": [
+      "cat",
+      "bat",
+      "syntax",
+      "modern",
+      "rust"
+    ]
+  },
+  {
+    "id": "eza",
+    "name": "eza / exa (modern ls)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "eza [--tree --icons -l]",
+    "description": "Modern, colorful replacement for ls with file icons, Git status, and metadata.",
+    "example": "eza -la --icons",
+    "exampleOutput": ".rw-r--r-- 1.2k user 17 Aug 10:00 📄 README.md\ndrwxr-xr-x    - user 17 Aug 10:00 📁 src",
+    "dangerLevel": "safe",
+    "tags": [
+      "ls",
+      "eza",
+      "icons",
+      "modern"
+    ]
+  },
+  {
+    "id": "dust",
+    "name": "dust (modern du)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "dust [directory]",
+    "description": "Instant graphical tree visualization of disk space usage by folder size.",
+    "example": "dust -d 1",
+    "exampleOutput": " 420M  ┌─ node_modules\n  48M  ├─ dist\n  12M  ├─ src\n 480M ─┴─ . (Total)",
+    "dangerLevel": "safe",
+    "tags": [
+      "disk",
+      "dust",
+      "du",
+      "storage"
+    ]
+  },
+  {
+    "id": "duf",
+    "name": "duf (modern df)",
+    "category": "file-operations",
+    "tier": "basic",
+    "syntax": "duf",
+    "description": "Disk Usage/Free utility with clean tables, color coding, and mount points.",
+    "example": "duf",
+    "exampleOutput": "╭─────────────────────────────────────────────────────────────────╮\n│ DEVICE  MOUNTED ON  SIZE   USED  AVAIL  USE%  TYPE  FILESYSTEM  │\n│ /data   /data       256GB  182GB  74GB   71%  ext4  /dev/block  │\n╰─────────────────────────────────────────────────────────────────╯",
+    "dangerLevel": "safe",
+    "tags": [
+      "df",
+      "disk",
+      "duf",
+      "modern"
+    ]
+  },
+  {
+    "id": "procs",
+    "name": "procs (modern ps)",
+    "category": "process-management",
+    "tier": "basic",
+    "syntax": "procs [query]",
+    "description": "Modern replacement for ps with colored process trees, ports, and Docker container IDs.",
+    "example": "procs python",
+    "exampleOutput": " PID:| User:| TTY:| CPU%:| MEM%:| Command:\n 9120| user |  -  |  2.4 |  1.2 | python server.py",
+    "dangerLevel": "safe",
+    "tags": [
+      "process",
+      "procs",
+      "ps",
+      "modern"
+    ]
+  },
+  {
+    "id": "bottom",
+    "name": "btm (bottom)",
+    "category": "process-management",
+    "tier": "normal",
+    "syntax": "btm",
+    "description": "Customizable graphical process/system monitor written in Rust.",
+    "example": "btm",
+    "exampleOutput": "┌CPU ──────┐ ┌Memory ───┐ ┌Processes ────────────────┐\n│ 45.2%    │ │ 3.4/7.4G │ │ PID  USER  CPU% MEM% TIME│\n└──────────┘ └──────────┘ └──────────────────────────┘",
+    "dangerLevel": "safe",
+    "tags": [
+      "btm",
+      "monitor",
+      "dashboard",
+      "rust"
+    ]
+  },
+  {
+    "id": "fzf",
+    "name": "fzf (fuzzy finder)",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "fzf",
+    "description": "General-purpose command-line fuzzy finder for files, history, and processes.",
+    "example": "fzf",
+    "exampleOutput": "> src/index.ts\n  src/components/App.tsx\n  package.json\n  28/142",
+    "dangerLevel": "safe",
+    "tags": [
+      "fzf",
+      "fuzzy",
+      "search",
+      "navigation"
+    ]
+  },
+  {
+    "id": "zoxide",
+    "name": "zoxide (z)",
+    "category": "file-operations",
+    "tier": "newbie",
+    "syntax": "z <query>",
+    "description": "Smarter cd command that learns your most visited directories for 1-letter jumps.",
+    "example": "z pro",
+    "exampleOutput": "$ pwd\n/data/data/com.termux/files/home/projects/termux-academy",
+    "dangerLevel": "safe",
+    "tags": [
+      "navigation",
+      "cd",
+      "zoxide",
+      "jump"
+    ]
+  },
+  {
+    "id": "jq",
+    "name": "jq",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "jq '<filter>' <file.json>",
+    "description": "Lightweight and flexible command-line JSON processor.",
+    "example": "curl -s https://api.github.com/repos/termux/termux-app | jq '.stargazers_count'",
+    "exampleOutput": "32400",
+    "dangerLevel": "safe",
+    "tags": [
+      "json",
+      "parser",
+      "jq",
+      "filter"
+    ]
+  },
+  {
+    "id": "yq",
+    "name": "yq",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "yq '<filter>' <file.yaml>",
+    "description": "Portable command-line YAML, JSON, XML, and CSV processor.",
+    "example": "yq '.version' docker-compose.yml",
+    "exampleOutput": "3.8",
+    "dangerLevel": "safe",
+    "tags": [
+      "yaml",
+      "parser",
+      "yq"
+    ]
+  },
+  {
+    "id": "pv",
+    "name": "pv (pipe viewer)",
+    "category": "system",
+    "tier": "basic",
+    "syntax": "pv <source_file> | <command>",
+    "description": "Monitors the progress of data through a pipeline with ETA, speed, and percentage.",
+    "example": "pv large.iso > /dev/null",
+    "exampleOutput": " 180MB 0:00:04 [45.2MB/s] [=======>                 ] 40% ETA 0:00:06",
+    "dangerLevel": "safe",
+    "tags": [
+      "pipe",
+      "progress",
+      "speed",
+      "pv"
+    ]
+  },
+  {
+    "id": "parallel",
+    "name": "parallel (GNU)",
+    "category": "system",
+    "tier": "normal",
+    "syntax": "parallel <command> ::: <inputs>",
+    "description": "Executes jobs concurrently across available multi-core CPU threads.",
+    "example": "parallel gzip ::: file1.txt file2.txt file3.txt",
+    "exampleOutput": "[+] 3 files compressed in parallel.",
+    "dangerLevel": "safe",
+    "tags": [
+      "parallel",
+      "multicore",
+      "batch"
+    ]
+  },
+  {
+    "id": "hexdump",
+    "name": "hexdump",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "hexdump -C <binary_file>",
+    "description": "Displays file contents in ASCII, decimal, hexadecimal, or octal.",
+    "example": "hexdump -C /bin/sh | head -n 2",
+    "exampleOutput": "00000000  7f 45 4c 46 02 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|\n00000010  03 00 b7 00 01 00 00 00  10 1b 00 00 00 00 00 00  |................|",
+    "dangerLevel": "safe",
+    "tags": [
+      "hex",
+      "binary",
+      "reverse-engineering"
+    ]
+  },
+  {
+    "id": "xxd",
+    "name": "xxd",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "xxd [-r] <file>",
+    "description": "Creates a hex dump of a given file or reverses a hex dump back to binary.",
+    "example": "echo 'Hello' | xxd",
+    "exampleOutput": "00000000: 4865 6c6c 6f0a                             Hello.",
+    "dangerLevel": "safe",
+    "tags": [
+      "hex",
+      "dump",
+      "binary"
+    ]
+  },
+  {
+    "id": "ffmpeg",
+    "name": "ffmpeg",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "ffmpeg -i <input.mp4> -vn <output.mp3>",
+    "description": "Universal audio/video transcoder, converter, and streaming engine.",
+    "example": "ffmpeg -i video.mp4 -vn -c:a libmp3lame audio.mp3",
+    "exampleOutput": "frame=  420 fps= 60 q=-1.0 size=    4210kB time=00:01:14.20 bitrate= 465.1kbits/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "media",
+      "audio",
+      "video",
+      "ffmpeg"
+    ]
+  },
+  {
+    "id": "yt-dlp",
+    "name": "yt-dlp",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "yt-dlp [-f best] <video_url>",
+    "description": "Advanced modular command-line media downloader for YouTube and video platforms.",
+    "example": "yt-dlp 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'",
+    "exampleOutput": "[youtube] Extracting URL...\n[download] 100% of 32.40MiB in 00:02 at 14.20MiB/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "video",
+      "download",
+      "media"
+    ]
+  },
+  {
+    "id": "sox",
+    "name": "sox",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "sox <input.wav> <output.mp3> [effects]",
+    "description": "Swiss Army knife of sound processing with audio effects and synthesis.",
+    "example": "sox input.wav output.wav pitch 200",
+    "exampleOutput": "[+] Processed audio with pitch shift.",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "sound",
+      "sox"
+    ]
+  },
+  {
+    "id": "mpv",
+    "name": "mpv",
+    "category": "development",
+    "tier": "basic",
+    "syntax": "mpv [--no-video] <audio_or_video_file>",
+    "description": "Fast, clean, high-performance media playback engine.",
+    "example": "mpv song.mp3",
+    "exampleOutput": " (+) Audio --aid=1 (mp3 2ch 44100Hz 320kbps)\nAO: [opensles] 44100Hz stereo 2ch s16\nAV: 00:01:24 / 00:03:45 (37%)",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "player",
+      "media"
+    ]
+  },
+  {
+    "id": "rclone",
+    "name": "rclone",
+    "category": "networking",
+    "tier": "normal",
+    "syntax": "rclone [sync|copy|mount] <remote:path> <local:path>",
+    "description": "Syncs files and directories to Google Drive, Dropbox, S3, Nextcloud, and SFTP.",
+    "example": "rclone copy ~/docs gdrive:Documents",
+    "exampleOutput": "[*] Transferring: report.pdf 100% 2.4MB/s",
+    "dangerLevel": "safe",
+    "tags": [
+      "cloud",
+      "storage",
+      "sync",
+      "backup"
+    ]
+  },
+  {
+    "id": "croc",
+    "name": "croc",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "croc send <file> / croc <code-phrase>",
+    "description": "Easily and securely sends files between any two computers using relay tunnels.",
+    "example": "croc send backup.tar.gz",
+    "exampleOutput": "Sending 'backup.tar.gz' (42 MB)\nCode phrase: 4892-orange-galaxy\nOn the other computer run:\n  croc 4892-orange-galaxy",
+    "dangerLevel": "safe",
+    "tags": [
+      "transfer",
+      "file",
+      "p2p",
+      "secure"
+    ]
+  },
+  {
+    "id": "wormhole",
+    "name": "wormhole (magic-wormhole)",
+    "category": "networking",
+    "tier": "basic",
+    "syntax": "wormhole send <file>",
+    "description": "Securely transfers files and cryptographic tokens between CLI terminals.",
+    "example": "wormhole send file.txt",
+    "exampleOutput": "Sending 120 B file\nWormhole code: 7-guitarist-revenge",
+    "dangerLevel": "safe",
+    "tags": [
+      "transfer",
+      "security",
+      "wormhole"
+    ]
+  },
+  {
+    "id": "adb",
+    "name": "adb (android debug bridge)",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "adb devices / adb shell [cmd]",
+    "description": "Communicates with connected Android devices over USB or Wireless Debugging (pair/connect).",
+    "example": "adb devices",
+    "exampleOutput": "List of devices attached\n127.0.0.1:5555    device",
+    "dangerLevel": "safe",
+    "tags": [
+      "adb",
+      "android",
+      "debug",
+      "wireless"
+    ]
+  },
+  {
+    "id": "fastboot",
+    "name": "fastboot",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "fastboot devices / fastboot flash <partition> <img_file>",
+    "description": "Low-level Android bootloader interface for device flashing.",
+    "example": "fastboot devices",
+    "exampleOutput": "9A241F    fastboot",
+    "dangerLevel": "warning",
+    "tags": [
+      "fastboot",
+      "android",
+      "flash",
+      "bootloader"
+    ]
+  },
+  {
+    "id": "vncserver",
+    "name": "vncserver",
+    "category": "services",
+    "tier": "normal",
+    "syntax": "vncserver [:display] [-geometry 1920x1080]",
+    "description": "Starts a TigerVNC X11 graphical desktop server session for GUI access in Termux.",
+    "example": "vncserver :1 -geometry 1280x720",
+    "exampleOutput": "New 'X' desktop is localhost:1\nStarting applications specified in ~/.vnc/xstartup\nLog file is ~/.vnc/localhost:1.log",
+    "dangerLevel": "safe",
+    "tags": [
+      "vnc",
+      "gui",
+      "x11",
+      "desktop"
+    ]
+  },
+  {
+    "id": "aircrack-ng",
+    "name": "aircrack-ng",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "aircrack-ng [-w wordlist] <capture.cap>",
+    "description": "802.11 WEP and WPA/WPA2-PSK key cracking program.",
+    "example": "aircrack-ng capture.cap",
+    "exampleOutput": "KEY FOUND! [ secretpass123 ]\nMaster Key: A1 B2 C3 D4...",
+    "dangerLevel": "warning",
+    "tags": [
+      "wifi",
+      "security",
+      "aircrack",
+      "audit"
+    ]
+  },
+  {
+    "id": "masscan",
+    "name": "masscan",
+    "category": "security",
+    "tier": "advanced",
+    "syntax": "masscan -p80,443 <subnet> --rate=1000",
+    "description": "Fastest Internet port scanner capable of scanning entire ranges in seconds.",
+    "example": "masscan -p80 192.168.1.0/24 --rate=100",
+    "exampleOutput": "Discovered open port 80/tcp on 192.168.1.1\nDiscovered open port 80/tcp on 192.168.1.50",
+    "dangerLevel": "warning",
+    "tags": [
+      "network",
+      "scan",
+      "masscan",
+      "ports"
+    ]
+  },
+  {
+    "id": "sublist3r",
+    "name": "sublist3r",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "sublist3r -d <domain>",
+    "description": "Subdomains enumeration tool for penetration testers using OSINT engines.",
+    "example": "sublist3r -d example.com",
+    "exampleOutput": "[-] Searching Google...\n[-] Searching VirusTotal...\n[+] Total Unique Subdomains Found: 4\napi.example.com\nmail.example.com",
+    "dangerLevel": "safe",
+    "tags": [
+      "osint",
+      "subdomains",
+      "recon",
+      "security"
+    ]
+  },
+  {
+    "id": "theHarvester",
+    "name": "theHarvester",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "theHarvester -d <domain> -b google,duckduckgo",
+    "description": "Gathers emails, subdomains, hosts, and employee names from open source search engines.",
+    "example": "theHarvester -d company.com -b google",
+    "exampleOutput": "[*] Harvesting emails from google...\nadmin@company.com\nhr@company.com",
+    "dangerLevel": "safe",
+    "tags": [
+      "osint",
+      "recon",
+      "security",
+      "emails"
+    ]
+  },
+  {
+    "id": "wpscan",
+    "name": "wpscan",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "wpscan --url <website_url> --enumerate vp,vt",
+    "description": "Black box WordPress vulnerability scanner for vulnerable plugins and themes.",
+    "example": "wpscan --url https://blog.example.com",
+    "exampleOutput": "[+] WordPress version 6.4.3 identified\n[!] 2 vulnerabilities found in contact-form plugin",
+    "dangerLevel": "warning",
+    "tags": [
+      "wordpress",
+      "security",
+      "vulnerability",
+      "scanner"
+    ]
+  },
+  {
+    "id": "dnsrecon",
+    "name": "dnsrecon",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "dnsrecon -d <domain>",
+    "description": "Comprehensive DNS enumeration tool checking zone transfers, SPF, and SRV records.",
+    "example": "dnsrecon -d example.com",
+    "exampleOutput": "[*] Performing General Enumeration against: example.com\n[+] A example.com 93.184.216.34\n[+] NS a.iana-servers.net",
+    "dangerLevel": "safe",
+    "tags": [
+      "dns",
+      "recon",
+      "security"
+    ]
+  },
+  {
+    "id": "lynis",
+    "name": "lynis",
+    "category": "security",
+    "tier": "normal",
+    "syntax": "lynis audit system",
+    "description": "Battle-tested security auditing and system hardening tool for UNIX systems.",
+    "example": "lynis audit system",
+    "exampleOutput": "[+] Hardening index : 78 [##############      ]\n[+] Tests performed : 240\n[+] Plugins enabled : 0",
+    "dangerLevel": "safe",
+    "tags": [
+      "audit",
+      "hardening",
+      "security",
+      "lynis"
+    ]
+  },
+  {
+    "id": "gdb",
+    "name": "gdb (debugger)",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "gdb <binary_file>",
+    "description": "GNU Project Debugger for inspecting memory, registers, and backtraces.",
+    "example": "gdb ./app -ex run",
+    "exampleOutput": "Program received signal SIGSEGV, Segmentation fault.\n0x0000005555550780 in main ()",
+    "dangerLevel": "safe",
+    "tags": [
+      "gdb",
+      "debugger",
+      "c",
+      "assembly"
+    ]
+  },
+  {
+    "id": "valgrind",
+    "name": "valgrind",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "valgrind --leak-check=full ./<binary>",
+    "description": "Instrumentation framework for dynamic analysis of memory leaks and memory bugs.",
+    "example": "valgrind ./app",
+    "exampleOutput": "==12340== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n==12340== All heap blocks were freed -- no leaks are possible",
+    "dangerLevel": "safe",
+    "tags": [
+      "memory",
+      "valgrind",
+      "c",
+      "debug"
+    ]
+  },
+  {
+    "id": "objdump",
+    "name": "objdump",
+    "category": "development",
+    "tier": "advanced",
+    "syntax": "objdump -d <binary_file>",
+    "description": "Displays disassembly and assembly instructions of executable binaries.",
+    "example": "objdump -d app | head -n 8",
+    "exampleOutput": "0000000000000720 <main>:\n 720:  d10043ff        sub     sp, sp, #0x10\n 724:  52800000        mov     w0, #0x0\n 728:  910043ff        add     sp, sp, #0x10\n 72c:  d65f03c0        ret",
+    "dangerLevel": "safe",
+    "tags": [
+      "assembly",
+      "disassembly",
+      "arm64",
+      "reverse"
+    ]
+  },
+  {
+    "id": "ldd",
+    "name": "ldd",
+    "category": "development",
+    "tier": "normal",
+    "syntax": "ldd <binary_path>",
+    "description": "Prints the shared libraries and dependencies required by an ELF executable.",
+    "example": "ldd /bin/bash",
+    "exampleOutput": "libc.so => /system/lib64/libc.so (0x0000007b8a)\nlibdl.so => /system/lib64/libdl.so (0x0000007b8b)",
+    "dangerLevel": "safe",
+    "tags": [
+      "shared-library",
+      "elf",
+      "dependencies"
+    ]
+  },
+  {
+    "id": "termux-audio-info",
+    "name": "termux-audio-info",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-audio-info",
+    "description": "Returns audio devices, sample rates, and active output routing in JSON.",
+    "example": "termux-audio-info",
+    "exampleOutput": "{\n  \"bluetooth_a2dp_on\": true,\n  \"music_active\": true,\n  \"speakerphone_on\": false\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "audio",
+      "bluetooth",
+      "api",
+      "termux"
+    ]
+  },
+  {
+    "id": "termux-contact-list",
+    "name": "termux-contact-list",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-contact-list",
+    "description": "Reads the Android contacts list database and formats records in JSON.",
+    "example": "termux-contact-list | head -n 8",
+    "exampleOutput": "[\n  {\n    \"name\": \"Alice Dev\",\n    \"number\": \"+15554321098\"\n  }\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "contacts",
+      "addressbook",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-call-log",
+    "name": "termux-call-log",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-call-log [-l limit]",
+    "description": "Queries recent telephone incoming and outgoing call log records.",
+    "example": "termux-call-log -l 1",
+    "exampleOutput": "[{\"name\":\"Bob\",\"number\":\"+1555888999\",\"type\":\"INCOMING\",\"duration\":\"42s\"}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "telephony",
+      "calls",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-keystore",
+    "name": "termux-keystore",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-keystore list / termux-keystore get <alias>",
+    "description": "Integrates with Android Hardware Keystore (TEE) to store and sign keys.",
+    "example": "termux-keystore list",
+    "exampleOutput": "[\n  \"my-signing-key\"\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "keystore",
+      "tee",
+      "crypto",
+      "hardware",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-infrared-frequencies",
+    "name": "termux-infrared-frequencies",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-infrared-frequencies",
+    "description": "Returns supported carrier frequencies of the IR blaster hardware.",
+    "example": "termux-infrared-frequencies",
+    "exampleOutput": "[\n  {\"min\": 30000, \"max\": 60000}\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "ir",
+      "infrared",
+      "hardware",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-media-scan",
+    "name": "termux-media-scan",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-media-scan <file_path>",
+    "description": "Forces the Android MediaScanner service to index newly downloaded media.",
+    "example": "termux-media-scan ~/storage/shared/DCIM/pic.jpg",
+    "exampleOutput": "[+] File indexed in Android Gallery.",
+    "dangerLevel": "safe",
+    "tags": [
+      "media",
+      "android",
+      "gallery",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-microphone-record",
+    "name": "termux-microphone-record",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-microphone-record [-d duration_sec] [-f output.m4a]",
+    "description": "Records high-fidelity audio from device microphone to file.",
+    "example": "termux-microphone-record -d 5 -f voice.m4a",
+    "exampleOutput": "[+] Recorded 5 seconds to voice.m4a",
+    "dangerLevel": "safe",
+    "tags": [
+      "microphone",
+      "audio",
+      "record",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-storage-get",
+    "name": "termux-storage-get",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-storage-get <output_file>",
+    "description": "Prompts native Android Storage Access Framework file picker UI.",
+    "example": "termux-storage-get ~/imported_keys.pem",
+    "exampleOutput": "[+] Selected file saved to ~/imported_keys.pem",
+    "dangerLevel": "safe",
+    "tags": [
+      "storage",
+      "saf",
+      "filepicker",
+      "api"
+    ]
+  },
+  {
+    "id": "termux-telephony-cellinfo",
+    "name": "termux-telephony-cellinfo",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-telephony-cellinfo",
+    "description": "Retrieves observed cell tower IDs, MNC/MCC, and dBm signal strength.",
+    "example": "termux-telephony-cellinfo",
+    "exampleOutput": "[\n  {\n    \"type\": \"NR_SA\",\n    \"registered\": true,\n    \"mcc\": 310,\n    \"mnc\": 260,\n    \"dbm\": -84\n  }\n]",
+    "dangerLevel": "safe",
+    "tags": [
+      "cellular",
+      "5g",
+      "tower",
+      "api"
+    ]
+  }
+]

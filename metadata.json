@@ -1,0 +1,6 @@
+{
+  "name": "Termux Academy",
+  "description": "AMOLED minimalist interactive reference and learning site for Termux and proot-distro commands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,857 @@
+[
+  {
+    "id": "pkg-update",
+    "name": "pkg update",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg update",
+    "description": "Updates Termux package index lists.",
+    "example": "pkg update",
+    "exampleOutput": "Checking repository status...\nReading package lists... Done\nBuilding dependency tree... Done\nAll packages are up to date.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "update",
+      "repository",
+      "apt"
+    ]
+  },
+  {
+    "id": "pkg-upgrade",
+    "name": "pkg upgrade",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg upgrade [-y]",
+    "description": "Upgrades all installed packages to latest release.",
+    "example": "pkg upgrade -y",
+    "exampleOutput": "Reading package lists... Done\n0 upgraded, 0 newly installed, 0 to remove.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "upgrade",
+      "update"
+    ]
+  },
+  {
+    "id": "pkg-install",
+    "name": "pkg install",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg install <pkg>",
+    "description": "Installs specified packages from Termux mirrors.",
+    "example": "pkg install git python curl",
+    "exampleOutput": "Unpacking git...\nSetting up git (2.44.0)...",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "install",
+      "software"
+    ]
+  },
+  {
+    "id": "pkg-uninstall",
+    "name": "pkg uninstall",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg uninstall <pkg>",
+    "description": "Removes an installed package.",
+    "example": "pkg uninstall toilet",
+    "exampleOutput": "Removing toilet (0.3-4)...\nDone.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "uninstall",
+      "remove"
+    ]
+  },
+  {
+    "id": "pkg-search",
+    "name": "pkg search",
+    "category": "package-management",
+    "tier": "newbie",
+    "syntax": "pkg search <query>",
+    "description": "Searches repo for available packages.",
+    "example": "pkg search rust",
+    "exampleOutput": "rust/stable 1.77.2 aarch64\n  Systems programming language",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "search",
+      "lookup"
+    ]
+  },
+  {
+    "id": "pkg-show",
+    "name": "pkg show",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg show <pkg>",
+    "description": "Displays detailed package metadata and dependencies.",
+    "example": "pkg show clang",
+    "exampleOutput": "Package: clang\nVersion: 17.0.6\nDepends: binutils, libc++",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "info",
+      "dependencies"
+    ]
+  },
+  {
+    "id": "pkg-list-installed",
+    "name": "pkg list-installed",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg list-installed",
+    "description": "Lists all packages installed on Termux.",
+    "example": "pkg list-installed",
+    "exampleOutput": "bash/stable,now 5.2.26\ncurl/stable,now 8.7.1",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "list",
+      "installed"
+    ]
+  },
+  {
+    "id": "pkg-list-all",
+    "name": "pkg list-all",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg list-all",
+    "description": "Lists every package in the repositories.",
+    "example": "pkg list-all | head -n 5",
+    "exampleOutput": "2048-c\na2ps\naalib\nabook",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "list",
+      "all"
+    ]
+  },
+  {
+    "id": "pkg-clean",
+    "name": "pkg clean",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pkg clean",
+    "description": "Clears downloaded .deb package archives.",
+    "example": "pkg clean",
+    "exampleOutput": "Cleaned 124 MB from /var/cache/apt/archives.",
+    "dangerLevel": "safe",
+    "tags": [
+      "pkg",
+      "clean",
+      "cache"
+    ]
+  },
+  {
+    "id": "apt-autoremove",
+    "name": "apt autoremove",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "apt autoremove",
+    "description": "Removes unused leftover dependencies.",
+    "example": "apt autoremove -y",
+    "exampleOutput": "0 upgraded, 0 newly installed, 1 to remove.\nFreed 4.2 MB.",
+    "dangerLevel": "safe",
+    "tags": [
+      "apt",
+      "cleanup",
+      "orphans"
+    ]
+  },
+  {
+    "id": "termux-change-repo",
+    "name": "termux-change-repo",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "termux-change-repo",
+    "description": "Interactive dialog to change mirror repositories.",
+    "example": "termux-change-repo",
+    "exampleOutput": "Mirror switched to: https://mirror.termux.dev\nLatency: 38ms",
+    "dangerLevel": "safe",
+    "tags": [
+      "repo",
+      "mirror",
+      "network"
+    ]
+  },
+  {
+    "id": "dpkg-list",
+    "name": "dpkg -l",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -l [pattern]",
+    "description": "Low-level Debian package list query.",
+    "example": "dpkg -l | grep python",
+    "exampleOutput": "ii  python  3.11.8  aarch64  Python 3 interpreter",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "list",
+      "debian"
+    ]
+  },
+  {
+    "id": "dpkg-install",
+    "name": "dpkg -i",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -i <file.deb>",
+    "description": "Manually installs a local .deb binary.",
+    "example": "dpkg -i tool.deb",
+    "exampleOutput": "Unpacking tool...\nSetting up tool...",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "deb",
+      "install"
+    ]
+  },
+  {
+    "id": "dpkg-contents",
+    "name": "dpkg -L",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -L <pkg>",
+    "description": "Lists all files installed by a package.",
+    "example": "dpkg -L git",
+    "exampleOutput": "/data/data/com.termux/files/usr/bin/git\n/usr/share/man",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "files",
+      "paths"
+    ]
+  },
+  {
+    "id": "dpkg-search-file",
+    "name": "dpkg -S",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "dpkg -S /path",
+    "description": "Finds package owning a given file path.",
+    "example": "dpkg -S $(which curl)",
+    "exampleOutput": "curl: /usr/bin/curl",
+    "dangerLevel": "safe",
+    "tags": [
+      "dpkg",
+      "search",
+      "owner"
+    ]
+  },
+  {
+    "id": "apt-mark-hold",
+    "name": "apt-mark hold",
+    "category": "package-management",
+    "tier": "advanced",
+    "syntax": "apt-mark hold <pkg>",
+    "description": "Prevents package from being updated.",
+    "example": "apt-mark hold nodejs",
+    "exampleOutput": "nodejs set on hold.",
+    "dangerLevel": "safe",
+    "tags": [
+      "apt",
+      "hold",
+      "pin"
+    ]
+  },
+  {
+    "id": "apt-mark-unhold",
+    "name": "apt-mark unhold",
+    "category": "package-management",
+    "tier": "advanced",
+    "syntax": "apt-mark unhold <pkg>",
+    "description": "Unpins a held package.",
+    "example": "apt-mark unhold nodejs",
+    "exampleOutput": "Canceled hold on nodejs.",
+    "dangerLevel": "safe",
+    "tags": [
+      "apt",
+      "unhold"
+    ]
+  },
+  {
+    "id": "pip-install",
+    "name": "pip install",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "pip install <pkg>",
+    "description": "Installs Python packages from PyPI.",
+    "example": "pip install requests",
+    "exampleOutput": "Successfully installed requests-2.31.0",
+    "dangerLevel": "safe",
+    "tags": [
+      "python",
+      "pip",
+      "pypi"
+    ]
+  },
+  {
+    "id": "npm-install-g",
+    "name": "npm install -g",
+    "category": "package-management",
+    "tier": "basic",
+    "syntax": "npm install -g <pkg>",
+    "description": "Installs global Node.js CLI packages.",
+    "example": "npm install -g yarn",
+    "exampleOutput": "added 1 package in 2.1s",
+    "dangerLevel": "safe",
+    "tags": [
+      "nodejs",
+      "npm",
+      "global"
+    ]
+  },
+  {
+    "id": "cargo-install",
+    "name": "cargo install",
+    "category": "package-management",
+    "tier": "normal",
+    "syntax": "cargo install <crate>",
+    "description": "Compiles & installs Rust crates from crates.io.",
+    "example": "cargo install ripgrep",
+    "exampleOutput": "Installing ~/.cargo/bin/rg",
+    "dangerLevel": "safe",
+    "tags": [
+      "rust",
+      "cargo",
+      "crates"
+    ]
+  },
+  {
+    "id": "proot-distro-list",
+    "name": "proot-distro list",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "proot-distro list",
+    "description": "Lists supported guest Linux distributions.",
+    "example": "proot-distro list",
+    "exampleOutput": "Supported distros:\n * alpine\n * archlinux\n * debian\n * fedora\n * ubuntu\n * void",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "linux",
+      "distro",
+      "container"
+    ]
+  },
+  {
+    "id": "proot-distro-install",
+    "name": "proot-distro install",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "proot-distro install <distro>",
+    "description": "Downloads and installs guest Linux rootfs.",
+    "example": "proot-distro install ubuntu",
+    "exampleOutput": "[*] Extracting Ubuntu 24.04 rootfs...\n[+] Installed.",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "ubuntu",
+      "install"
+    ]
+  },
+  {
+    "id": "proot-distro-login",
+    "name": "proot-distro login",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "proot-distro login <distro>",
+    "description": "Opens root shell session inside Linux container.",
+    "example": "proot-distro login ubuntu",
+    "exampleOutput": "root@localhost:~# uname -a\nLinux localhost 6.1.45 aarch64",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "login",
+      "shell"
+    ]
+  },
+  {
+    "id": "proot-distro-login-user",
+    "name": "proot-distro login --user",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro login <distro> --user <user>",
+    "description": "Logs into container as non-root user.",
+    "example": "proot-distro login ubuntu --user dev",
+    "exampleOutput": "dev@localhost:~$ whoami\ndev",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "user",
+      "security"
+    ]
+  },
+  {
+    "id": "proot-distro-login-bind",
+    "name": "proot-distro login --bind",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro login <distro> --bind <host>:<guest>",
+    "description": "Mounts host folder directly into guest container.",
+    "example": "proot-distro login ubuntu --bind /sdcard:/sdcard",
+    "exampleOutput": "root@localhost:~# ls /sdcard\nDownload  DCIM  Documents",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "bind",
+      "mount",
+      "sdcard"
+    ]
+  },
+  {
+    "id": "proot-distro-login-shared-tmp",
+    "name": "proot-distro login --shared-tmp",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro login <distro> --shared-tmp",
+    "description": "Shares host /tmp directory for X11 GUI desktops.",
+    "example": "proot-distro login ubuntu --shared-tmp",
+    "exampleOutput": "root@localhost:~# ls /tmp/.X11-unix\nX0",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "x11",
+      "gui",
+      "vnc"
+    ]
+  },
+  {
+    "id": "proot-distro-backup",
+    "name": "proot-distro backup",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro backup <distro> --output <file.tar.gz>",
+    "description": "Exports compressed container snapshot.",
+    "example": "proot-distro backup ubuntu --output ~/ubuntu-backup.tar.gz",
+    "exampleOutput": "[+] Backup created (680 MB).",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "backup",
+      "snapshot"
+    ]
+  },
+  {
+    "id": "proot-distro-restore",
+    "name": "proot-distro restore",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro restore <file.tar.gz>",
+    "description": "Restores Linux container from tar snapshot.",
+    "example": "proot-distro restore ~/ubuntu-backup.tar.gz",
+    "exampleOutput": "[+] Container ubuntu restored.",
+    "dangerLevel": "warning",
+    "tags": [
+      "proot",
+      "restore",
+      "tar"
+    ]
+  },
+  {
+    "id": "proot-distro-reset",
+    "name": "proot-distro reset",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro reset <distro>",
+    "description": "Resets guest container to pristine clean state.",
+    "example": "proot-distro reset ubuntu",
+    "exampleOutput": "[*] Resetting container...\n[+] Clean state restored.",
+    "dangerLevel": "destructive",
+    "tags": [
+      "proot",
+      "reset",
+      "wipe"
+    ]
+  },
+  {
+    "id": "proot-distro-remove",
+    "name": "proot-distro remove",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot-distro remove <distro>",
+    "description": "Deletes container rootfs permanently.",
+    "example": "proot-distro remove alpine",
+    "exampleOutput": "[+] Container alpine deleted.",
+    "dangerLevel": "destructive",
+    "tags": [
+      "proot",
+      "delete",
+      "remove"
+    ]
+  },
+  {
+    "id": "proot-exec",
+    "name": "proot",
+    "category": "proot-distro",
+    "tier": "advanced",
+    "syntax": "proot -0 -r <rootfs> -b /dev -b /sys [cmd]",
+    "description": "Low-level ptrace chroot virtualization engine.",
+    "example": "proot -0 -r ~/rootfs /bin/sh",
+    "exampleOutput": "# whoami\nroot",
+    "dangerLevel": "safe",
+    "tags": [
+      "proot",
+      "ptrace",
+      "virtualization"
+    ]
+  },
+  {
+    "id": "termux-chroot",
+    "name": "termux-chroot",
+    "category": "proot-distro",
+    "tier": "normal",
+    "syntax": "termux-chroot [command]",
+    "description": "Simulates standard FHS (/bin, /lib, /usr) hierarchy.",
+    "example": "termux-chroot ls /bin",
+    "exampleOutput": "bash  cat  cp  grep  ls  sh",
+    "dangerLevel": "safe",
+    "tags": [
+      "chroot",
+      "fhs",
+      "standard-paths"
+    ]
+  },
+  {
+    "id": "termux-setup-storage",
+    "name": "termux-setup-storage",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-setup-storage",
+    "description": "Requests Android storage permission and creates ~/storage symlinks.",
+    "example": "termux-setup-storage",
+    "exampleOutput": "[+] ~/storage/shared -> /sdcard (Granted)",
+    "dangerLevel": "safe",
+    "tags": [
+      "storage",
+      "permission",
+      "sdcard"
+    ]
+  },
+  {
+    "id": "termux-battery-status",
+    "name": "termux-battery-status",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-battery-status",
+    "description": "Returns battery percentage, health, and charging status in JSON.",
+    "example": "termux-battery-status",
+    "exampleOutput": "{\n  \"percentage\": 94,\n  \"status\": \"DISCHARGING\",\n  \"temperature\": 29.8\n}",
+    "dangerLevel": "safe",
+    "tags": [
+      "battery",
+      "sensors",
+      "power"
+    ]
+  },
+  {
+    "id": "termux-camera-photo",
+    "name": "termux-camera-photo",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-camera-photo -c <0|1> <file.jpg>",
+    "description": "Takes photo from front (1) or rear (0) camera.",
+    "example": "termux-camera-photo -c 0 ~/photo.jpg",
+    "exampleOutput": "[+] Photo saved to ~/photo.jpg (4032x3024)",
+    "dangerLevel": "safe",
+    "tags": [
+      "camera",
+      "photo",
+      "hardware"
+    ]
+  },
+  {
+    "id": "termux-camera-info",
+    "name": "termux-camera-info",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-camera-info",
+    "description": "Outputs technical JSON info of device cameras.",
+    "example": "termux-camera-info",
+    "exampleOutput": "[{\"id\":\"0\",\"facing\":\"back\",\"picture_sizes\":[\"4000x3000\"]}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "camera",
+      "info",
+      "specs"
+    ]
+  },
+  {
+    "id": "termux-clipboard-get",
+    "name": "termux-clipboard-get",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-clipboard-get",
+    "description": "Retrieves text from Android clipboard.",
+    "example": "termux-clipboard-get",
+    "exampleOutput": "https://termux.dev",
+    "dangerLevel": "safe",
+    "tags": [
+      "clipboard",
+      "paste"
+    ]
+  },
+  {
+    "id": "termux-clipboard-set",
+    "name": "termux-clipboard-set",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-clipboard-set <text>",
+    "description": "Sets Android clipboard text content.",
+    "example": "echo 'test' | termux-clipboard-set",
+    "exampleOutput": "[+] Clipboard updated.",
+    "dangerLevel": "safe",
+    "tags": [
+      "clipboard",
+      "copy"
+    ]
+  },
+  {
+    "id": "termux-dialog",
+    "name": "termux-dialog",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-dialog confirm -t <title>",
+    "description": "Displays native Android GUI popup dialog.",
+    "example": "termux-dialog confirm -t 'Proceed?'",
+    "exampleOutput": "{\"code\": 0, \"text\": \"yes\"}",
+    "dangerLevel": "safe",
+    "tags": [
+      "dialog",
+      "gui",
+      "popup"
+    ]
+  },
+  {
+    "id": "termux-download",
+    "name": "termux-download",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-download -t <title> <url>",
+    "description": "Queues background download in Android Download Manager.",
+    "example": "termux-download -t 'Debian' https://example.com/deb.tar",
+    "exampleOutput": "[+] Download queued (ID: 42)",
+    "dangerLevel": "safe",
+    "tags": [
+      "download",
+      "android"
+    ]
+  },
+  {
+    "id": "termux-fingerprint",
+    "name": "termux-fingerprint",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-fingerprint",
+    "description": "Prompts biometric fingerprint authentication dialog.",
+    "example": "termux-fingerprint",
+    "exampleOutput": "{\"auth_result\": \"AUTH_RESULT_SUCCESS\"}",
+    "dangerLevel": "safe",
+    "tags": [
+      "fingerprint",
+      "biometrics",
+      "auth"
+    ]
+  },
+  {
+    "id": "termux-location",
+    "name": "termux-location",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-location [-p gps|network]",
+    "description": "Queries real-time GPS coordinates and altitude.",
+    "example": "termux-location -p gps",
+    "exampleOutput": "{\"latitude\": 37.7749, \"longitude\": -122.4194, \"accuracy\": 4.2}",
+    "dangerLevel": "safe",
+    "tags": [
+      "gps",
+      "location",
+      "geo"
+    ]
+  },
+  {
+    "id": "termux-notification",
+    "name": "termux-notification",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-notification -t <title> -c <content>",
+    "description": "Creates native Android notification drawer alert.",
+    "example": "termux-notification -t 'Done' -c 'Task completed' --sound",
+    "exampleOutput": "[+] Notification posted (ID: 0)",
+    "dangerLevel": "safe",
+    "tags": [
+      "notification",
+      "push"
+    ]
+  },
+  {
+    "id": "termux-notification-remove",
+    "name": "termux-notification-remove",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-notification-remove <id>",
+    "description": "Clears an active notification by ID.",
+    "example": "termux-notification-remove 0",
+    "exampleOutput": "[+] Notification 0 dismissed.",
+    "dangerLevel": "safe",
+    "tags": [
+      "notification",
+      "dismiss"
+    ]
+  },
+  {
+    "id": "termux-sensor",
+    "name": "termux-sensor",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-sensor -s <name> -n <count>",
+    "description": "Streams live accelerometer, gyro, or light sensor telemetry.",
+    "example": "termux-sensor -s Gravity -n 1",
+    "exampleOutput": "{\"Gravity\": {\"values\": [0.0, 9.8, 0.2]}}",
+    "dangerLevel": "safe",
+    "tags": [
+      "sensors",
+      "hardware"
+    ]
+  },
+  {
+    "id": "termux-share",
+    "name": "termux-share",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-share <file>",
+    "description": "Opens Android Share Sheet dialog.",
+    "example": "termux-share file.pdf",
+    "exampleOutput": "[*] Opening Share sheet...",
+    "dangerLevel": "safe",
+    "tags": [
+      "share",
+      "android"
+    ]
+  },
+  {
+    "id": "termux-sms-list",
+    "name": "termux-sms-list",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-sms-list [-l limit]",
+    "description": "Reads SMS text message inbox in JSON.",
+    "example": "termux-sms-list -l 1",
+    "exampleOutput": "[{\"address\": \"+1555123456\", \"body\": \"Your code is 4920\"}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "sms",
+      "messages"
+    ]
+  },
+  {
+    "id": "termux-sms-send",
+    "name": "termux-sms-send",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-sms-send -n <number> <text>",
+    "description": "Sends SMS text message using SIM card.",
+    "example": "termux-sms-send -n '+15551234' 'Ping'",
+    "exampleOutput": "[+] Message sent.",
+    "dangerLevel": "safe",
+    "tags": [
+      "sms",
+      "send"
+    ]
+  },
+  {
+    "id": "termux-torch",
+    "name": "termux-torch",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-torch [on|off]",
+    "description": "Controls rear camera flashlight LED.",
+    "example": "termux-torch on",
+    "exampleOutput": "[+] Torch ON",
+    "dangerLevel": "safe",
+    "tags": [
+      "torch",
+      "flashlight",
+      "led"
+    ]
+  },
+  {
+    "id": "termux-tts-speak",
+    "name": "termux-tts-speak",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-tts-speak <text>",
+    "description": "Speaks text via Android Text-to-Speech synthesizer.",
+    "example": "termux-tts-speak 'Server online'",
+    "exampleOutput": "[*] Speaking...",
+    "dangerLevel": "safe",
+    "tags": [
+      "tts",
+      "audio",
+      "speech"
+    ]
+  },
+  {
+    "id": "termux-vibrate",
+    "name": "termux-vibrate",
+    "category": "termux-api",
+    "tier": "newbie",
+    "syntax": "termux-vibrate [-d ms]",
+    "description": "Triggers device haptic vibration motor.",
+    "example": "termux-vibrate -d 300",
+    "exampleOutput": "[+] Vibrated 300ms",
+    "dangerLevel": "safe",
+    "tags": [
+      "vibrate",
+      "haptics"
+    ]
+  },
+  {
+    "id": "termux-volume",
+    "name": "termux-volume",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-volume [stream] [level]",
+    "description": "Gets or sets volume across audio channels.",
+    "example": "termux-volume music 12",
+    "exampleOutput": "[{\"stream\": \"music\", \"volume\": 12}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "volume",
+      "sound"
+    ]
+  },
+  {
+    "id": "termux-wifi-connectioninfo",
+    "name": "termux-wifi-connectioninfo",
+    "category": "termux-api",
+    "tier": "basic",
+    "syntax": "termux-wifi-connectioninfo",
+    "description": "Queries connected Wi-Fi SSID, RSSI, and IP.",
+    "example": "termux-wifi-connectioninfo",
+    "exampleOutput": "{\"ssid\": \"Home_5G\", \"rssi\": -45, \"ip\": \"192.168.1.50\"}",
+    "dangerLevel": "safe",
+    "tags": [
+      "wifi",
+      "network",
+      "wireless"
+    ]
+  },
+  {
+    "id": "termux-wifi-scaninfo",
+    "name": "termux-wifi-scaninfo",
+    "category": "termux-api",
+    "tier": "normal",
+    "syntax": "termux-wifi-scaninfo",
+    "description": "Scans nearby Wi-Fi networks.",
+    "example": "termux-wifi-scaninfo | head -n 8",
+    "exampleOutput": "[{\"ssid\": \"LabNet\", \"frequency_mhz\": 5180}]",
+    "dangerLevel": "safe",
+    "tags": [
+      "wifi",
+      "scan"
+    ]
+  }
+]
